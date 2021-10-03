@@ -7,6 +7,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'sainnhe/edge'
   Plug 'sainnhe/everforest'
+  Plug 'rakr/vim-one'
+  "Plug 'projekt0n/github-nvim-theme'
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -30,7 +32,7 @@ filetype plugin on
 
 " Load an indent file for the detected file type.
 filetype indent on
-
+set autoindent
 " Turn syntax highlighting on.
 syntax on
 
@@ -57,12 +59,12 @@ set expandtab
 set nobackup
 
 set writebackup
-
+set autoread
 " Don create swap files
 set noswapfile
 
 " Do not let cursor scroll below or above N number of lines when scrolling.
-set scrolloff=10
+set scrolloff=2
 
 " Wrap lines. Allow long lines to extend as far as the line goes.
 set wrap
@@ -81,14 +83,13 @@ set smartcase
 set showcmd
 
 " Show the mode you are on the last line.
-set showmode
+set noshowmode
 
 " Show matching words during a search.
 set showmatch
 
 " Use highlighting when doing a search.
 set hlsearch
-
 
 " Set the commands to save in history default number is 20.
 set history=1000
@@ -122,8 +123,6 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 inoremap jj <Esc>
-"nnoremap o o<esc>
-"nnoremap O O<esc>
 
 nnoremap n nzz
 nnoremap N Nzz
@@ -148,6 +147,8 @@ noremap <c-S-Down> :m +1<cr>
 
 nnoremap <c-s> <cmd>wa<cr>
 inoremap <c-s> <cmd>wa<cr>
+noremap <c-,> <cmd>bp<cr>
+noremap <c-.> <cmd>bn<cr>
 " NERDTree specific mappings.
 " Map the F3 key to toggle NERDTree open and close.
 nnoremap <F3> :NERDTreeToggle<cr>
@@ -171,18 +172,35 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
+
 set t_Co=256
 
 " The configuration options should be placed before `colorscheme sonokai`.
+set background=dark
 let g:sonokai_style = 'atlantis'
 let g:sonokai_enable_italic = 1
 let g:sonokai_disable_italic_comment = 1
-let g:airline_theme = 'sonokai'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'default'
+"let g:airline_theme = 'sonokai'
+"colorscheme sonokai
 
-"let g:airline_theme='<theme>'
-colorscheme sonokai
+let g:one_allow_italics = 1
+let g:airline_theme = 'onedark'
+colorscheme one
+
+"let g:everforest_background = 'soft'
+"let g:everforest_background = 'medium'
+let g:everforest_background = 'hard'
+let g:airline_theme = 'everforest'
+colorscheme everforest
+
+"let g:edge_style = 'edge'
+"let g:edge_enable_italic = 1
+"let g:edge_disable_italic_comment = 0
+"let g:airline_theme = 'edge'
+"colorscheme edge
+
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 let $FZF_DEFAULT_COMMAND="find -L"
 let g:NERDTreeShowHidden=1
@@ -202,7 +220,7 @@ if executable('typescript-language-server')
         \ 'name': 'typescript-language-server',
         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-        \ 'whitelist': ['typescript', 'typescript.tsx', 'typescriptreact'],
+        \ 'whitelist': ['typescript', 'typescript.tsx', 'typescriptreact', 'javascript', 'javascript.jsx', 'javascriptreact'],
         \ })
 endif
 
@@ -212,10 +230,12 @@ function! s:on_lsp_buffer_enabled() abort
     setlocal signcolumn=yes
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
     nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> <F12> <plug>(lsp-peek-definition)
     nmap <buffer> gs <plug>(lsp-document-symbol-search)
     nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
     nmap <buffer> gr <plug>(lsp-references)
     nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> <S-F12> <plug>(lsp-peek-implementation)
     nmap <buffer> gy <plug>(lsp-type-definition)
     nmap <buffer> <leader>rn <plug>(lsp-rename)
     nmap <buffer> [d <plug>(lsp-previous-diagnostic)
@@ -225,8 +245,7 @@ function! s:on_lsp_buffer_enabled() abort
     inoremap <buffer> <expr><c-d> lsp#scroll(-4)
 
     let g:lsp_format_sync_timeout = 1000
-    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
-    
+    autocmd! BufWritePre *.ts,*.js,*.json,*.tsx,*.jsx call execute('LspDocumentFormatSync')
     " refer to doc to add more commands
 endfunction
 
@@ -244,7 +263,10 @@ let g:lsp_diagnostics_virtual_text_insert_mode_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_float_cursor = 1
 let g:lsp_document_highlight_enabled = 1
-
+let g:lsp_preview_keep_focus = 0
+let g:lsp_preview_autoclose = 0
+let g:lsp_preview_float = 0
+let g:lsp_preview_doubletap = [function('lsp#ui#vim#output#closepreview')]
 set completeopt=menuone,noinsert,noselect,preview
 
 inoremap <c-p> <c-x><c-o>
@@ -254,3 +276,8 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
+
+" Close preview window with <esc>
+autocmd User lsp_float_opened nmap <buffer> <silent> <esc>
+\ <Plug>(lsp-preview-close)
+autocmd User lsp_float_closed nunmap <buffer> <esc>
