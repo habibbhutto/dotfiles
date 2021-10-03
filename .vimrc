@@ -45,10 +45,10 @@ set cursorcolumn
 
 
 " Set shift width to 2 spaces.
-set shiftwidth=2
+set shiftwidth=4
 
 " Set tab width to 2 columns.
-set tabstop=2
+set tabstop=4
 
 " Use space characters instead of tabs.
 set expandtab
@@ -146,7 +146,8 @@ noremap <c-right> <c-w><
 noremap <c-S-UP> :m -2<cr>
 noremap <c-S-Down> :m +1<cr>
 
-noremap <c-s> :wa<cr>
+nnoremap <c-s> <cmd>wa<cr>
+inoremap <c-s> <cmd>wa<cr>
 " NERDTree specific mappings.
 " Map the F3 key to toggle NERDTree open and close.
 nnoremap <F3> :NERDTreeToggle<cr>
@@ -246,7 +247,7 @@ let g:lsp_document_highlight_enabled = 1
 
 set completeopt=menuone,noinsert,noselect,preview
 
-inoremap <c-space> <c-x><c-o>
+inoremap <c-p> <c-x><c-o>
 inoremap <c-i> <cmd>LspHover<cr>
 noremap <c-i> <cmd>LspHover<cr>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
