@@ -120,7 +120,7 @@ nnoremap <leader>\ :nohlsearch<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+"nnoremap <C-f> :NERDTreeFind<CR>
 
 inoremap jj <Esc>
 
@@ -241,8 +241,8 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> [d <plug>(lsp-previous-diagnostic)
     nmap <buffer> ]d <plug>(lsp-next-diagnostic)
     "map <buffer> <C-S-i> <plug>(lsp-hover)
-    inoremap <buffer> <expr><c-f> lsp#scroll(+4)
-    inoremap <buffer> <expr><c-d> lsp#scroll(-4)
+    noremap <buffer> <expr><c-j> lsp#scroll(+4)
+    noremap <buffer> <expr><c-k> lsp#scroll(-4)
 
     let g:lsp_format_sync_timeout = 1000
     autocmd! BufWritePre *.ts,*.js,*.json,*.tsx,*.jsx call execute('LspDocumentFormatSync')
@@ -263,9 +263,9 @@ let g:lsp_diagnostics_virtual_text_insert_mode_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_float_cursor = 1
 let g:lsp_document_highlight_enabled = 1
-let g:lsp_preview_keep_focus = 0
-let g:lsp_preview_autoclose = 0
-let g:lsp_preview_float = 0
+let g:lsp_preview_keep_focus = 1
+let g:lsp_preview_autoclose = 1
+let g:lsp_preview_float = 1
 let g:lsp_preview_doubletap = [function('lsp#ui#vim#output#closepreview')]
 set completeopt=menuone,noinsert,noselect,preview
 
@@ -278,6 +278,6 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 
 " Close preview window with <esc>
-autocmd User lsp_float_opened nmap <buffer> <silent> <esc>
-\ <Plug>(lsp-preview-close)
-autocmd User lsp_float_closed nunmap <buffer> <esc>
+"autocmd User lsp_float_opened nmap <buffer> <silent> <esc>
+"                                \ <Plug>(lsp-preview-close)
+"autocmd User lsp_float_closed nunmap <buffer> <esc>
