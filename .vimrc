@@ -8,12 +8,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'sainnhe/edge'
   Plug 'sainnhe/everforest'
   Plug 'rakr/vim-one'
+  Plug 'morhetz/gruvbox'
   "Plug 'projekt0n/github-nvim-theme'
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
   Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
 
   " https://github.com/prabirshrestha/vim-lsp
   Plug 'prabirshrestha/vim-lsp'
@@ -106,6 +108,7 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 set nobackup
 set signcolumn=yes
+"set noesckeys
 " You can split a window into sections by typing `:split` or `:vsplit`.
 " Display cursorline and cursorcolumn ONLY in active window.
 augroup cursor_off
@@ -184,16 +187,15 @@ let g:sonokai_disable_italic_comment = 1
 "colorscheme sonokai
 
 let g:one_allow_italics = 1
-let g:airline_theme = 'onedark'
-colorscheme one
+"let g:airline_theme = 'onedark'
+"colorscheme one
 
-"let g:everforest_background = 'soft'
-"let g:everforest_background = 'medium'
+let g:everforest_sign_column_background = 'none'
 let g:everforest_background = 'hard'
 let g:airline_theme = 'everforest'
 colorscheme everforest
 
-"let g:edge_style = 'edge'
+"let g:edge_style = 'aura'
 "let g:edge_enable_italic = 1
 "let g:edge_disable_italic_comment = 0
 "let g:airline_theme = 'edge'
@@ -240,7 +242,6 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> <leader>rn <plug>(lsp-rename)
     nmap <buffer> [d <plug>(lsp-previous-diagnostic)
     nmap <buffer> ]d <plug>(lsp-next-diagnostic)
-    "map <buffer> <C-S-i> <plug>(lsp-hover)
     noremap <buffer> <expr><c-j> lsp#scroll(+4)
     noremap <buffer> <expr><c-k> lsp#scroll(-4)
 
@@ -255,6 +256,11 @@ augroup lsp_install
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
+let g:lsp_diagnostics_signs_error = {'text': 'E'}
+let g:lsp_diagnostics_signs_warning = {'text': 'W'}
+let g:lsp_diagnostics_signs_hint = {'text': 'H'}
+let g:lsp_diagnostics_signs_information = {'text': 'I'}
+let g:lsp_document_code_action_signs_hint = {'text': 'A'}
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_highlights_enabled = 0
 let g:lsp_diagnostics_highlights_insert_mode_enabled = 0
@@ -262,6 +268,7 @@ let g:lsp_diagnostics_virtual_text_enabled = 1
 let g:lsp_diagnostics_virtual_text_insert_mode_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_float_cursor = 1
+let g:lsp_diagnostics_float_delay = 200
 let g:lsp_document_highlight_enabled = 1
 let g:lsp_preview_keep_focus = 1
 let g:lsp_preview_autoclose = 1
@@ -276,8 +283,24 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
+" Use fontawesome icons as signs
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '^'
+let g:gitgutter_sign_modified_removed = '<'
 
-" Close preview window with <esc>
-"autocmd User lsp_float_opened nmap <buffer> <silent> <esc>
-"                                \ <Plug>(lsp-preview-close)
-"autocmd User lsp_float_closed nunmap <buffer> <esc>
+"let g:gitgutter_override_sign_column_highlight = 1
+"highlight SignColumn guibg=bg
+"highlight SignColumn ctermbg=bg
+
+" Update sign column every quarter second
+set updatetime=100
+" Jump between hunks
+nmap <Leader>gn <Plug>(GitGutterNextHunk)  " git next
+nmap <Leader>gp <Plug>(GitGutterPrevHunk)  " git previous
+" Hunk-add and hunk-revert for chunk staging
+nmap <Leader>gs <Plug>(GitGutterStageHunk)  " git add (chunk)
+nmap <Leader>gu <Plug>(GitGutterUndoHunk)   " git undo (chunk)
+
+
