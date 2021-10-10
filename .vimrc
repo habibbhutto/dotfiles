@@ -2,14 +2,12 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'preservim/nerdtree'
 
-  Plug 'sainnhe/sonokai'
+  Plug 'sonph/onehalf'
+  Plug 'morhetz/gruvbox'
+  Plug 'arcticicestudio/nord-vim'
+
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'sainnhe/edge'
-  Plug 'sainnhe/everforest'
-  Plug 'rakr/vim-one'
-  Plug 'morhetz/gruvbox'
-  "Plug 'projekt0n/github-nvim-theme'
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -34,7 +32,7 @@ filetype plugin on
 
 " Load an indent file for the detected file type.
 filetype indent on
-set autoindent
+" set autoindent
 " Turn syntax highlighting on.
 syntax on
 
@@ -106,9 +104,18 @@ set wildmode=list:longest
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
+" enable fast rending
+set ttyfast
+
 set nobackup
+
 set signcolumn=yes
 "set noesckeys
+
+set encoding=utf-8
+
+set timeout timeoutlen=1000 ttimeoutlen=30
+
 " You can split a window into sections by typing `:split` or `:vsplit`.
 " Display cursorline and cursorcolumn ONLY in active window.
 augroup cursor_off
@@ -117,15 +124,21 @@ augroup cursor_off
     autocmd WinEnter * set cursorline cursorcolumn
 augroup END
 
-let mapleader = '\'
-nnoremap <leader>\ :nohlsearch<CR>
+let mapleader = ','
+nnoremap <leader>, :nohlsearch<CR>
 
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <silent> <leader>n :NERDTreeFocus<CR>
+nnoremap <silent> <C-n> :NERDTree<CR>
+nnoremap <silent> <C-t> :NERDTreeToggle<CR>
 "nnoremap <C-f> :NERDTreeFind<CR>
+" NERDTree specific mappings.
+" Map the F3 key to toggle NERDTree open and close.
+nnoremap <silent> <F3> :NERDTreeToggle<cr>
 
-inoremap jj <Esc>
+" Have nerdtree ignore certain files and directories.
+let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
+
+"inoremap jj <Esc>
 
 nnoremap n nzz
 nnoremap N Nzz
@@ -138,12 +151,25 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+if(has("nvim"))
+    nnoremap <a-j> <c-w>j
+    nnoremap <a-k> <c-w>k
+    nnoremap <a-h> <c-w>h
+    nnoremap <a-l> <c-w>l
+endif
 " Resize split windows using arrow keys by pressing:
 " CTRL+UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
 noremap <c-up> <c-w>+
 noremap <c-down> <c-w>-
 noremap <c-left> <c-w>>
 noremap <c-right> <c-w><
+
+if(has("nvim"))
+    noremap <a-up> <c-w>+
+    noremap <a-down> <c-w>-
+    noremap <a-left> <c-w>>
+    noremap <a-right> <c-w><
+endif
 
 noremap <c-S-UP> :m -2<cr>
 noremap <c-S-Down> :m +1<cr>
@@ -152,12 +178,6 @@ nnoremap <c-s> <cmd>wa<cr>
 inoremap <c-s> <cmd>wa<cr>
 noremap <c-,> <cmd>bp<cr>
 noremap <c-.> <cmd>bn<cr>
-" NERDTree specific mappings.
-" Map the F3 key to toggle NERDTree open and close.
-nnoremap <F3> :NERDTreeToggle<cr>
-
-" Have nerdtree ignore certain files and directories.
-let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
 
 "Credit joshdick
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -178,31 +198,21 @@ endif
 
 set t_Co=256
 
-" The configuration options should be placed before `colorscheme sonokai`.
-set background=dark
-let g:sonokai_style = 'atlantis'
-let g:sonokai_enable_italic = 1
-let g:sonokai_disable_italic_comment = 1
-"let g:airline_theme = 'sonokai'
-"colorscheme sonokai
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_sign_column="bg0"
+let g:gruvbox_number_column="bg0"
+let g:gruvbox_color_column="bg0"
 
-let g:one_allow_italics = 1
-"let g:airline_theme = 'onedark'
-"colorscheme one
-
-let g:everforest_sign_column_background = 'none'
-let g:everforest_background = 'hard'
-let g:airline_theme = 'everforest'
-colorscheme everforest
-
-"let g:edge_style = 'aura'
-"let g:edge_enable_italic = 1
-"let g:edge_disable_italic_comment = 0
-"let g:airline_theme = 'edge'
-"colorscheme edge
+colorscheme onehalflight
 
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.colnr = ' ㏇:'
 
 let $FZF_DEFAULT_COMMAND="find -L"
 let g:NERDTreeShowHidden=1
@@ -264,11 +274,11 @@ let g:lsp_document_code_action_signs_hint = {'text': 'A'}
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_highlights_enabled = 0
 let g:lsp_diagnostics_highlights_insert_mode_enabled = 0
-let g:lsp_diagnostics_virtual_text_enabled = 1
-let g:lsp_diagnostics_virtual_text_insert_mode_enabled = 1
+let g:lsp_diagnostics_virtual_text_enabled = 0
+let g:lsp_diagnostics_virtual_text_insert_mode_enabled = 0
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_float_cursor = 1
-let g:lsp_diagnostics_float_delay = 200
+"let g:lsp_diagnostics_float_delay = 200
 let g:lsp_document_highlight_enabled = 1
 let g:lsp_preview_keep_focus = 1
 let g:lsp_preview_autoclose = 1
@@ -303,4 +313,7 @@ nmap <Leader>gp <Plug>(GitGutterPrevHunk)  " git previous
 nmap <Leader>gs <Plug>(GitGutterStageHunk)  " git add (chunk)
 nmap <Leader>gu <Plug>(GitGutterUndoHunk)   " git undo (chunk)
 
-
+"autocmd VimEnter * silent exec "! echo -ne '\e[2 q'"
+"autocmd WinEnter * silent exec "! printf '\e[3 q\e]12;grey\\a'"
+"autocmd FocusGained * silent exec "! printf '\e[3 q\e]12;grey\\a'"
+"autocmd ModeChanged * silent exec "! printf '\e[2 q\e]12;grey\\a'"
