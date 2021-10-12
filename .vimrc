@@ -4,7 +4,13 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'sonph/onehalf'
   Plug 'morhetz/gruvbox'
+  Plug 'sainnhe/everforest'
   Plug 'arcticicestudio/nord-vim'
+  Plug 'yuttie/inkstained-vim'
+  Plug 'wolverian/minimal'
+  Plug 'cideM/yui'
+  Plug 'widatama/vim-phoenix'
+  Plug 'w0ng/vim-hybrid'
 
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -203,7 +209,14 @@ let g:gruvbox_sign_column="bg0"
 let g:gruvbox_number_column="bg0"
 let g:gruvbox_color_column="bg0"
 
-colorscheme onehalflight
+let g:everforest_sign_column_background = 'none'
+let g:everforest_background = 'hard'
+" this is temporary trick
+" to compensate for the missing color highlights in inkstained
+colorscheme everforest
+
+colorscheme inkstained
+let g:airline_theme = 'minimalist'
 
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -217,16 +230,6 @@ let g:airline_symbols.colnr = ' ㏇:'
 let $FZF_DEFAULT_COMMAND="find -L"
 let g:NERDTreeShowHidden=1
 
-"if executable('pyls')
-"    " pip install python-language-server
-"    au User lsp_setup call lsp#register_server({
-"        \ 'name': 'pyls',
-"        \ 'cmd': {server_info->['pyls']},
-"        \ 'allowlist': ['python'],
-"        \ })
-"endif
-
-
 if executable('typescript-language-server')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'typescript-language-server',
@@ -235,7 +238,6 @@ if executable('typescript-language-server')
         \ 'whitelist': ['typescript', 'typescript.tsx', 'typescriptreact', 'javascript', 'javascript.jsx', 'javascriptreact'],
         \ })
 endif
-
 
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
@@ -278,8 +280,9 @@ let g:lsp_diagnostics_virtual_text_enabled = 0
 let g:lsp_diagnostics_virtual_text_insert_mode_enabled = 0
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_float_cursor = 1
-"let g:lsp_diagnostics_float_delay = 200
+let g:lsp_diagnostics_float_delay = 200
 let g:lsp_document_highlight_enabled = 1
+let g:lsp_document_highlight_delay = 150
 let g:lsp_preview_keep_focus = 1
 let g:lsp_preview_autoclose = 1
 let g:lsp_preview_float = 1
@@ -300,9 +303,13 @@ let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_modified_removed = '<'
 
-"let g:gitgutter_override_sign_column_highlight = 1
-"highlight SignColumn guibg=bg
-"highlight SignColumn ctermbg=bg
+let g:gitgutter_override_sign_column_highlight = 1
+highlight SignColumn guibg=bg
+highlight SignColumn ctermbg=bg
+"highlight LineNr guibg=bg
+"highlight LineNr ctermbg=bg
+"highlight CursorLineNr guibg=bg
+"highlight CursorLineNr ctermbg=bg
 
 " Update sign column every quarter second
 set updatetime=100
