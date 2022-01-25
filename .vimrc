@@ -140,7 +140,7 @@ nnoremap <silent> <C-t> :NERDTreeToggle<CR>
 " NERDTree specific mappings.
 " Map the F3 key to toggle NERDTree open and close.
 nnoremap <silent> <F3> :NERDTreeToggle<cr>
-
+nnoremap <silent> <C-p> :Files<cr>
 " Have nerdtree ignore certain files and directories.
 let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
 
@@ -214,9 +214,10 @@ let g:everforest_background = 'hard'
 " this is temporary trick
 " to compensate for the missing color highlights in inkstained
 colorscheme everforest
+let g:airline_theme = 'everforest'
 
-colorscheme inkstained
-let g:airline_theme = 'minimalist'
+colorscheme nord
+let g:airline_theme = 'nord'
 
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -324,3 +325,22 @@ nmap <Leader>gu <Plug>(GitGutterUndoHunk)   " git undo (chunk)
 "autocmd WinEnter * silent exec "! printf '\e[3 q\e]12;grey\\a'"
 "autocmd FocusGained * silent exec "! printf '\e[3 q\e]12;grey\\a'"
 "autocmd ModeChanged * silent exec "! printf '\e[2 q\e]12;grey\\a'"
+function CursorUpdate()
+    echo mode()
+    if mode() == 'R' 
+        silent exec "! printf '\e[4 q'"
+    endif
+    if mode() == 'n' 
+        silent exec "! printf '\e[2 q'"
+    endif
+    if mode() == 'i' 
+        silent exec "! printf '\e[6 q'"
+    endif
+    if mode() == 'c' 
+        silent exec "! printf '\e[6 q'"
+    endif
+endfunction
+
+if(!has("nvim"))
+  autocmd ModeChanged * call CursorUpdate()
+endif
