@@ -217,7 +217,7 @@ colorscheme everforest
 let g:airline_theme = 'everforest'
 
 colorscheme inkstained
-let g:airline_theme = 'inkstained'
+let g:airline_theme = 'minimalist'
 
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
