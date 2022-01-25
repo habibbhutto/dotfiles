@@ -216,8 +216,8 @@ let g:everforest_background = 'hard'
 colorscheme everforest
 let g:airline_theme = 'everforest'
 
-colorscheme nord
-let g:airline_theme = 'nord'
+colorscheme inkstained
+let g:airline_theme = 'inkstained'
 
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
