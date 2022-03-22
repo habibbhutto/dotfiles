@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'preservim/nerdtree'
 
-  Plug 'sonph/onehalf'
+  Plug 'sonph/onehalf', { 'rtp': 'vim' }
   Plug 'morhetz/gruvbox'
   Plug 'sainnhe/everforest'
   Plug 'arcticicestudio/nord-vim'
@@ -28,6 +28,9 @@ call plug#begin('~/.vim/plugged')
   " https://github.com/prabirshrestha/vim-lsp
   Plug 'prabirshrestha/vim-lsp'
 
+  " Tree-sitter
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  " Telescope
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
 call plug#end()

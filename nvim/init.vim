@@ -1,6 +1,6 @@
-source ~/.vim/plugins.vim
-source ~/.vim/basics.vim
-source ~/.vim/colorscheme.vim
+source ~/vim-fiddle/nvim/plugins.vim
+source ~/vim-fiddle/nvim/basics.vim
+source ~/vim-fiddle/nvim/colorscheme.vim
 
 
 nnoremap <silent> <leader>n :NERDTreeFocus<CR>
@@ -59,7 +59,7 @@ noremap <c-.> <cmd>bn<cr>
 let $FZF_DEFAULT_COMMAND="find -L"
 let g:NERDTreeShowHidden=1
 
-source ~/.vim/lsp.vim
+source ~/vim-fiddle/nvim/lsp.vim
 
 " Use fontawesome icons as signs
 let g:gitgutter_sign_added = '+'

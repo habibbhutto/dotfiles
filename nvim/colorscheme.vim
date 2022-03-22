@@ -29,8 +29,7 @@ let g:everforest_background = 'hard'
 " to compensate for the missing color highlights in inkstained
 colorscheme everforest
 " let g:airline_theme = 'everforest'
-
-colorscheme onehalfdark
+colorscheme onehalflight
 " let g:airline_theme = 'minimalist'
 "
 " let g:airline#extensions#tabline#enabled = 0
