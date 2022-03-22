@@ -9,12 +9,12 @@ filetype on
 filetype plugin on
 
 " Load an indent file for the detected file type.
-filetype indent on
+" filetype indent on
 " set autoindent
 " Turn syntax highlighting on.
 syntax on
 
-set number
+" set number
 " set relativenumber
 
 " Highlight cursor line underneath the cursor horizontally.

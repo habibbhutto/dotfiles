@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-  Plug 'preservim/nerdtree'
+  " Plug 'preservim/nerdtree'
 
   Plug 'sonph/onehalf', { 'rtp': 'vim' }
   Plug 'morhetz/gruvbox'
@@ -16,8 +16,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'lamartire/hg.vim'
   Plug 'haystackandroid/rusticated'
   " Plug 'ryanoasis/vim-devicons'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+  " Plug 'vim-airline/vim-airline'
+  " Plug 'vim-airline/vim-airline-themes'
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -25,7 +25,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
   Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-  " https://github.com/prabirshrestha/vim-lsp
   Plug 'prabirshrestha/vim-lsp'
 
   " Tree-sitter
