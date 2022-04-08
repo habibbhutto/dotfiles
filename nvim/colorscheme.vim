@@ -18,26 +18,25 @@ endif
 
 set t_Co=256
 
-let g:gruvbox_contrast_dark='soft'
+let g:gruvbox_contrast_dark='medium'
+let g:gruvbox_contrast_dark='dark'
 let g:gruvbox_sign_column="bg0"
 let g:gruvbox_number_column="bg0"
 let g:gruvbox_color_column="bg0"
 
 let g:everforest_sign_column_background = 'none'
-let g:everforest_background = 'soft'
-" this is temporary trick
-" to compensate for the missing color highlights in inkstained
+let g:everforest_background = 'hard'
+
 colorscheme everforest
 
 let g:gitgutter_override_sign_column_highlight = 1
 highlight SignColumn guibg=bg
-highlight SignColumn ctermbg=bg
 highlight LineNr guibg=bg
-highlight LineNr ctermbg=bg
 highlight CursorLineNr guibg=bg
+highlight SignColumn ctermbg=bg
+highlight LineNr ctermbg=bg
 highlight CursorLineNr ctermbg=bg
 
-colorscheme onehalfdark
 " let g:airline_theme = 'onehalfdark'
 " let g:airline_theme = 'everforest'
 " "
@@ -50,3 +49,4 @@ colorscheme onehalfdark
 " "
 " " let g:airline_symbols.colnr = ' ㏇:'
 " let g:airline_symbols.colnr = ''
+

@@ -3,6 +3,9 @@ source ~/vim-fiddle/nvim/basics.vim
 source ~/vim-fiddle/nvim/colorscheme.vim
 " source ~/vim-fiddle/nvim/lsp.vim
 
+" - down / up / left / right
+let g:fzf_layout = { 'down': '40%' }
+let g:fzf_preview_window = ['right:60%:hidden', 'ctrl-/']
 nnoremap <silent> <C-p> :Files<cr>
 
 "inoremap jj <Esc>
@@ -79,11 +82,11 @@ nmap <Leader>gu <Plug>(GitGutterUndoHunk)   " git undo (chunk)
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
+let g:netrw_browse_split = 0
 let g:netrw_altv = 1
-let g:netrw_winsize = 20
+let g:netrw_winsize = 25
 
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * :Vexplore
-augroup END
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END

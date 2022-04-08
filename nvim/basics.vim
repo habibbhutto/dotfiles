@@ -14,8 +14,8 @@ filetype plugin on
 " Turn syntax highlighting on.
 syntax on
 
-" set number
-" set relativenumber
+set number
+set relativenumber
 
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
@@ -25,10 +25,10 @@ set cursorcolumn
 
 
 " Set shift width to 2 spaces.
-set shiftwidth=4
+set shiftwidth=2
 
 " Set tab width to 2 columns.
-set tabstop=4
+set tabstop=2
 
 " Use space characters instead of tabs.
 set expandtab
@@ -38,11 +38,12 @@ set nobackup
 
 set writebackup
 set autoread
+
 " Don create swap files
 set noswapfile
 
 " Do not let cursor scroll below or above N number of lines when scrolling.
-set scrolloff=2
+set scrolloff=5
 
 " Wrap lines. Allow long lines to extend as far as the line goes.
 set wrap
@@ -61,7 +62,7 @@ set smartcase
 set showcmd
 
 " Show the mode you are on the last line.
-set noshowmode
+set showmode
 
 " Show matching words during a search.
 set showmatch
@@ -84,8 +85,6 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 " enable fast rending
 set ttyfast
-
-set nobackup
 
 set signcolumn=yes
 "set noesckeys
