@@ -91,7 +91,7 @@ set signcolumn=yes
 
 set encoding=utf-8
 
-set timeout timeoutlen=1000 ttimeoutlen=30
+set timeout timeoutlen=500 ttimeoutlen=30
 
 set clipboard+=unnamedplus
 

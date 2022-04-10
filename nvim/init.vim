@@ -1,14 +1,21 @@
 source ~/vim-fiddle/nvim/plugins.vim
 source ~/vim-fiddle/nvim/basics.vim
 source ~/vim-fiddle/nvim/colorscheme.vim
+source ~/vim-fiddle/nvim/treesitter.vim
 " source ~/vim-fiddle/nvim/lsp.vim
 
 " - down / up / left / right
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ['right:60%:hidden', 'ctrl-/']
-nnoremap <silent> <C-p> :Files<cr>
-
-"inoremap jj <Esc>
+nnoremap <silent> <leader>f :Files<cr>
+nnoremap <silent> <leader>fg :GitFiles<cr>
+nnoremap <silent> <leader>b :Buffers<cr>
+nnoremap <silent> <leader>g :Rg<cr>
+nnoremap <silent> <leader>t :Tags<cr>
+nnoremap <silent> <leader>lg :Telescope live_grep<cr>
+nnoremap <silent> <leader>sg :Telescope grep_string<cr>
+nnoremap <silent> <leader>gv <cmd>execute "vimgrep /async\\\|private\\\|\\s\\s\\s\\s[A-z]*(.*)\\s{\\\|\\s\\s\\s\\s[A-z]*():/ %" <bar>cwindow<cr>
+inoremap jj <Esc>
 
 nnoremap n nzz
 nnoremap N Nzz
@@ -16,6 +23,7 @@ nnoremap N Nzz
 nnoremap Y y$
 
 tnoremap <C-w> <C-\><C-n>
+tnoremap jj <C-\><C-n>
 tnoremap <A-h> <C-\><C-N><C-w>h
 tnoremap <A-j> <C-\><C-N><C-w>j
 tnoremap <A-k> <C-\><C-N><C-w>k
@@ -60,7 +68,6 @@ nnoremap <c-s> <cmd>w<cr>
 inoremap <c-s> <cmd>w<cr>
 noremap <c-,> <cmd>bp<cr>
 noremap <c-.> <cmd>bn<cr>
-
 
 let $FZF_DEFAULT_COMMAND="find -L"
 
