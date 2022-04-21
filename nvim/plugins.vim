@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
   " Plug 'preservim/nerdtree'
 
+  Plug 'sainnhe/sonokai'
   Plug 'sonph/onehalf', { 'rtp': 'vim' }
   Plug 'morhetz/gruvbox'
   Plug 'sainnhe/everforest'
@@ -22,10 +23,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
   Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-  Plug 'prabirshrestha/vim-lsp'
-
+  "Plug 'prabirshrestha/vim-lsp'
+  "Plug 'neovim/nvim-lspconfig'
   " Tree-sitter
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/nvim-treesitter-refactor'
   " Telescope
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'

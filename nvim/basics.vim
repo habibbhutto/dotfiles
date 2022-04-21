@@ -9,7 +9,7 @@ filetype on
 filetype plugin on
 
 " Load an indent file for the detected file type.
-" filetype indent on
+filetype indent on
 " set autoindent
 " Turn syntax highlighting on.
 syntax on
@@ -94,7 +94,8 @@ set encoding=utf-8
 set timeout timeoutlen=500 ttimeoutlen=30
 
 set clipboard+=unnamedplus
-
+set cmdheight=2
+set cmdwinheight=2
 " You can split a window into sections by typing `:split` or `:vsplit`.
 " Display cursorline and cursorcolumn ONLY in active window.
 augroup cursor_off

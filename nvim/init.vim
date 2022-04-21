@@ -2,7 +2,8 @@ source ~/vim-fiddle/nvim/plugins.vim
 source ~/vim-fiddle/nvim/basics.vim
 source ~/vim-fiddle/nvim/colorscheme.vim
 source ~/vim-fiddle/nvim/treesitter.vim
-" source ~/vim-fiddle/nvim/lsp.vim
+" source ~/vim-fiddle/nvim/nvim.vim
+" source ~/vim-fiddle/nvim/nvim-lsp.vim
 
 " - down / up / left / right
 let g:fzf_layout = { 'down': '40%' }
@@ -21,9 +22,10 @@ nnoremap n nzz
 nnoremap N Nzz
 
 nnoremap Y y$
+nnoremap O O<Esc>
+nnoremap o o<Esc>
 
 tnoremap <C-w> <C-\><C-n>
-tnoremap jj <C-\><C-n>
 tnoremap <A-h> <C-\><C-N><C-w>h
 tnoremap <A-j> <C-\><C-N><C-w>j
 tnoremap <A-k> <C-\><C-N><C-w>k
