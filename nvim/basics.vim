@@ -14,8 +14,8 @@ filetype indent on
 " Turn syntax highlighting on.
 syntax on
 
-set number
-set relativenumber
+set nonumber
+set norelativenumber
 
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
@@ -25,10 +25,10 @@ set cursorcolumn
 
 
 " Set shift width to 2 spaces.
-set shiftwidth=2
+set shiftwidth=4
 
 " Set tab width to 2 columns.
-set tabstop=2
+set tabstop=4
 
 " Use space characters instead of tabs.
 set expandtab
@@ -43,7 +43,7 @@ set autoread
 set noswapfile
 
 " Do not let cursor scroll below or above N number of lines when scrolling.
-set scrolloff=5
+set scrolloff=0
 
 " Wrap lines. Allow long lines to extend as far as the line goes.
 set wrap
@@ -95,7 +95,7 @@ set timeout timeoutlen=500 ttimeoutlen=30
 
 set clipboard+=unnamedplus
 set cmdheight=2
-set cmdwinheight=2
+set cmdwinheight=10
 " You can split a window into sections by typing `:split` or `:vsplit`.
 " Display cursorline and cursorcolumn ONLY in active window.
 augroup cursor_off

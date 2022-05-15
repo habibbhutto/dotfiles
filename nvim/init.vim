@@ -2,7 +2,7 @@ source ~/vim-fiddle/nvim/plugins.vim
 source ~/vim-fiddle/nvim/basics.vim
 source ~/vim-fiddle/nvim/colorscheme.vim
 source ~/vim-fiddle/nvim/treesitter.vim
-" source ~/vim-fiddle/nvim/nvim.vim
+" source ~/vim-fiddle/nvim/lsp.vim
 " source ~/vim-fiddle/nvim/nvim-lsp.vim
 
 " - down / up / left / right
@@ -15,7 +15,8 @@ nnoremap <silent> <leader>g :Rg<cr>
 nnoremap <silent> <leader>t :Tags<cr>
 nnoremap <silent> <leader>lg :Telescope live_grep<cr>
 nnoremap <silent> <leader>sg :Telescope grep_string<cr>
-nnoremap <silent> <leader>gv <cmd>execute "vimgrep /async\\\|private\\\|\\s\\s\\s\\s[A-z]*(.*)\\s{\\\|\\s\\s\\s\\s[A-z]*():/ %" <bar>cwindow<cr>
+nnoremap <silent> <leader>lm <cmd>execute "vimgrep /async\\\|private\\\|\\s\\s\\s\\s[A-z]*(.*)\\s{\\\|\\s\\s\\s\\s[A-z]*():/ %" <bar>cwindow<cr>
+nnoremap <silent> <leader>aa <cmd>exec '!sh add-tags.sh '.expand('<cword>').' '.expand('%').' "/^'.getline('.').'"'<cr>
 inoremap jj <Esc>
 
 nnoremap n nzz
