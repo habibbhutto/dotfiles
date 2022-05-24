@@ -32,7 +32,7 @@ let g:gruvbox_color_column = "bg0"
 let g:gruvbox_invert_selection = 0
 let g:gruvbox_improved_warnings = 0
 let g:gruvbox_improved_strings = 0
-let g:gruvbox_transparent_bg = 1
+let g:gruvbox_transparent_bg = 0
 let g:gruvbox_invert_signs = 0
 let g:gruvbox_bold = 0
 
