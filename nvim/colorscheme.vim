@@ -51,7 +51,7 @@ let g:gruvbox_material_transparent_background = 0
 let g:gruvbox_material_enable_bold = 0
 let g:gruvbox_material_palette = 'material'
 
-colorscheme gruvbox
+colorscheme dayfox
 
 let g:gitgutter_override_sign_column_highlight = 1
 highlight SignColumn guibg = bg
