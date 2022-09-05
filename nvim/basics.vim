@@ -14,8 +14,8 @@ filetype indent on
 " Turn syntax highlighting on.
 syntax on
 
-set nonumber
-set norelativenumber
+set number
+set relativenumber
 
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
@@ -105,4 +105,4 @@ augroup cursor_off
 augroup END
 
 let mapleader = ','
-nnoremap <leader>, :nohlsearch<CR>
+nnoremap <leader>c :nohlsearch<CR>

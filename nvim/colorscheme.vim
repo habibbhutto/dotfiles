@@ -23,8 +23,7 @@ set background=dark
 
 " For light version.
 " set background=light
-
-let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_dark = 'soft'
 let g:gruvbox_contrast_light = 'soft'
 let g:gruvbox_sign_column = "bg0"
 let g:gruvbox_number_column = "bg0"
@@ -32,26 +31,26 @@ let g:gruvbox_color_column = "bg0"
 let g:gruvbox_invert_selection = 0
 let g:gruvbox_improved_warnings = 0
 let g:gruvbox_improved_strings = 0
-let g:gruvbox_transparent_bg = 0
+let g:gruvbox_transparent_bg = 1
 let g:gruvbox_invert_signs = 0
 let g:gruvbox_bold = 0
 
 let g:everforest_sign_column_background = 'none'
 let g:everforest_background = 'medium'
 let g:everforest_transparent_background = 0
-
+let g:gruvbox_material_foreground = 'mix'
 " Set contrast.
 " This configuration option should be placed before `colorscheme gruvbox-material`.
 " Available values: 'hard', 'medium'(default), 'soft'
-let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_background = 'medium'
 " For better performance
 let g:gruvbox_material_better_performance = 1
 let g:gruvbox_material_sign_column_background = 'none'
 let g:gruvbox_material_transparent_background = 0
 let g:gruvbox_material_enable_bold = 0
-let g:gruvbox_material_palette = 'material'
+" let g:gruvbox_material_palette = 'material'
 
-colorscheme dayfox
+colorscheme gruvbox
 
 let g:gitgutter_override_sign_column_highlight = 1
 highlight SignColumn guibg = bg
@@ -73,8 +72,9 @@ highlight CursorLineNr ctermbg = NONE
 " "
 " " let g:airline_symbols.colnr = ' ㏇:'
 " let g:airline_symbols.colnr = ''
-"
-
-" set guicursor=n-v-c:block-nCursor,i-ci-ve:ver25,r-cr:hor20,o:hor50
-"     \,a:blinkwait200-blinkoff200-blinkon250-Cursor/lCursor
-"     \,sm:block-blinkwait175-blinkoff150-blinkon175
+if exists("g:neovide")
+    " Put anything you want to happen only in Neovide here
+    set guifont=Fira\ Code:h13
+    " let g:neovide_cursor_vfx_mode = "pixiedust"
+    let g:neovide_cursor_vfx_mode = ""
+endif

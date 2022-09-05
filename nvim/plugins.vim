@@ -1,33 +1,30 @@
 call plug#begin('~/.vim/plugged')
-
-  " Plug 'preservim/nerdtree'
-
-  Plug 'sainnhe/sonokai'
   Plug 'sonph/onehalf', { 'rtp': 'vim' }
-  Plug 'morhetz/gruvbox'
   Plug 'sainnhe/everforest'
-  Plug 'arcticicestudio/nord-vim'
-  Plug 'yuttie/inkstained-vim'
-  Plug 'wolverian/minimal'
-  Plug 'widatama/vim-phoenix'
-  Plug 'w0ng/vim-hybrid'
+  Plug 'morhetz/gruvbox'
   Plug 'sainnhe/gruvbox-material'
-  Plug 'haystackandroid/rusticated'
-  Plug 'altercation/vim-colors-solarized'
+  Plug 'yuttie/inkstained-vim'
+  Plug 'arcticicestudio/nord-vim'
   Plug 'EdenEast/nightfox.nvim'
+  Plug 'w0ng/vim-hybrid'
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
+  " post install (yarn install | npm install) then load plugin only for editing supported files
+  Plug 'prettier/vim-prettier', {
+    \ 'do': 'yarn install --frozen-lockfile --production',
+    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
-  Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-  " Plug 'prabirshrestha/vim-lsp'
-  " Plug 'neovim/nvim-lspconfig'
+
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'neovim/nvim-lspconfig'
 
   " Tree-sitter
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-treesitter/nvim-treesitter-refactor'
+
   " Telescope
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'

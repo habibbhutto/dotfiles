@@ -5,14 +5,31 @@ source ~/vim-fiddle/nvim/treesitter.vim
 " source ~/vim-fiddle/nvim/lsp.vim
 " source ~/vim-fiddle/nvim/nvim-lsp.vim
 
+    " Default fzf layout
+    " - Popup window (center of the screen)
+    " let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
+    " - Popup window (center of the current window)
+    " let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'relative': v:true } }
+
+    " - Popup window (anchored to the bottom of the current window)
+    let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.5, 'relative': v:false, 'yoffset': -1.0 } }
+
+    " - down / up / left / right
+    " let g:fzf_layout = { 'down': '40%' }
+
+    " - Window using a Vim command
+    " let g:fzf_layout = { 'window': 'enew' }
+    " let g:fzf_layout = { 'window': '-tabnew' }
+    " let g:fzf_layout = { 'window': '10new' }
 " - down / up / left / right
-let g:fzf_layout = { 'down': '40%' }
+" let g:fzf_layout = { 'up': '40%', 'options': '--multi --reverse' }
 let g:fzf_preview_window = ['right:60%:hidden', 'ctrl-/']
-nnoremap <silent> <leader>f :Files<cr>
-nnoremap <silent> <leader>fg :GitFiles<cr>
+nnoremap <silent> ff :Files<cr>
+nnoremap <silent> fg :GitFiles<cr>
 nnoremap <silent> <leader>b :Buffers<cr>
-nnoremap <silent> <leader>g :Rg<cr>
-nnoremap <silent> <leader>t :Tags<cr>
+nnoremap <silent> ffg :Rg<cr>
+nnoremap <silent> tt :Tags<cr>
 nnoremap <silent> <leader>lg :Telescope live_grep<cr>
 nnoremap <silent> <leader>sg :Telescope grep_string<cr>
 nnoremap <silent> <leader>lm <cmd>execute "vimgrep /async\\\|private\\\|\\s\\s\\s\\s[A-z]*(.*)\\s{\\\|\\s\\s\\s\\s[A-z]*():/ %" <bar>cwindow<cr>
@@ -100,3 +117,8 @@ let g:netrw_winsize = 25
 "   autocmd!
 "   autocmd VimEnter * :Vexplore
 " augroup END
+
+" let g:prettier#autoformat = 0
+" let g:prettier#autoformat_require_pragma = 0
+" let g:prettier#exec_cmd_async = 1
+" let g:prettier#autoformat_config_present = 1
