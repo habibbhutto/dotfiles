@@ -18,6 +18,9 @@ nnoremap <silent> <leader>gst :Telescope git_stash<cr>
 nnoremap <silent> <leader>gc :Telescope git_bcommits<cr>
 nnoremap <silent> <leader>gca :Telescope git_commits<cr>
 nnoremap <silent> <leader>gb :Telescope git_branches<cr>
+nnoremap <silent> <leader>gg :Git<cr>
+nnoremap <silent> <leader>gp :Git push<cr>
+nnoremap <silent> <leader>gpn :Git push --no-verify<cr>
 
 " Telescope Files
 nnoremap <silent> <leader>ff :Telescope find_files<cr>
