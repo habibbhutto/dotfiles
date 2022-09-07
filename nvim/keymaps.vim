@@ -1,3 +1,6 @@
+let mapleader = ','
+nnoremap <leader>c :nohlsearch<CR>
+
 " nnoremap <silent> ff :Files<cr>
 " nnoremap <silent> fg :GitFiles<cr>
 " nnoremap <silent> <leader>b :Buffers<cr>

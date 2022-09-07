@@ -22,7 +22,6 @@ set ignorecase
 set smartcase
 set noshowcmd
 set noshowmode
-set laststatus=0
 set showmatch
 set hlsearch
 set history=1000
@@ -44,5 +43,3 @@ augroup cursor_off
     autocmd WinEnter * set cursorline cursorcolumn
 augroup END
 
-let mapleader = ','
-nnoremap <leader>c :nohlsearch<CR>
