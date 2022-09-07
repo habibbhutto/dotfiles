@@ -14,12 +14,12 @@ let g:gruvbox_color_column = "bg0"
 let g:gruvbox_invert_selection = 0
 let g:gruvbox_improved_warnings = 0
 let g:gruvbox_improved_strings = 0
-let g:gruvbox_transparent_bg = 0
+let g:gruvbox_transparent_bg = 1
 let g:gruvbox_invert_signs = 0
 let g:gruvbox_bold = 0
 
 " Available values: 'hard', 'medium'(default), 'soft'
-let g:gruvbox_material_background = 'soft'
+let g:gruvbox_material_background = 'medium'
 let g:gruvbox_material_foreground = 'mix'
 let g:gruvbox_material_better_performance = 1
 let g:gruvbox_material_sign_column_background = 'none'

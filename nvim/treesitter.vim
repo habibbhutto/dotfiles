@@ -1,32 +1,7 @@
-lua <<EOF
+lua << EOF
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { 
-    "vim",
-    "c",
-    "go",
-    "cpp", 
-    "lua",
-    "rust",
-    "java",
-    "python",
-    "javascript",
-    "typescript", 
-    "json", 
-    "json5",
-    "toml",
-    "yaml",
-    "css",
-    "html",
-    "dockerfile",
-    "proto",
-    "latex",
-    "bibtex",
-    "bash",
-    "sql",
-    "tsx",
-    },
-
+  ensure_installed = { "c", "lua", "rust", "java", "javascript", "typescript", "cpp" },
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
 
@@ -88,6 +63,10 @@ EOF
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
-" echo nvim_treesitter#statusline(90)
-" " 90 can be any length
-" module->expression_statement->call->identifier
+"  {
+"    indicator_size = 100,
+"    type_patterns = {'class', 'function', 'method'},
+"    transform_fn = function(line) return line:gsub('%s*[%[%(%{]*%s*$', '') end,
+"    separator = ' -> '
+"  }
+" echo nvim_treesitter#statusline({})

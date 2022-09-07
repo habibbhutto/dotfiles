@@ -34,8 +34,8 @@ set signcolumn=yes
 set encoding=utf-8
 set timeout timeoutlen=500 ttimeoutlen=30
 set clipboard+=unnamedplus
-set cmdheight=1
-set cmdwinheight=10
+set cmdheight=2
+set cmdwinheight=12
 
 augroup cursor_off
     autocmd!
