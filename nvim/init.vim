@@ -7,29 +7,18 @@ source ~/vim-fiddle/nvim/keymaps.vim
 " source ~/vim-fiddle/nvim/lsp.vim
 " source ~/vim-fiddle/nvim/nvim-lsp.vim
 
-" Default fzf layout
-" - Popup window (center of the screen)
-" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-
-" - Popup window (center of the current window)
-" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'relative': v:true } }
-
-" - Popup window (anchored to the bottom of the current window)
-" let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.5, 'relative': v:false, 'yoffset': -1.0 } }
-
-" - down / up / left / right
-" let g:fzf_layout = { 'down': '40%' }
-
-" - Window using a Vim command
-" let g:fzf_layout = { 'window': 'enew' }
-" let g:fzf_layout = { 'window': '-tabnew' }
-" let g:fzf_layout = { 'window': '10new' }
-" - down / up / left / right
-" let g:fzf_layout = { 'up': '40%', 'options': '--multi --reverse' }
-let g:fzf_preview_window = ['right:60%:hidden', 'ctrl-/']
+" Popup window (center of the screen)
+let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.50 } }
+" let g:fzf_preview_window = ['down:70%', 'ctrl-/']
 
 let $FZF_DEFAULT_COMMAND="find -L"
-
+let $FZF_DEFAULT_OPTS="--ansi --preview-window 'up:50%:hidden' --preview 'bat --color=always --style=header,grid,numbers --line-range :300 {}'
+\ --bind ctrl-y:preview-up,ctrl-e:preview-down,
+\ctrl-b:preview-page-up,ctrl-f:preview-page-down,
+\ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,
+\shift-up:preview-top,shift-down:preview-bottom,
+\alt-up:half-page-up,alt-down:half-page-down"
+"
 " Use fontawesome icons as signs
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
