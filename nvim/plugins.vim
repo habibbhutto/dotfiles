@@ -28,4 +28,5 @@ call plug#begin('~/.vim/plugged')
   " Telescope
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-symbols.nvim'
 call plug#end()
