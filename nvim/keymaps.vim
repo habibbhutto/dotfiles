@@ -29,8 +29,8 @@ nnoremap <silent> <leader>gpn :Git push --no-verify<cr>
 nnoremap <silent> <leader>ff :Telescope find_files<cr>
 nnoremap <silent> <leader>fb :Telescope buffers<cr>
 nnoremap <silent> <leader>tt :Telescope tags<cr>
-nnoremap <silent> <leader>fs :Telescope live_grep<cr>
-nnoremap <silent> <leader>ss :Telescope grep_string<cr>
+nnoremap <silent> <leader>fs yw :Telescope live_grep<cr>
+nnoremap <silent> <leader>ss yw :Telescope grep_string<cr>
 nnoremap <silent> <leader>. :Telescope treesitter<cr>
 nnoremap <silent> <leader>tta <cmd>exec '!sh ~/dev/devx/add-tags.sh '.expand('<cword>').' '.expand('%').' "/^'.getline('.').'"'<cr>
 

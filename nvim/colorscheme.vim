@@ -20,11 +20,12 @@ let g:gruvbox_bold = 0
 
 " Available values: 'hard', 'medium'(default), 'soft'
 let g:gruvbox_material_background = 'medium'
-let g:gruvbox_material_foreground = 'mix'
+let g:gruvbox_material_foreground = 'material'
 let g:gruvbox_material_better_performance = 1
 let g:gruvbox_material_sign_column_background = 'none'
 let g:gruvbox_material_transparent_background = 0
 let g:gruvbox_material_enable_bold = 0
+let g:gruvbox_material_disable_italic_comment = 1
 
 let g:everforest_sign_column_background = 'none'
 let g:everforest_background = 'medium'
