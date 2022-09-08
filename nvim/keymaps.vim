@@ -1,4 +1,4 @@
-let mapleader = "\\"
+let mapleader = ","
 nnoremap <leader>c :nohlsearch<CR>
 
 " nnoremap <silent> ff :Files<cr>
@@ -24,6 +24,10 @@ nnoremap <silent> <leader>gb :Telescope git_branches<cr>
 nnoremap <silent> <leader>gg :Git<cr>
 nnoremap <silent> <leader>gpp :Git push<cr>
 nnoremap <silent> <leader>gpn :Git push --no-verify<cr>
+
+" Jump between hunks
+nmap [c <Plug>(GitGutterNextHunk)
+nmap ]c <Plug>(GitGutterPrevHunk)
 
 " Telescope Files
 nnoremap <silent> <leader>ff :Telescope find_files<cr>
