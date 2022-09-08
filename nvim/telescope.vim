@@ -8,6 +8,7 @@ require('telescope').setup{
         preview_height = 0.6,
       },
       scroll_strategy = 'limit',
+      file_ignore_patterns = { "^.git/" },
     },
     pickers = {
       find_files = {

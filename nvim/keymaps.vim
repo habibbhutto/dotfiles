@@ -1,4 +1,4 @@
-let mapleader = ','
+let mapleader = "\\"
 nnoremap <leader>c :nohlsearch<CR>
 
 " nnoremap <silent> ff :Files<cr>
@@ -22,16 +22,18 @@ nnoremap <silent> <leader>gc :Telescope git_bcommits<cr>
 nnoremap <silent> <leader>gca :Telescope git_commits<cr>
 nnoremap <silent> <leader>gb :Telescope git_branches<cr>
 nnoremap <silent> <leader>gg :Git<cr>
-nnoremap <silent> <leader>gp :Git push<cr>
+nnoremap <silent> <leader>gpp :Git push<cr>
 nnoremap <silent> <leader>gpn :Git push --no-verify<cr>
 
 " Telescope Files
 nnoremap <silent> <leader>ff :Telescope find_files<cr>
-nnoremap <silent> <leader>fb :Telescope buffers<cr>
+nnoremap <silent> <leader>bb :Telescope buffers<cr>
 nnoremap <silent> <leader>tt :Telescope tags<cr>
-nnoremap <silent> <leader>fs yw :Telescope live_grep<cr>
-nnoremap <silent> <leader>ss yw :Telescope grep_string<cr>
+nnoremap <silent> <leader>ll :Telescope live_grep<cr>
+nnoremap <silent> <leader>ws yw :Telescope grep_string<cr>
+nnoremap <silent> <leader>bs yw :Telescope current_buffer_fuzzy_find<cr>
 nnoremap <silent> <leader>. :Telescope treesitter<cr>
+nnoremap <silent> <leader>.. :BTags<cr>
 nnoremap <silent> <leader>tta <cmd>exec '!sh ~/dev/devx/add-tags.sh '.expand('<cword>').' '.expand('%').' "/^'.getline('.').'"'<cr>
 
 "nnoremap <silent> <leader>lm <cmd>execute "vimgrep /async\\\|private\\\|\\s\\s\\s\\s[A-z]*(.*)\\s{\\\|\\s\\s\\s\\s[A-z]*():/ %" <bar>cwindow<cr>
