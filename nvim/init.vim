@@ -8,11 +8,12 @@ source ~/vim-fiddle/nvim/keymaps.vim
 " source ~/vim-fiddle/nvim/nvim-lsp.vim
 
 " Popup window (center of the screen)
-let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.50 } }
-" let g:fzf_preview_window = ['down:70%', 'ctrl-/']
-
+let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.95 } }
+let g:fzf_preview_window = ['up:70%', 'ctrl-/']
+let $BAT_THEME="ansi-dark"
 let $FZF_DEFAULT_COMMAND="find -L"
-let $FZF_DEFAULT_OPTS="--ansi --preview-window 'up:50%:hidden' --preview 'bat --color=always --style=header,grid,numbers --line-range :300 {}'
+" let $FZF_DEFAULT_OPTS="--ansi --preview-window 'up:50%:hidden' --preview 'bat --color=always --style=header,grid,numbers --line-range :300 {}'
+let $FZF_DEFAULT_OPTS="
 \ --bind ctrl-y:preview-up,ctrl-e:preview-down,
 \ctrl-b:preview-page-up,ctrl-f:preview-page-down,
 \ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,

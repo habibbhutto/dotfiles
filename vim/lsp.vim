@@ -12,14 +12,14 @@ function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> <F12> <plug>(lsp-peek-definition)
-    nmap <buffer> gs <plug>(lsp-document-symbol-search)
-    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-    nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> <S-F12> <plug>(lsp-peek-implementation)
-    nmap <buffer> gy <plug>(lsp-type-definition)
+    nmap <buffer> gdd <plug>(lsp-definition)
+    nmap <buffer> gd  <plug>(lsp-peek-definition)
+    nmap <buffer> gs  <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS  <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr  <plug>(lsp-references)
+    nmap <buffer> gii <plug>(lsp-implementation)
+    nmap <buffer> gi  <plug>(lsp-peek-implementation)
+    nmap <buffer> gy  <plug>(lsp-type-definition)
     nmap <buffer> <leader>rn <plug>(lsp-rename)
     nmap <buffer> [d <plug>(lsp-previous-diagnostic)
     nmap <buffer> ]d <plug>(lsp-next-diagnostic)

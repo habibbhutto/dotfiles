@@ -1,30 +1,22 @@
 call plug#begin('~/.vim/plugged')
-
-  Plug 'preservim/nerdtree'
-
   Plug 'sonph/onehalf', { 'rtp': 'vim' }
-  Plug 'morhetz/gruvbox'
   Plug 'sainnhe/everforest'
-  Plug 'arcticicestudio/nord-vim'
-  Plug 'yuttie/inkstained-vim'
-  Plug 'wolverian/minimal'
-  Plug 'cideM/yui'
-  Plug 'widatama/vim-phoenix'
-  Plug 'w0ng/vim-hybrid'
+  Plug 'morhetz/gruvbox'
   Plug 'sainnhe/gruvbox-material'
-  Plug 'FrenzyExists/aquarium-vim'
-  Plug 'lamartire/hg.vim'
-  Plug 'haystackandroid/rusticated'
-  " Plug 'ryanoasis/vim-devicons'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+  Plug 'yuttie/inkstained-vim'
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'EdenEast/nightfox.nvim'
+  Plug 'w0ng/vim-hybrid'
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
+  " post install (yarn install | npm install) then load plugin only for editing supported files
+  Plug 'prettier/vim-prettier', {
+    \ 'do': 'yarn install --frozen-lockfile --production',
+    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
-  Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-  " https://github.com/prabirshrestha/vim-lsp
+
   Plug 'prabirshrestha/vim-lsp'
 call plug#end()

@@ -15,7 +15,7 @@ require('telescope').setup{
         hidden = true,
         no_ignore = true,
       }
-    }
+    },
   }
 EOF
 

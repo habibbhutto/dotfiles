@@ -36,8 +36,7 @@ nnoremap <silent> <leader>tt :Tags<cr>
 nnoremap <silent> <leader>ll :Rg<cr>
 nnoremap <silent> <leader>ws yw :Rg<cr><cmd>put +<cr>
 nnoremap <silent> <leader>bs yw :BLines<cr><cmd>put +<cr>
-nnoremap <silent> <leader>. :Telescope treesitter<cr>
-nnoremap <silent> <leader>.. :BTags<cr>
+nnoremap <silent> <leader>ttb :BTags<cr>
 nnoremap <silent> <leader>tta <cmd>exec '!sh ~/dev/devx/add-tags.sh '.expand('<cword>').' '.expand('%').' "/^'.getline('.').'"'<cr>
 
 "nnoremap <silent> <leader>lm <cmd>execute "vimgrep /async\\\|private\\\|\\s\\s\\s\\s[A-z]*(.*)\\s{\\\|\\s\\s\\s\\s[A-z]*():/ %" <bar>cwindow<cr>
@@ -59,40 +58,53 @@ nnoremap Y y$
 nnoremap O O<Esc>
 nnoremap o o<Esc>
 
+execute "set <M-h>=\eh"
+execute "set <M-j>=\ej"
+execute "set <M-k>=\ek"
+execute "set <M-l>=\el"
+
 "tnoremap <silent> <C-w> <C-\><C-n>
 tnoremap <silent> <leader><leader> <C-\><C-n>
-tnoremap <silent> <A-h> <C-\><C-N><C-w>h
-tnoremap <silent> <A-j> <C-\><C-N><C-w>j
-tnoremap <silent> <A-k> <C-\><C-N><C-w>k
-tnoremap <silent> <A-l> <C-\><C-N><C-w>l
+tnoremap <silent> <M-left> <C-w>h
+tnoremap <silent> <M-down> <C-w>j
+tnoremap <silent> <M-up> <C-w>k
+tnoremap <silent> <M-right> <C-w>l
 
-inoremap <silent> <A-h> <C-\><C-N><C-w>h
-inoremap <silent> <A-j> <C-\><C-N><C-w>j
-inoremap <silent> <A-k> <C-\><C-N><C-w>k
-inoremap <silent> <A-l> <C-\><C-N><C-w>l
+inoremap <silent> <M-left> <C-\><C-N><C-w>h
+inoremap <silent> <M-down> <C-\><C-N><C-w>j
+inoremap <silent> <M-up> <C-\><C-N><C-w>k
+inoremap <silent> <M-right> <C-\><C-N><C-w>l
 
-nnoremap <silent> <A-h> <C-w>h
-nnoremap <silent> <A-j> <C-w>j
-nnoremap <silent> <A-k> <C-w>k
-nnoremap <silent> <A-l> <C-w>l
+nnoremap <silent> <M-left> <c-w>h
+nnoremap <silent> <M-down> <c-w>j
+nnoremap <silent> <M-up> <c-w>k
+nnoremap <silent> <M-right> <c-w>l
 
-" Resize split windows using arrow keys by pressing:
-" CTRL+UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
-noremap <c-up> <c-w>+
-noremap <c-down> <c-w>-
-noremap <c-left> <c-w>>
-noremap <c-right> <c-w><
+noremap <silent> <M-k> <c-w>k<c-w>_
+noremap <silent> <M-j> <c-w>j<c-w>_
+noremap <silent> <M-h> <c-w>h<c-w><Bar>
+noremap <silent> <M-l> <c-w>l<c-w><Bar>
 
-noremap <a-up> <c-w>+
-noremap <a-down> <c-w>-
-noremap <a-left> <c-w>>
-noremap <a-right> <c-w><
+tnoremap <silent> <M-k> <C-w>k<c-w>_
+tnoremap <silent> <M-j> <C-w>j<c-w>_
+tnoremap <silent> <M-h> <C-w>h<c-w><Bar>
+tnoremap <silent> <M-l> <C-w>l<c-w><Bar>
 
-noremap <c-S-UP> :m -2<cr>
-noremap <c-S-Down> :m +1<cr>
+noremap <silent> <C-down> <c-w>+
+noremap <silent> <C-up> <c-w>-
+noremap <silent> <C-right> <c-w>>
+noremap <silent> <C-left> <c-w><
 
-nnoremap <c-s> <cmd>w<cr>
-inoremap <c-s> <cmd>w<cr>
-noremap <c-,> <cmd>bp<cr>
-noremap <c-.> <cmd>bn<cr>
+tnoremap <silent> <C-down> <c-w>+
+tnoremap <silent> <C-up> <c-w>-
+tnoremap <silent> <C-right> <c-w>>
+tnoremap <silent> <C-left> <c-w><
+
+noremap <silent> <leader>t :bot bel term<cr>
+
+noremap <C-S-UP> :m -2<cr>
+noremap <C-S-Down> :m +1<cr>
+
+nnoremap <C-s> <cmd>w<cr>
+inoremap <C-s> <cmd>w<cr>
 
