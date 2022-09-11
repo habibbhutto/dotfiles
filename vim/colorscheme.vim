@@ -30,7 +30,7 @@ let g:everforest_sign_column_background = 'none'
 let g:everforest_background = 'medium'
 let g:everforest_transparent_background = 0
 
-colorscheme gruvbox-material
+colorscheme gruvbox
 
 let g:gitgutter_override_sign_column_highlight = 1
 highlight SignColumn guibg = bg

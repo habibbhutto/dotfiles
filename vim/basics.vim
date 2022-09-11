@@ -7,7 +7,7 @@ syntax on
 set number
 set norelativenumber
 set cursorline
-" set cursorcolumn
+set cursorcolumn
 set shiftwidth=2
 set tabstop=4
 set expandtab
@@ -38,10 +38,10 @@ set clipboard+=unnamedplus
 set cmdheight=2
 set cmdwinheight=10
 
-" augroup cursor_off
-"     autocmd!
-"     autocmd WinLeave * set nocursorcolumn
-"     autocmd WinEnter * set cursorline cursorcolumn
-" augroup END
+augroup cursor_off
+    autocmd!
+    autocmd WinLeave * set nocursorcolumn
+    autocmd WinEnter * set cursorline cursorcolumn
+augroup END
 
-autocmd InsertEnter,InsertLeave * set cul! cuc!
+" autocmd InsertEnter,InsertLeave * set cul! cuc!
