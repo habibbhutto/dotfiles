@@ -65,8 +65,6 @@ let g:prettier#autoformat_config_present = 1
 let g:prettier#exec_cmd_async = 1
 let g:prettier#quickfix_auto_focus = 0
 let g:prettier#autoformat_config_files = [".prettierrc.js"]
-set foldmethod=indent
-set foldexpr=indent()
 
 set makeprg=$(npm\ bin)/eslint\ --fix  
 "set makeprg=$(npm\ bin)/eslint\ --format\ compact\ --fix  
@@ -76,7 +74,7 @@ autocmd BufWritePost *.ts,js silent lmake % --fix --format compact | lwindow | c
 " autocmd BufWritePost *.ts,js silent make % | edit %
 " https://gist.github.com/romainl/2f748f0c0079769e9532924b117f9252
 "
-"
+" Expriment
 function! ClearTerminal()
   set scrollback=1
   let &g:scrollback=1
