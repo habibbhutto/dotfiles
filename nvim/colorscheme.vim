@@ -31,7 +31,7 @@ let g:everforest_sign_column_background = 'none'
 let g:everforest_background = 'medium'
 let g:everforest_transparent_background = 0
 
-colorscheme nightfox
+colorscheme carbonfox
 
 let g:gitgutter_override_sign_column_highlight = 1
 highlight SignColumn guibg = bg
@@ -42,7 +42,6 @@ highlight LineNr ctermbg = NONE
 highlight CursorLineNr ctermbg = NONE
 
 set guifont=Fira\ Code:h10
-
 
 if exists("g:neovide")
     " pixiedust
