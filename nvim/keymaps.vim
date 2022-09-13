@@ -49,7 +49,7 @@ nnoremap <silent> <C-p> :lprevious<cr>zR
 nnoremap <silent> [l :lfirst<cr>
 nnoremap <silent> ]l :llast<cr>
 
-inoremap jj <Esc>
+" inoremap jj <Esc>
 
 nnoremap n nzz
 nnoremap N Nzz
