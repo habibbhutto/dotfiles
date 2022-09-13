@@ -41,7 +41,7 @@ nnoremap <silent> <leader>tta <cmd>exec '!sh ~/dev/devx/add-tags.sh '.expand('<c
 
 "nnoremap <silent> <leader>lm <cmd>execute "vimgrep /async\\\|private\\\|\\s\\s\\s\\s[A-z]*(.*)\\s{\\\|\\s\\s\\s\\s[A-z]*():/ %" <bar>cwindow<cr>
 
-nnoremap <silent> MM [m
+nnoremap <silent> <M-m> [m
 nnoremap <silent> m ]m
 
 nnoremap <silent> <C-n> :lnext<cr>zR
