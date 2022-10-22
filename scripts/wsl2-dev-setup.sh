@@ -35,8 +35,7 @@ rm ~/nvim-linux64.deb
 sudo apt -y install vim \
 	"fd-find" \
 	fzf \
-	ripgrep \
-    xclip
+	ripgrep
 
 # Version control
 sudo apt -y install git gh
@@ -98,3 +97,6 @@ vim -c 'PlugInstall' \
 
 nvim -c 'PlugInstall' \
      -c 'qa!'
+
+git config --global user.name "Habib Ahmed Bhutto"
+git config --global user.email "habibbhutto@gmail.com"
