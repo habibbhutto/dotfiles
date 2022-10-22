@@ -1,14 +1,14 @@
 #!/bin/bash
 
+# Before executing this script
+# First run this manually and then restart the distro
+# echo "[boot]" | sudo tee /etc/wsl.conf
+# echo "systemd = true" | sudo tee -a /etc/wsl.conf 
+
 echo 'Setting up dev machine'
 
 sudo apt -y update
 sudo apt -y upgrade
-
-sudo apt -y install apt-transport-https
-
-echo "[boot]" | sudo tee /etc/wsl.conf
-echo "systemd=true" | sudo tee -a /etc/wsl.conf 
 
 # sudo curl -fsSL https://swupdate.openvpn.net/repos/openvpn-repo-pkg-key.pub | gpg --dearmor > /etc/apt/trusted.gpg.d/openvpn-repo-pkg-keyring.gpg
 # sudo curl -fsSL https://swupdate.openvpn.net/community/openvpn3/repos/openvpn3-jammy.list >/etc/apt/sources.list.d/openvpn3.list
@@ -22,7 +22,8 @@ echo "systemd=true" | sudo tee -a /etc/wsl.conf
 # sudo apt -y install openvpn3
 
 # General utilities and tools
-sudo apt -y install htop \
+sudo apt -y install apt-transport-https \
+    htop \
 	curl \
 	wget \
 	httpie
@@ -100,3 +101,11 @@ nvim -c 'PlugInstall' \
 
 git config --global user.name "Habib Ahmed Bhutto"
 git config --global user.email "habibbhutto@gmail.com"
+
+sudo snap install lxd
+lxd init --auto
+
+sudo snap install microk8s --classic
+sudo usermod -a -G microk8s $USER
+sudo chown -f -R $USER ~/.kube
+su - $USER
