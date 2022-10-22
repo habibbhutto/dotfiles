@@ -36,7 +36,17 @@ set timeout timeoutlen=500 ttimeoutlen=30
 set clipboard+=unnamedplus
 set cmdheight=2
 set cmdwinheight=10
-
+" let g:clipboard = {
+"       \   'name': 'xclip-custom',
+"       \   'copy': {
+"       \      '+': 'xclip -quiet -i -selection clipboard',
+"       \      '*': 'xclip -quiet -i -selection primary',
+"       \    },
+"       \   'paste': {
+"       \      '+': 'xclip -o -selection clipboard',
+"       \      '*': 'xclip -o -selection primary',
+"       \   },
+"       \ }
 " augroup cursor_off
 "     autocmd!
 "     autocmd WinLeave * set nocursorcolumn
