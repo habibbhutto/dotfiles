@@ -46,3 +46,12 @@ make BUILDTAGS='seccomp apparmor systemd'
 sudo make install PREFIX=/usr
 
 sudo rm -rf ~/.local/share/containers/
+sudo chmod 655 /var/run/podman
+sudo chmod 666 /var/run/podman/podman.sock
+
+systemctl daemon-reload
+sudo systemctl start podman.socket
+
+curl -H "Content-Type: application/json" --unix-socket /var/run/podman/podman.sock http://localhost/_ping
+
+echo "export DOCKER_HOST=unix:///var/run/podman/podman.sock"
