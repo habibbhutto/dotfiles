@@ -1,12 +1,16 @@
 #!/bin/bash
 
-# Before executing this script
-# First run this manually and then restart the distro
+# For WSL enable sysmted before executing this script
+# First, run this manually and then restart the distro
 # echo "[boot]" | sudo tee /etc/wsl.conf
 # echo "systemd = true" | sudo tee -a /etc/wsl.conf 
 
+GIT_USER_NAME="Habib Ahmed Bhutto"
+GIT_USER_EMAIL="habibbhutto@gmail.com"
+
 echo 'Setting up dev machine'
 
+sudo add-apt-repository ppa:git-core/ppa # apt update; apt install git
 sudo apt -y update
 sudo apt -y upgrade
 
@@ -40,6 +44,8 @@ sudo apt -y install vim \
 
 # Version control
 sudo apt -y install git gh
+git config --global user.name $GIT_USER_NAME
+git config --global user.email $GIT_USER_EMAIL
 
 # Programming languages and compilers
 sudo apt -y install \
@@ -80,6 +86,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 # echo "alias docker=podman" >> ~/.bashrc
 echo "alias nv=nvim" >> ~/.bashrc
 # echo "export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"" >> ~/.bashrc
+# This is purely for WSL to fix scaling in WSLg
 echo "export GDK_SCALE=1" >> ~/.bashrc
 echo "export GDK_DPI_SCALE=1.5" >> ~/.bashrc
 
@@ -98,9 +105,6 @@ vim -c 'PlugInstall' \
 
 nvim -c 'PlugInstall' \
      -c 'qa!'
-
-git config --global user.name "Habib Ahmed Bhutto"
-git config --global user.email "habibbhutto@gmail.com"
 
 sudo snap install lxd
 lxd init --auto
