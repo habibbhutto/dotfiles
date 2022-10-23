@@ -19,9 +19,10 @@ It will setup folling tools and packages.
 * [MicroK8s](https://microk8s.io/)  
   Enabling k8s development and experimentation enviroment.  
 * [Podman](podman.io/)  
-  Pod manager tool for building, running and managing containers.  
-  Run [setup-podman.sh](./scripts/setup-podman.sh) For the complete setup of latest Podman version together with docker-compose integration.
-  It sets up and run podman.socket in rootless mode.  
+  Pod manager tool for building, running and managing containers. 
+  Run [setup-podman.sh](./scripts/setup-podman.sh) to setup latest Podman version together with `docker-compose` integration. 
+  It sets up `podman.socket` in rootless mode. and configures `DOCKER_HOST` env var for `docker-compose` to use.
+  Once it's done you can test the setup by running `docker-compose up`, it will use the [docker-compose.yml](./docker-compose.yml) created for testing purpose.
 * [NVM](https://github.com/nvm-sh/nvm) and [Nodejs](https://nodejs.org/en/)  
   Nodejs tooling, node version manager and nodejs.
 * [Go](https://go.dev/)  
