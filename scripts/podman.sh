@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Future work: Configure cgroupv2
+# https://sleeplessbeastie.eu/2021/09/10/how-to-enable-control-group-v2/
+
 echo "**** Installing dependencies ****"
 # Install podman from package manager
 # So that we would have all the dependencies
