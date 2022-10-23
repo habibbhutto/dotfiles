@@ -1,6 +1,8 @@
 # verbose-machine
 
 It is a reproducible development setup.
+[setup-dev-machine.sh](./scripts/setup-dev-machine.sh)
+[setup-podman.sh](./scripts/setup-podman.sh)
 
 This is set of scripts and tools to setup a reproducible development setup.
 The scripts are written and tested in Ubuntu-22.04, please take a note that some 
@@ -15,7 +17,7 @@ It will setup folling tools and packages.
 * Lxd
 * MicroK8s
 * Podman  
-  Run [podman.sh](./scripts/podman.sh) For the complete setup of latest Podman version together with docker-compose integration.
+  Run [setup-podman.sh](./scripts/setup-podman.sh) For the complete setup of latest Podman version together with docker-compose integration.
   It sets up and run podman.socket in rootless mode.
 * NVM and Nodejs
 * Go
