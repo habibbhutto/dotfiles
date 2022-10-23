@@ -76,8 +76,8 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 #export DOCKER_HOST=unix:/tmp/podman-run-1000/podman/podman.sock
-echo "export DOCKER_HOST=localhost:2375" >> ~/.bashrc
-echo "alias docker=podman" >> ~/.bashrc
+# echo "export DOCKER_HOST=localhost:2375" >> ~/.bashrc
+# echo "alias docker=podman" >> ~/.bashrc
 echo "alias nv=nvim" >> ~/.bashrc
 # echo "export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"" >> ~/.bashrc
 echo "export GDK_SCALE=1" >> ~/.bashrc
