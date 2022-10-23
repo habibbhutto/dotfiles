@@ -37,7 +37,7 @@ It will setup folling tools and packages.
 * [Git](https://git-scm.com/)
   The distributed version control system.
   Note: Please configure your git user.name and user.email at the start of the script.
-* [Github cli - gh](https://cli.github.com/)  
+* [Github CLI - gh](https://cli.github.com/)  
   Enabling Github access from terminal.
 * [Vim](https://www.vim.org/) and [Neovim](neovim.io/)
   The Vim editor, and its fork neovim editor.
@@ -46,6 +46,7 @@ It will setup folling tools and packages.
 
 ## Future work
 * Setup Java Development Kit  
-* Setup Skaffold and Helm3
-* Integrate setup-podman.sh and test it  
+* Setup development image registry
+* Setup Kubectl, Skaffold and Helm3
+* Integrate [setup-podman.sh](./scripts/setup-podman.sh) with [setup-dev-machine.sh](./scripts/setup-dev-machine.sh) and test it  
 * Install and Configure GoCD for development and experimentation  
