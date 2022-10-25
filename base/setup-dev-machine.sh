@@ -30,7 +30,9 @@ sudo apt -y install apt-transport-https \
     htop \
 	curl \
 	wget \
-	httpie
+	httpie \
+    unzip \
+    zip
 
 # Code editors
 wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb -P ~/
@@ -113,3 +115,8 @@ sudo snap install microk8s --classic
 sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER ~/.kube
 su - $USER
+
+curl -s "https://get.sdkman.io" | bash
+source "/home/$USER/.sdkman/bin/sdkman-init.sh"
+
+sdk install java 22.2.r17-nik
