@@ -46,8 +46,6 @@ It will setup folling tools and packages.
   It installs all the plugins automatically, so the editors are ready to use out of box.
 
 ## Future work
-* Setup Java Development Kit  
-* Setup development image registry
-* Setup Kubectl, Skaffold and Helm3
+* Modularize the installation scripts
 * Integrate [setup-podman.sh](./scripts/setup-podman.sh) with [setup-dev-machine.sh](./scripts/setup-dev-machine.sh) and test it  
 * Install and Configure GoCD for development and experimentation  
