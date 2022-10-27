@@ -121,6 +121,8 @@ source "/home/$USER/.sdkman/bin/sdkman-init.sh"
 
 sdk install java 22.2.r17-nik
 
+sudo snap install docker
+
 cd ~
 curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/v2.0.0/skaffold-linux-amd64 && \
 sudo install skaffold /usr/local/bin/
