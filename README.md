@@ -4,13 +4,9 @@ It is a reproducible development setup.
 [setup-dev-machine.sh](./scripts/setup-dev-machine.sh)  
 [setup-podman.sh](./scripts/setup-podman.sh)  
 
-This is set of scripts and tools to setup a reproducible development setup.
+This is set of scripts to setup a reproducible development machine.
 The scripts are written and tested in Ubuntu-22.04, please take a note that some 
 of the versions and dependencies might not work in other distros.  
-
-I maintain these scripts for my own use, please take a note that they may
-break break occassionally or might not work in your Ubuntu version for 
-some reason or the versions and dependencies are outdated.
 
 It will setup folling tools and packages.
 
@@ -46,6 +42,7 @@ It will setup folling tools and packages.
   It installs all the plugins automatically, so the editors are ready to use out of box.
 
 ## Future work
+* Install Clang and GDB
 * Modularize the installation scripts
 * Integrate [setup-podman.sh](./scripts/setup-podman.sh) with [setup-dev-machine.sh](./scripts/setup-dev-machine.sh) and test it  
 * Install and Configure GoCD for development and experimentation  
