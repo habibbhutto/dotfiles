@@ -83,11 +83,19 @@ sudo apt -y install podman
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
-#export DOCKER_HOST=unix:/tmp/podman-run-1000/podman/podman.sock
-# echo "export DOCKER_HOST=localhost:2375" >> ~/.bashrc
-# echo "alias docker=podman" >> ~/.bashrc
+# Enable the following lines if you wish to docker-compose with podman
+# export DOCKER_HOST=unix:/tmp/podman-run-1000/podman/podman.sock
+# echo "export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock"
+# echo "export DOCKER_HOST=localhost:2375"
+# echo "alias docker=podman"
+
 echo "alias nv=nvim" >> ~/.bashrc
-# echo "export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"" >> ~/.bashrc
+echo "export EDITOR=nvim" >> ~/.bashrc
+echo "export VISUAL=nvim" >> ~/.bashrc
+echo "export PAGER=less" >> ~/.bashrc
+# This to enable colors in LESS but it doesn't work properly
+# echo "export LESS="-iMSx4 -FX"" >> ~/.bashrc
+
 # This is purely for WSL to fix scaling in WSLg
 echo "export GDK_SCALE=1" >> ~/.bashrc
 echo "export GDK_DPI_SCALE=1.5" >> ~/.bashrc
@@ -129,3 +137,9 @@ sudo install skaffold /usr/local/bin/
 rm ~/skaffold
 
 sudo snap install helm --classic
+
+curl -sS https://starship.rs/install.sh | sh
+echo "eval "$(starship init bash)"" >> ~/.bashrc
+ehco "set -o vi" >> ~/.bashrc
+cp shell/starship.toml ~/.config/starship.toml
+
