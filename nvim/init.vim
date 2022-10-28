@@ -4,8 +4,8 @@ source ~/vim-fiddle/nvim/colorscheme.vim
 source ~/vim-fiddle/nvim/treesitter.vim
 source ~/vim-fiddle/nvim/telescope.vim
 source ~/vim-fiddle/nvim/keymaps.vim
-" source ~/vim-fiddle/nvim/lsp.vim
 " source ~/vim-fiddle/nvim/nvim-lsp.vim
+" source ~/vim-fiddle/nvim/lsp.vim
 
 " Popup window (center of the screen)
 let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.95 } }
@@ -66,11 +66,12 @@ let g:prettier#exec_cmd_async = 1
 let g:prettier#quickfix_auto_focus = 0
 let g:prettier#autoformat_config_files = [".prettierrc.js"]
 
-set makeprg=$(npm\ bin)/eslint\ --fix  
-"set makeprg=$(npm\ bin)/eslint\ --format\ compact\ --fix  
-set errorformat+=%f:\ line\ %l\\,\ col\ %c\\,\ %m,%-G%.%#
+set makeprg=npx\ eslint
+" set makeprg=$(npm\ bin)/eslint\ --format\ compact\ --fix  
+" set errorformat+=%f:\ line\ %l\\,\ col\ %c\\,\ %m,%-G%.%#
 
-autocmd BufWritePost *.ts,js silent lmake % --fix --format compact | lwindow | checktime | call feedkeys("\`\`") " call feedkeys("\<C-o>")
+autocmd BufWritePost *.ts,js silent lmake % --fix --format unix | lwindow | checktime | call feedkeys("\`\`") 
+" autocmd BufWritePost *.ts,js silent lmake % --fix --format compact | lwindow | checktime | call feedkeys("\`\`") " call feedkeys("\<C-o>")
 " autocmd BufWritePost *.ts,js silent make % | edit %
 " https://gist.github.com/romainl/2f748f0c0079769e9532924b117f9252
 "
@@ -86,3 +87,4 @@ function! ClearTerminal()
   sleep 100m
   let &scrollback=s:scroll_value
 endfunction
+1
