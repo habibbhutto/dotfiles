@@ -33,7 +33,7 @@ set signcolumn=yes
 "set noesckeys
 set encoding=utf-8
 set timeout timeoutlen=500 ttimeoutlen=30
-set cmdheight=2
+set cmdheight=1
 set cmdwinheight=10
 set clipboard+=unnamedplus
 
