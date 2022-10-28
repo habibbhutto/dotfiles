@@ -1,20 +1,10 @@
 let mapleader = ","
-nnoremap <leader>c :nohlsearch<CR>
-
-" nnoremap <silent> ff :Files<cr>
-" nnoremap <silent> fg :GitFiles<cr>
-" nnoremap <silent> <leader>b :Buffers<cr>
-" nnoremap <silent> ffg :Rg<cr>
-" nnoremap <silent> tt :Tags<cr>
-" nnoremap <silent> <leader>lg :Telescope live_grep<cr>
-" nnoremap <silent> <leader>sg :Telescope grep_string<cr>
-" nnoremap <silent> <leader>lm <cmd>execute "vimgrep /async\\\|private\\\|\\s\\s\\s\\s[A-z]*(.*)\\s{\\\|\\s\\s\\s\\s[A-z]*():/ %" <bar>cwindow<cr>
-" nnoremap <silent> <leader>aa <cmd>exec '!sh add-tags.sh '.expand('<cword>').' '.expand('%').' "/^'.getline('.').'"'<cr>
+nnoremap <silent> <leader>c :nohlsearch<CR>
 
 " Telescope
-" nnoremap <silent> <leader>t :Telescope<cr>
+nnoremap <silent> <leader>tl :Telescope<cr>
 
-" Telescope Git
+" Git
 nnoremap <silent> <leader>gf :GitFiles<cr>
 nnoremap <silent> <leader>gs :GitFiles?<cr>
 nnoremap <silent> <leader>gst :Git stash list<cr>
@@ -29,7 +19,7 @@ nnoremap <silent> <leader>gpn :Git push --no-verify<cr>
 nmap [c <Plug>(GitGutterNextHunk)
 nmap ]c <Plug>(GitGutterPrevHunk)
 
-" Telescope Files
+" Files and search
 nnoremap <silent> <leader>ff :Files<cr>
 nnoremap <silent> <leader>bb :Buffers<cr>
 nnoremap <silent> <leader>tt :Tags<cr>
@@ -37,9 +27,6 @@ nnoremap <silent> <leader>ll :Rg<cr>
 nnoremap <silent> <leader>ws yw :Rg<cr><cmd>put +<cr>
 nnoremap <silent> <leader>bs yw :BLines<cr><cmd>put +<cr>
 nnoremap <silent> <leader>ttb :BTags<cr>
-nnoremap <silent> <leader>tta <cmd>exec '!sh ~/dev/devx/add-tags.sh '.expand('<cword>').' '.expand('%').' "/^'.getline('.').'"'<cr>
-
-"nnoremap <silent> <leader>lm <cmd>execute "vimgrep /async\\\|private\\\|\\s\\s\\s\\s[A-z]*(.*)\\s{\\\|\\s\\s\\s\\s[A-z]*():/ %" <bar>cwindow<cr>
 
 nnoremap <silent> <M-m> [m
 nnoremap <silent> m ]m
@@ -49,8 +36,6 @@ nnoremap <silent> <C-p> :lprevious<cr>zR
 nnoremap <silent> [l :lfirst<cr>
 nnoremap <silent> ]l :llast<cr>
 
-" inoremap jj <Esc>
-
 nnoremap n nzz
 nnoremap N Nzz
 
@@ -58,7 +43,6 @@ nnoremap Y y$
 nnoremap O O<Esc>
 nnoremap o o<Esc>
 
-"tnoremap <silent> <C-w> <C-\><C-n>
 tnoremap <silent> <leader><leader> <C-\><C-n>
 tnoremap <silent> <M-left> <C-w>h
 tnoremap <silent> <M-down> <C-w>j

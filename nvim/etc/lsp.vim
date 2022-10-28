@@ -1,3 +1,8 @@
+" source ~/vim-fiddle/nvim/lsp.vim
+
+" call plug#begin('~/.vim/plugged')
+"   Plug 'prabirshrestha/vim-lsp'
+" call plug#end()
 
 if executable('typescript-language-server')
     au User lsp_setup call lsp#register_server({
