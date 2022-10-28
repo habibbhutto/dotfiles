@@ -87,4 +87,4 @@ function! ClearTerminal()
   sleep 100m
   let &scrollback=s:scroll_value
 endfunction
-1
+

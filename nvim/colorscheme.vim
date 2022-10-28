@@ -15,8 +15,8 @@ let g:gruvbox_invert_signs = 0
 let g:gruvbox_bold = 0
 
 " Available values: 'hard', 'medium'(default), 'soft'
-let g:gruvbox_material_background = 'medium'
-let g:gruvbox_material_foreground = 'material'
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_foreground = 'mix'
 let g:gruvbox_material_better_performance = 1
 let g:gruvbox_material_sign_column_background = 'none'
 let g:gruvbox_material_transparent_background = 0
@@ -31,7 +31,7 @@ let g:everforest_transparent_background = 0
 set background=dark
 " For light version.
 " set background=light
-colorscheme lunaperche
+colorscheme gruvbox-material
 
 let g:gitgutter_override_sign_column_highlight = 1
 highlight SignColumn guibg = bg
