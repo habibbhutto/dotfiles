@@ -1,13 +1,12 @@
-
+" Tuning defaults to my preferences
 set nocompatible
 filetype on
 filetype plugin on
 filetype indent on
 syntax on
 set number
-set norelativenumber
+set relativenumber
 set cursorline
-" set cursorcolumn
 set shiftwidth=4
 set tabstop=4
 set expandtab
@@ -30,25 +29,39 @@ set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 set ttyfast
 set signcolumn=yes
-"set noesckeys
 set encoding=utf-8
 set timeout timeoutlen=500 ttimeoutlen=30
 set cmdheight=1
 set cmdwinheight=10
+
+" I guess, this setup for clipboard would work almost everywhere
+" If it doesn't work well in some environment, I will find a way
 set clipboard+=unnamedplus
-
 let g:clipboard = {
-      \  'name' : 'custom-clipboard',
-      \  'copy' : {
-      \    '+' : 'win32yank.exe -i --crlf',
-      \    '*' : 'win32yank.exe -i --crlf',
-      \  },
-      \  'paste' : {
-      \    '+' : 'win32yank.exe -o --lf',
-      \    '*' : 'win32yank.exe -o --lf',
-      \  },
-      \}
+      \   'name': 'xclip-custom',
+      \   'copy': {
+      \      '+': 'xclip -i -selection clipboard',
+      \      '*': 'xclip -i -selection primary',
+      \    },
+      \   'paste': {
+      \      '+': 'xclip -o -selection clipboard',
+      \      '*': 'xclip -o -selection primary',
+      \   },
+      \ }
 
+" On WSL this works well but slower at times
+" let g:clipboard = {
+"       \  'name' : 'custom-clipboard',
+"       \  'copy' : {
+"       \    '+' : 'win32yank.exe -i --crlf',
+"       \    '*' : 'win32yank.exe -i --crlf',
+"       \  },
+"       \  'paste' : {
+"       \    '+' : 'win32yank.exe -o --lf',
+"       \    '*' : 'win32yank.exe -o --lf',
+"       \  },
+"       \}
+" 
 "
 " let s:win32yank = '$NEOVIM_WIN_DIR/bin/win32yank.exe'
 " let g:clipboard = {
@@ -64,22 +77,11 @@ let g:clipboard = {
 "       \}
 " unlet s:win32yank
 "
-" let g:clipboard = {
-"       \   'name': 'xclip-custom',
-"       \   'copy': {
-"       \      '+': 'xclip -quiet -i -selection clipboard',
-"       \      '*': 'xclip -quiet -i -selection primary',
-"       \    },
-"       \   'paste': {
-"       \      '+': 'xclip -o -selection clipboard',
-"       \      '*': 'xclip -o -selection primary',
-"       \   },
-"       \ }
-"
+" In case I am in need of cursorcolumn later
+" set cursorcolumn
 " augroup cursor_off
 "     autocmd!
 "     autocmd WinLeave * set nocursorcolumn
 "     autocmd WinEnter * set cursorline cursorcolumn
 " augroup END
-
 " autocmd InsertEnter,InsertLeave * set cul! cuc!
