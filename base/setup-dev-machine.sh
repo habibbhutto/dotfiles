@@ -61,8 +61,12 @@ sudo apt -y install \
 	python-is-python3 \
 	golang-go \
 	yarn
+
+sudo snap install gopls --classic
+
 ## Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+sudo snap install rust-analyzer --beta
 
 ## nodejs
 sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
