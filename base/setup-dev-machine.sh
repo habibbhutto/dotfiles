@@ -32,7 +32,9 @@ sudo apt -y install apt-transport-https \
 	wget \
 	httpie \
     unzip \
-    zip
+    zip \
+    gzip \
+    tar
 
 # Code editors
 wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb -P ~/
@@ -75,6 +77,7 @@ export NVM_DIR="$HOME/.nvm"
 
 nvm install v12
 nvm use v12
+sudo snap install universal-ctags
 
 # Containerization tools
 sudo apt -y install podman
