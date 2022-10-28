@@ -2,10 +2,6 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 set t_Co=256
 
-set background=dark
-
-" For light version.
-" set background=light
 let g:gruvbox_contrast_dark = 'soft'
 let g:gruvbox_contrast_light = 'soft'
 let g:gruvbox_sign_column = "bg0"
@@ -31,7 +27,11 @@ let g:everforest_sign_column_background = 'none'
 let g:everforest_background = 'medium'
 let g:everforest_transparent_background = 0
 
-colorscheme carbonfox
+" For dark version.
+set background=dark
+" For light version.
+" set background=light
+colorscheme lunaperche
 
 let g:gitgutter_override_sign_column_highlight = 1
 highlight SignColumn guibg = bg
