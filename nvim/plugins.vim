@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
 
   Plug 'neovim/nvim-lspconfig'
+  Plug 'mfussenegger/nvim-jdtls'
   Plug 'williamboman/mason.nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
   Plug 'mfussenegger/nvim-dap'

@@ -34,31 +34,144 @@ local on_attach = function(client, bufnr)
 end
 
 local lsp_flags = {
-  -- This is the default in Nvim 0.7+
   debounce_text_changes = 100,
 }
 
+-- Go Language Server
 require('lspconfig')['gopls'].setup{
     autostart = false,
     on_attach = on_attach,
     flags = lsp_flags,
 }
 
+-- Rust Language Server
 require('lspconfig')['rust_analyzer'].setup{
     autostart = false,
     on_attach = on_attach,
     flags = lsp_flags,
 }
 
--- require('lspconfig')['pyright'].setup{
---     on_attach = on_attach,
---     flags = lsp_flags,
--- }
+-- Python Language Server
+require('lspconfig')['pyright'].setup{
+    autostart = false,
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
 
+-- Typescript/Javascript Language Server
 require('lspconfig')['tsserver'].setup{
     autostart = false,
     on_attach = on_attach,
     flags = lsp_flags,
 }
 
+-- Java Language Server
+local lsp = vim.lsp;
+local offset_encoding = 'utf-16';
+local capabilities = lsp.protocol.make_client_capabilities()
+local extra_capabilities = {
+    textDocument = {
+      codeAction = {
+        codeActionLiteralSupport = {
+          codeActionKind = {
+            valueSet = {
+                "source.generate.toString",
+                "source.generate.hashCodeEquals",
+                "source.organizeImports",
+            };
+          };
+        };
+      }
+    }
+  }
+
+local capabilities = vim.tbl_deep_extend('keep', capabilities, extra_capabilities);
+
+local extendedClientCapabilities = {
+  progressReportProvider = true;
+  classFileContentsSupport = true;
+  generateToStringPromptSupport = true;
+  hashCodeEqualsPromptSupport = true;
+  advancedExtractRefactoringSupport = true;
+  advancedOrganizeImportsSupport = true;
+  generateConstructorsPromptSupport = true;
+  generateDelegateMethodsPromptSupport = true;
+  moveRefactoringSupport = true;
+  overrideMethodsPromptSupport = true;
+  inferSelectionSupport = {"extractMethod", "extractVariable", "extractConstant"};
+};
+
+require('lspconfig')['jdtls'].setup{
+    cmd = { 'jdtls' },
+    autostart = false,
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    init_options = {
+        extendedClientCapabilities = extendedClientCapabilities,
+    },
+}
+
+local request = function(bufnr, method, params, handler)
+  local client = nil
+  for _, c in pairs(vim.lsp.get_active_clients({ bufnr = bufnr })) do
+    if c.name == 'jdtls' then
+      client = c
+      break
+    end
+  end
+  if not client then
+    vim.notify("No LSP client with name `jdtls` available", vim.log.levels.WARN)
+  else
+    client.request(method, params, handler, bufnr)
+  end
+end
+
+vim.lsp.commands['java.action.organizeImports'] = function (_, ctx)
+  vim.cmd([[echo "'java.action.organizeImports'"]])
+  request(0, 'java/organizeImports', ctx.params, function(err, resp)
+    if err then
+      print('Error on organize imports: ' .. err.message)
+      return
+    end
+    if resp then
+      vim.lsp.util.apply_workspace_edit(resp, offset_encoding)
+    end
+  end)
+end
+
+vim.lsp.commands['java.action.overrideMethodsPrompt'] = function (_, context)
+  request(context.bufnr, 'java/listOverridableMethods', 
+          context.params, function(e1, result1)
+    if e1 then
+      print("Error getting overridable methods: " .. e1.message)
+      return
+    end
+
+    local fmt = function(method)
+      return string.format("%s(%s) class: %s", 
+                            method.name, 
+                            table.concat(method.parameters, ", "), 
+                            method.declaringClass)
+    end
+
+    local selected = require('jdtls.ui').pick_many(result1.methods, "Method to override", fmt)
+
+    if #selected < 1 then
+      return
+    end
+
+    local params = {
+      context = context.params,
+      overridableMethods = selected
+    }
+    request(context.bufnr, 'java/addOverridableMethods', params, function(e2, result2)
+      if e2 ~= nil then
+        print("Error getting workspace edits: " .. e2.message)
+        return
+      end
+      vim.lsp.util.apply_workspace_edit(result2, offset_encoding)
+    end)
+  end)
+end
 EOF
