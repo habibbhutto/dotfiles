@@ -62,11 +62,14 @@ sudo apt -y install \
 	golang-go \
 	yarn
 
+# https://pkg.go.dev/golang.org/x/tools/gopls
 sudo snap install gopls --classic
+# https://github.com/microsoft/pyright
 sudo snap install pyright --classic
 
 ## Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+# https://github.com/rust-lang/rust-analyzer
 sudo snap install rust-analyzer --beta
 
 ## nodejs
@@ -83,6 +86,7 @@ export NVM_DIR="$HOME/.nvm"
 nvm install v18
 nvm use v18
 curl -fsSL https://get.pnpm.io/install.sh | sh -
+# https://github.com/typescript-language-server/typescript-language-server#installing
 pnpm install -g typescript-language-server typescript
 
 sudo snap install universal-ctags
@@ -141,6 +145,7 @@ source "/home/$USER/.sdkman/bin/sdkman-init.sh"
 sdk install java 22.2.r17-nik
 
 # Install Java Language Server
+# https://github.com/eclipse/eclipse.jdt.ls
 curl https://raw.githubusercontent.com/eruizc-dev/jdtls-launcher/master/install.sh | bash
 
 sudo snap install docker
