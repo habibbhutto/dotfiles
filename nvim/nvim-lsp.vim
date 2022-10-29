@@ -66,6 +66,11 @@ require('lspconfig')['tsserver'].setup{
 }
 
 -- Java Language Server
+-- It's the combination of the 
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jdtls 
+-- and https://github.com/mfussenegger/nvim-jdtls/blob/master/lua/jdtls/setup.lua#L239-L259
+-- and https://github.com/mfussenegger/nvim-jdtls/blob/master/lua/jdtls.lua#L595-L607 
+-- and https://github.com/eruizc-dev/jdtls-launcher#editor-configuration
 local lsp = vim.lsp;
 local offset_encoding = 'utf-16';
 local capabilities = lsp.protocol.make_client_capabilities()
@@ -106,6 +111,19 @@ require('lspconfig')['jdtls'].setup{
     autostart = false,
     on_attach = on_attach,
     flags = lsp_flags,
+    root_dir = function (fname)
+        -- The idea is to have one client per mono-repo
+        return require'lspconfig'.util.root_pattern(
+                '.git', -- Git repo
+                -- Multi-module projects
+                'mvnw', -- Maven
+                'gradlew', -- Gradle
+                'settings.gradle', -- Gradle
+                'settings.gradle.kts' -- Gradle
+            )(fname)
+            or
+            vim.fn.getcwd()
+    end,
     capabilities = capabilities,
     init_options = {
         extendedClientCapabilities = extendedClientCapabilities,

@@ -1,12 +1,13 @@
+-- https://github.com/mfussenegger/nvim-jdtls#Configuration-verbose
 local M = {}
 
 function M.setup()
-    local on_attach = function(client, bufnr)
-      require'jdtls.setup'.add_commands()
-      require'jdtls'.setup_dap()
-      require'lsp-status'.register_progress()
-      require'compe'.setup {
-          enabled = true;
+    local on_attach = ftion(client, bufnr)
+      require'jdtls.set.add_commands()
+      require'jdtls'.se_dap()
+      require'lsp-staturegister_progress()
+      require'compe'.se {
+          enabled = tru
           autocomplete = true;
           debug = false;
           min_length = 1;
