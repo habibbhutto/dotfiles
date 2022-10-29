@@ -55,6 +55,8 @@ git config --global user.email $GIT_USER_EMAIL
 sudo apt -y install \
 	gcc \
 	g++ \
+    clang \
+    clangd \
 	make \
 	cmake \
 	python3 \
