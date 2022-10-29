@@ -37,6 +37,13 @@ local lsp_flags = {
   debounce_text_changes = 100,
 }
 
+-- Clangd Language Server
+require('lspconfig')['clangd'].setup{
+    autostart = false,
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+
 -- Go Language Server
 require('lspconfig')['gopls'].setup{
     autostart = false,
