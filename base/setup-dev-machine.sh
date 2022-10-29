@@ -63,6 +63,7 @@ sudo apt -y install \
 	yarn
 
 sudo snap install gopls --classic
+sudo snap install pyright --classic
 
 ## Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -79,9 +80,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-nvm install v12
-nvm use v12
+nvm install v18
+nvm use v18
 curl -fsSL https://get.pnpm.io/install.sh | sh -
+pnpm install -g typescript-language-server typescript
 
 sudo snap install universal-ctags
 
@@ -137,6 +139,9 @@ curl -s "https://get.sdkman.io" | bash
 source "/home/$USER/.sdkman/bin/sdkman-init.sh"
 
 sdk install java 22.2.r17-nik
+
+# Install Java Language Server
+curl https://raw.githubusercontent.com/eruizc-dev/jdtls-launcher/master/install.sh | bash
 
 sudo snap install docker
 
