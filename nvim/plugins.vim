@@ -11,13 +11,19 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
 
+  " LSP
   Plug 'neovim/nvim-lspconfig'
   Plug 'mfussenegger/nvim-jdtls'
-  Plug 'williamboman/mason.nvim'
-  Plug 'williamboman/mason-lspconfig.nvim'
+
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'saadparwaiz1/cmp_luasnip'
+  Plug 'L3MON4D3/LuaSnip'
+  Plug 'rafamadriz/friendly-snippets'
+  Plug 'petertriho/cmp-git'
+
   Plug 'mfussenegger/nvim-dap'
   Plug 'jose-elias-alvarez/null-ls.nvim'
-
   " Tree-sitter
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-treesitter/nvim-treesitter-refactor'
