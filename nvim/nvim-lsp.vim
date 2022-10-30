@@ -214,10 +214,10 @@ cmp.setup {
       luasnip.lsp_expand(args.body)
     end,
   },
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
-  },
+--window = {
+--  completion = cmp.config.window.bordered(),
+--  documentation = cmp.config.window.bordered(),
+--},
   mapping = cmp.mapping.preset.insert({
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -246,29 +246,34 @@ cmp.setup {
       end
     end, { 'i', 's' }),
   }),
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = 'path' },
-    { name = 'buffer' },
-  },
+  sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        { name = 'path' },
+        { name = 'nvim_lsp_signature_help' },
+        { name = 'git' },
+    }, {
+--        { name = 'buffer' },
+    }),
 }
 
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    { name = 'git' }, -- You can specify the `cmp_git` source if you were installed it.
   }, {
-    { name = 'buffer' },
+--    { name = 'buffer' },
   })
 })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  }
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp_document_symbol' }
+  }, {
+ --   { name = 'buffer' }
+  })
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
@@ -281,7 +286,7 @@ cmp.setup.cmdline(':', {
   })
 })
 
-----------------------------------------
+---------------------------
 -- cmp_git configuration --
 ---------------------------
 local format = require("cmp_git.format")
@@ -289,7 +294,7 @@ local sort = require("cmp_git.sort")
 
 require("cmp_git").setup({
     -- defaults
-    filetypes = { "gitcommit", "octo" },
+    filetypes = { "gitcommit", "octo", "*" },
     remotes = { "upstream", "origin" }, -- in order of most to least prioritized
 -- enable git url rewrites, 
 -- see https://git-scm.com/docs/git-config#Documentation/git-config.txt-urlltbasegtinsteadOf
@@ -306,7 +311,7 @@ require("cmp_git").setup({
             fields = { "title", "number", "body", "updatedAt", "state" },
             filter = "all", -- assigned, created, mentioned, subscribed, all, repos
             limit = 100,
-            state = "open", -- open, closed, all
+            state = "all", -- open, closed, all
             sort_by = sort.github.issues,
             format = format.github.issues,
         },
@@ -318,7 +323,7 @@ require("cmp_git").setup({
         pull_requests = {
             fields = { "title", "number", "body", "updatedAt", "state" },
             limit = 100,
-            state = "open", -- open, closed, merged, all
+            state = "all", -- open, closed, merged, all
             sort_by = sort.github.pull_requests,
             format = format.github.pull_requests,
         },
@@ -326,7 +331,7 @@ require("cmp_git").setup({
     gitlab = {
         issues = {
             limit = 100,
-            state = "opened", -- opened, closed, all
+            state = "all", -- opened, closed, all
             sort_by = sort.gitlab.issues,
             format = format.gitlab.issues,
         },
@@ -337,7 +342,7 @@ require("cmp_git").setup({
         },
         merge_requests = {
             limit = 100,
-            state = "opened", -- opened, closed, locked, merged
+            state = "all", -- opened, closed, locked, merged
             sort_by = sort.gitlab.merge_requests,
             format = format.gitlab.merge_requests,
         },

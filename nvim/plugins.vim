@@ -17,6 +17,11 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+  Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
+  Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/cmp-buffer'
   Plug 'saadparwaiz1/cmp_luasnip'
   Plug 'L3MON4D3/LuaSnip'
   Plug 'rafamadriz/friendly-snippets'
@@ -27,6 +32,7 @@ call plug#begin('~/.vim/plugged')
   " Tree-sitter
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-treesitter/nvim-treesitter-refactor'
+  Plug 'nvim-treesitter/nvim-treesitter-context'
 
   " Telescope
   Plug 'nvim-lua/plenary.nvim'
