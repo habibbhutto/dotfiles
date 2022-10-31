@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/.plugged')
   Plug 'sonph/onehalf', { 'rtp': 'vim' }
   Plug 'sainnhe/everforest'
   Plug 'morhetz/gruvbox'

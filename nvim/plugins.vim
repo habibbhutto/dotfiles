@@ -1,4 +1,4 @@
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.config/nvim/.plugged')
   Plug 'morhetz/gruvbox'
   Plug 'sainnhe/gruvbox-material'
   Plug 'yuttie/inkstained-vim'
