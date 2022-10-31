@@ -4,6 +4,7 @@ vim.cmd([[
     autocmd VimEnter * lua require('telescope-config')
     autocmd VimEnter * lua require('treesitter')
     autocmd VimEnter * lua require('nvim-lsp')
+    autocmd VimEnter * lua require'colorizer'.setup()
 ]]);
 
 vim.cmd 'source ~/vim-fiddle/nvim/plugins.vim'

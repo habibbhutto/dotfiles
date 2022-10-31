@@ -44,5 +44,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'nvim-telescope/telescope-symbols.nvim'
 
   Plug 'nvim-lua/plenary.nvim'
+
+  " Design tools
+    Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
