@@ -1,5 +1,16 @@
 vim.cmd([[ set completeopt=menu,menuone,noselect ]])
 
+-- configure this later
+-- require("null-ls").setup({
+--     sources = {
+--         require("null-ls").builtins.code_actions.eslint,
+--         require("null-ls").builtins.formatting.eslint,
+--         require("null-ls").builtins.diagnostics.eslint,
+--         require("null-ls").builtins.completion.spell,
+--         require("null-ls").builtins.hover.dictionary,
+--     },
+-- })
+--
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
