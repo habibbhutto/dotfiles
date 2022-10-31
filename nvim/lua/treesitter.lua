@@ -1,4 +1,3 @@
-lua << EOF
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
   ensure_installed = { "c", "lua", "rust", "java", "javascript", "typescript", "cpp" },
@@ -58,18 +57,19 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 }
-EOF
 
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
+vim.cmd([[
+    set foldmethod=expr
+    set foldexpr=nvim_treesitter#foldexpr()
+]])
 
-" set foldmethod=indent
-" set foldexpr=indent()
-
-"  {
-"    indicator_size = 100,
-"    type_patterns = {'class', 'function', 'method'},
-"    transform_fn = function(line) return line:gsub('%s*[%[%(%{]*%s*$', '') end,
-"    separator = ' -> '
-"  }
-" echo nvim_treesitter#statusline({})
+-- set foldmethod=indent
+-- set foldexpr=indent()
+--
+--  {
+--    indicator_size = 100,
+--    type_patterns = {'class', 'function', 'method'},
+--    transform_fn = function(line) return line:gsub('%s*[%[%(%{]*%s*$', '') end,
+--    separator = ' -> '
+--  }
+-- echo nvim_treesitter#statusline({})

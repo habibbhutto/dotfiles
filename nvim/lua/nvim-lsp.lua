@@ -1,6 +1,5 @@
-set completeopt=menu,menuone,noselect
+vim.cmd([[ set completeopt=menu,menuone,noselect ]])
 
-lua <<EOF
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -393,4 +392,3 @@ require("cmp_git").setup({
     },
   }
 )
-EOF

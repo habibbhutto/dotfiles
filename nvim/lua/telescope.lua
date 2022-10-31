@@ -1,4 +1,3 @@
-lua << EOF
 require('telescope').setup{
     defaults = {
       layout_strategy = 'vertical',
@@ -17,6 +16,4 @@ require('telescope').setup{
       }
     },
   }
-EOF
-
 
