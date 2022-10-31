@@ -1,4 +1,4 @@
-" Tuning defaults to my preferences
+" Customize the defaults
 set nocompatible
 filetype on
 filetype plugin on
