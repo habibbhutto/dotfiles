@@ -292,7 +292,9 @@ cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
     { name = 'path' }
   }, {
-    { name = 'cmdline' }
+    -- https://github.com/hrsh7th/cmp-cmdline/issues/24
+    -- keyword_pattern=[=[[^[:blank:]\!]*]=], keyword_length=5
+    { name = 'cmdline',  }
   })
 })
 
