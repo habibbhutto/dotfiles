@@ -7,8 +7,10 @@ syntax on
 set number
 set relativenumber
 set cursorline
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
+" set colorcolumn=80
+set textwidth=80
 set expandtab
 set nobackup
 set writebackup
@@ -99,3 +101,7 @@ let g:netrw_winsize = 25
 "   autocmd!
 "   autocmd VimEnter * :Vexplore
 " augroup END
+
+" TODO: Send the prettier output to locallist
+autocmd BufWritePost *.ts,*.js,*.json,*.yaml,*.yml,*.prettierrc :!$(pnpm bin)/prettier --write %
+

@@ -1,9 +1,12 @@
 call plug#begin('~/.config/nvim/.plugged')
-  Plug 'morhetz/gruvbox'
   Plug 'sainnhe/gruvbox-material'
   Plug 'yuttie/inkstained-vim'
-  Plug 'arcticicestudio/nord-vim'
-  Plug 'EdenEast/nightfox.nvim'
+  Plug 'shaunsingh/nord.nvim'
+  Plug 'rktjmp/lush.nvim'
+  Plug 'mcchrish/zenbones.nvim'
+  " Plug 'EdenEast/nightfox.nvim'
+  Plug 'Th3Whit3Wolf/one-nvim'
+  Plug 'felipevolpone/mono-theme'
 
   Plug 'junegunn/fzf.vim'
       Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -46,6 +49,6 @@ call plug#begin('~/.config/nvim/.plugged')
   Plug 'nvim-lua/plenary.nvim'
 
   " Design tools
-    Plug 'norcalli/nvim-colorizer.lua'
+  Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
