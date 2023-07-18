@@ -4,8 +4,8 @@ filetype on
 filetype plugin on
 filetype indent on
 syntax on
-set number
-set relativenumber
+set nonumber
+set norelativenumber
 set cursorline
 set shiftwidth=2
 set tabstop=2
@@ -16,6 +16,7 @@ set nobackup
 set writebackup
 set autoread
 set noswapfile
+set splitright
 set scrolloff=4
 set wrap
 set incsearch
@@ -33,7 +34,7 @@ set ttyfast
 set signcolumn=yes
 set encoding=utf-8
 set timeout timeoutlen=500 ttimeoutlen=30
-set cmdheight=1
+set cmdheight=2
 set cmdwinheight=10
 
 " I guess, this setup for clipboard would work almost everywhere
@@ -103,5 +104,10 @@ let g:netrw_winsize = 25
 " augroup END
 
 " TODO: Send the prettier output to locallist
-autocmd BufWritePost *.ts,*.js,*.json,*.yaml,*.yml,*.prettierrc :!$(pnpm bin)/prettier --write %
+autocmd BufWritePost *.ts,*.js,*.json :!prettier --write %
+autocmd BufWritePost *.yaml,*.yml,*.prettierrc :!prettier --write %
+autocmd BufWritePost *.html,*.htm,*.css :!prettier --write %
+autocmd BufWritePost *.jsx,*.lcss,*.less,*.scss :!prettier --write %
+
+autocmd BufReadPost,FileReadPost * normal zR
 

@@ -1,6 +1,7 @@
 vim.cmd([[ set completeopt=menu,menuone,noselect ]])
 
 -- configure this later
+-- https://dev.to/elvessousa/taking-neovim-to-the-moon-274g
 -- require("null-ls").setup({
 --     sources = {
 --         require("null-ls").builtins.code_actions.eslint,
@@ -30,14 +31,14 @@ local on_attach = function(client, bufnr)
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gK', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
+  -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  -- vim.keymap.set('n', '<space>wl', function()
+  --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  -- end, bufopts)
   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
@@ -263,7 +264,7 @@ cmp.setup {
         { name = 'nvim_lsp_signature_help' },
         { name = 'git' },
     }, {
---        { name = 'buffer' },
+        { name = 'buffer' },
     }),
 }
 
@@ -272,7 +273,7 @@ cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources({
     { name = 'git' }, -- You can specify the `cmp_git` source if you were installed it.
   }, {
---    { name = 'buffer' },
+    { name = 'buffer' },
   })
 })
 
@@ -282,7 +283,7 @@ cmp.setup.cmdline({ '/', '?' }, {
   sources = cmp.config.sources({
     { name = 'nvim_lsp_document_symbol' }
   }, {
- --   { name = 'buffer' }
+    { name = 'buffer' }
   })
 })
 

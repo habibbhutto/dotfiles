@@ -4,9 +4,7 @@ call plug#begin('~/.config/nvim/.plugged')
   Plug 'shaunsingh/nord.nvim'
   Plug 'rktjmp/lush.nvim'
   Plug 'mcchrish/zenbones.nvim'
-  " Plug 'EdenEast/nightfox.nvim'
-  Plug 'Th3Whit3Wolf/one-nvim'
-  Plug 'felipevolpone/mono-theme'
+  Plug 'EdenEast/nightfox.nvim'
 
   Plug 'junegunn/fzf.vim'
       Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -15,6 +13,7 @@ call plug#begin('~/.config/nvim/.plugged')
       Plug 'airblade/vim-gitgutter'
 
   " LSP
+  Plug 'sbdchd/neoformat'
   Plug 'neovim/nvim-lspconfig'
       Plug 'mfussenegger/nvim-jdtls'
       Plug 'jose-elias-alvarez/null-ls.nvim'
@@ -52,3 +51,7 @@ call plug#begin('~/.config/nvim/.plugged')
   Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre * undojoin | Neoformat
+" augroup END

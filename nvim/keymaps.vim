@@ -47,6 +47,7 @@ nnoremap Y y$
 nnoremap O O<Esc>
 nnoremap o o<Esc>
 
+" Switch window focus
 " in terminal mode
 tnoremap <silent> <leader><leader> <C-\><C-n>
 tnoremap <silent> <M-S-h> <C-\><C-n><C-w>h
@@ -64,7 +65,7 @@ nnoremap <silent> <M-S-j> <c-w>j
 nnoremap <silent> <M-S-k> <c-w>k
 nnoremap <silent> <M-S-l> <c-w>l
 
-" Focus and maximize windows automatically
+" Switch window focus and maximize windows
 " in normal mode
 noremap <silent> <M-k> <c-w>k<c-w>_
 noremap <silent> <M-j> <c-w>j<c-w>_
@@ -100,6 +101,6 @@ noremap <M-up> :m -2<cr>
 noremap <M-down> :m +1<cr>
 
 " Save current buffer
-nnoremap <C-s> <cmd>w<cr>
+nnoremap <leader>w <cmd>w<cr>
 inoremap <C-s> <cmd>w<cr>
 

@@ -3,6 +3,9 @@ set termguicolors
 set t_Co=256
 
 let g:gruvbox_material_better_performance = 1
+let g:gruvbox_material_background = 'hard'
+
+let g:zenbones_italic_comments = v:false
 
 set background=dark
 colorscheme zenwritten

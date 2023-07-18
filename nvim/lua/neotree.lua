@@ -136,8 +136,8 @@ default_component_configs = {
   git_status = {
     symbols = {
       -- Change type
-      added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-      modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
+      added     = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
+      modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
       deleted   = "✖",-- this can only be used in the git_status source
       renamed   = "",-- this can only be used in the git_status source
       -- Status type
@@ -176,7 +176,7 @@ window = {
     --["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
     ["C"] = "close_node",
     ["z"] = "close_all_nodes",
-    --["Z"] = "expand_all_nodes",
+    ["Z"] = "expand_all_nodes",
     ["a"] = { 
       "add",
       -- some commands may take optional config options, see `:h neo-tree-mappings` for details
