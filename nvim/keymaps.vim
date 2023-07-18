@@ -67,31 +67,31 @@ nnoremap <silent> <M-S-l> <c-w>l
 
 " Switch window focus and maximize windows
 " in normal mode
-noremap <silent> <M-k> <c-w>k<c-w>_
-noremap <silent> <M-j> <c-w>j<c-w>_
-noremap <silent> <M-h> <c-w>h<c-w><Bar>
-noremap <silent> <M-l> <c-w>l<c-w><Bar>
+noremap <silent> <M-k> <c-w>k:resize<cr>
+noremap <silent> <M-j> <c-w>j:resize<cr>
+noremap <silent> <M-h> <c-w>h:vert resize<cr>
+noremap <silent> <M-l> <c-w>l:vert resize<cr>
 " in insert mode
-inoremap <silent> <M-k> <C-\><C-n><c-w>k<c-w>_
-inoremap <silent> <M-j> <C-\><C-n><c-w>j<c-w>_
-inoremap <silent> <M-h> <C-\><C-n><c-w>h<c-w><Bar>
-inoremap <silent> <M-l> <C-\><C-n><c-w>l<c-w><Bar>
+inoremap <silent> <M-k> <C-\><C-n><c-w>k:resize<cr>
+inoremap <silent> <M-j> <C-\><C-n><c-w>j:resize<cr>
+inoremap <silent> <M-h> <C-\><C-n><c-w>h:vert resize<cr>
+inoremap <silent> <M-l> <C-\><C-n><c-w>l:vert resize<cr>
 " in terminal mode
-tnoremap <silent> <M-k> <C-\><C-n><C-w>k<c-w>_
-tnoremap <silent> <M-j> <C-\><C-n><C-w>j<c-w>_
-tnoremap <silent> <M-h> <C-\><C-n><C-w>h<c-w><Bar>
-tnoremap <silent> <M-l> <C-\><C-n><C-w>l<c-w><Bar>
+tnoremap <silent> <M-k> <C-\><C-n><C-w>k:resize<cr>
+tnoremap <silent> <M-j> <C-\><C-n><C-w>j:resize<cr>
+tnoremap <silent> <M-h> <C-\><C-n><C-w>h:vert resize<cr>
+tnoremap <silent> <M-l> <C-\><C-n><C-w>l:vert resize<cr>
 
 " Resize windows
-noremap <silent> <C-down> <c-w>+
-noremap <silent> <C-up> <c-w>-
-noremap <silent> <C-right> <c-w>>
-noremap <silent> <C-left> <c-w><
+noremap <silent> <C-down> :resize +1<cr>
+noremap <silent> <C-up> :resize -1<cr>
+noremap <silent> <C-right> :vert resize +1<cr>
+noremap <silent> <C-left> :vert resize -1<cr>
 
-tnoremap <silent> <C-down> <c-w>+
-tnoremap <silent> <C-up> <c-w>-
-tnoremap <silent> <C-right> <c-w>>
-tnoremap <silent> <C-left> <c-w><
+tnoremap <silent> <C-down> :resize +1<cr>
+tnoremap <silent> <C-up> :resize -1<cr>
+tnoremap <silent> <C-right> :vert resize +1<cr>
+tnoremap <silent> <C-left> :vert resize -1<cr>
 
 " Start a terminal at the bottom
 noremap <silent> <leader>t :bot bel new<bar>term<cr>

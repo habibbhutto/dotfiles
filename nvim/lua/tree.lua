@@ -4,8 +4,8 @@ local WIDTH_RATIO = 0.5   -- You can change this too
 require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       auto_reload_on_write = true,
       disable_netrw = false,
-      hijack_cursor = false,
-      hijack_netrw = true,
+      hijack_cursor = true,
+      hijack_netrw = false,
       hijack_unnamed_buffer_when_opening = false,
       sort = {
         sorter = "name",
@@ -13,7 +13,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       },
       root_dirs = {},
       prefer_startup_root = false,
-      sync_root_with_cwd = false,
+      sync_root_with_cwd = true,
       reload_on_bufenter = false,
       respect_buf_cwd = false,
       on_attach = "default",
@@ -36,7 +36,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
           },
         },
         float = {
-          enable = true,
+          enable = false,
           open_win_config = function()
             local screen_w = vim.opt.columns:get()
             local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
@@ -62,16 +62,16 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         end,
       },
       renderer = {
-        add_trailing = false,
-        group_empty = false,
-        highlight_git = false,
+        add_trailing = true,
+        group_empty = true,
+        highlight_git = true,
         full_name = false,
         highlight_opened_files = "none",
         highlight_modified = "none",
         root_folder_label = ":~:s?$?/..?",
         indent_width = 2,
         indent_markers = {
-          enable = false,
+          enable = true,
           inline_arrows = true,
           icons = {
             corner = "└",
@@ -90,7 +90,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
           show = {
             file = true,
             folder = true,
-            folder_arrow = true,
+            folder_arrow = false,
             git = true,
             modified = true,
           },
@@ -128,7 +128,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         auto_open = true,
       },
       update_focused_file = {
-        enable = false,
+        enable = true,
         update_root = false,
         ignore_list = {},
       },
@@ -254,3 +254,5 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         },
       },
     } -- END_DEFAULT_OPTS
+
+require("nvim-tree.api").tree.open()

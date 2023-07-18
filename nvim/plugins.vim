@@ -38,10 +38,10 @@ call plug#begin('~/.config/nvim/.plugged')
       Plug 'ziontee113/syntax-tree-surfer'
 
   Plug 'nvim-tree/nvim-tree.lua'
-  Plug 'nvim-neo-tree/neo-tree.nvim'
+  " Plug 'nvim-neo-tree/neo-tree.nvim'
       Plug 'kyazdani42/nvim-web-devicons'
-      Plug 'MunifTanjim/nui.nvim'
-      Plug 's1n7ax/nvim-window-picker'
+  "    Plug 'MunifTanjim/nui.nvim'
+  "    Plug 's1n7ax/nvim-window-picker'
 
   " Search, sort and pick
   Plug 'nvim-telescope/telescope.nvim'
