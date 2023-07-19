@@ -36,6 +36,7 @@ set encoding=utf-8
 set timeout timeoutlen=500 ttimeoutlen=30
 set cmdheight=2
 set cmdwinheight=10
+set keywordprg=:help
 
 " I guess, this setup for clipboard would work almost everywhere
 " If it doesn't work well in some environment, I will find a way
@@ -110,4 +111,23 @@ autocmd BufWritePost *.html,*.htm,*.css :!prettier --write %
 autocmd BufWritePost *.jsx,*.lcss,*.less,*.scss :!prettier --write %
 
 autocmd BufReadPost,FileReadPost * normal zR
+
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        set noshowmode
+        set noruler
+        set laststatus=0
+        set noshowcmd
+        set cmdheight=1
+    else
+        let s:hidden_all = 0
+        set showmode
+        set ruler
+        set laststatus=2
+        set showcmd
+        set cmdheight=2
+    endif
+endfunction
 

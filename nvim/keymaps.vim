@@ -27,7 +27,7 @@ nnoremap <silent> <leader>ws yw :Rg<cr><cmd>put +<cr>
 nnoremap <silent> <leader>bs yw :BLines<cr><cmd>put +<cr>
 nnoremap <silent> <leader>tb :BTags<cr>
 
-nnoremap <silent> <space><space> :NvimTreeToggle<cr>
+nnoremap <silent> <space><space> :call StartupStuff()<bar>NvimTreeOpen<cr>
 nnoremap <silent> <space>g :Neotree focus float<cr>
 
 " Jump to next and previous method
