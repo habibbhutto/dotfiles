@@ -27,11 +27,12 @@ nnoremap <silent> <leader>ws yw :Rg<cr><cmd>put +<cr>
 nnoremap <silent> <leader>bs yw :BLines<cr><cmd>put +<cr>
 nnoremap <silent> <leader>tb :BTags<cr>
 
-nnoremap <silent> <space><space> :call StartupStuff()<bar>NvimTreeToggle<cr>
+nnoremap <silent> <space><space> :call StartupStuff()<bar>NvimTreeOpen<cr>
+nnoremap <silent> <space>f :call StartupStuff()<bar>NvimTreeToggle<cr>
 
 " Jump to next and previous method
-nnoremap <silent> <M-m> [m
-nnoremap <silent> m ]m
+nnoremap <silent> <M-S-m> [m
+nnoremap <silent> <M-m> ]m
 
 " Navigate lists
 nnoremap <silent> <C-n> :lnext<cr>zR
