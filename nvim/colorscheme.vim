@@ -18,4 +18,4 @@ highlight SignColumn ctermbg = NONE
 highlight LineNr ctermbg = NONE
 highlight CursorLineNr ctermbg = NONE
 
-" hi! VertSplit guifg=bg guibg=bg
+hi! VertSplit guifg=bg guibg=bg

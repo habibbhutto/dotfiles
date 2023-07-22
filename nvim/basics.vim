@@ -38,7 +38,7 @@ set cmdheight=2
 set cmdwinheight=10
 set keywordprg=:help
 
-let &fillchars = 'eob: '
+let &fillchars = 'vert:│,eob: '
 
 " I guess, this setup for clipboard would work almost everywhere
 " If it doesn't work well in some environment, I will find a way
