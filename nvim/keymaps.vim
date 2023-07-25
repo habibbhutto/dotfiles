@@ -88,15 +88,15 @@ noremap <silent> <C-up> :resize -1<cr>
 noremap <silent> <C-right> :vert resize +1<cr>
 noremap <silent> <C-left> :vert resize -1<cr>
 
-tnoremap <silent> <C-down> :resize +1<cr>
-tnoremap <silent> <C-up> :resize -1<cr>
-tnoremap <silent> <C-right> :vert resize +1<cr>
-tnoremap <silent> <C-left> :vert resize -1<cr>
+tnoremap <silent> <C-down> <C-\><C-n>:resize +1<cr>
+tnoremap <silent> <C-up> <C-\><C-n>:resize -1<cr>
+tnoremap <silent> <C-right> <C-\><C-n>:vert resize +1<cr>
+tnoremap <silent> <C-left> <C-\><C-n>:vert resize -1<cr>
 
-inoremap <silent> <PageUp> <C-\><C-n><PageUp>
-inoremap <silent> <PageDown> <C-\><C-n><PageDown>
-tnoremap <silent> <PageUp> <C-\><C-n><PageUp>
-tnoremap <silent> <PageDown> <C-\><C-n><PageDown>
+inoremap <silent> <M-PageUp> <C-\><C-n><PageUp>
+inoremap <silent> <M-PageDown> <C-\><C-n><PageDown>
+tnoremap <silent> <M-PageUp> <C-\><C-n><PageUp>
+tnoremap <silent> <M-PageDown> <C-\><C-n><PageDown>
 
 " Start a terminal at the bottom
 noremap <silent> <leader>t :bot bel new<bar>term<cr>
