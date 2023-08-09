@@ -79,9 +79,9 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       on_attach = on_attach,
       auto_reload_on_write = true,
       disable_netrw = true,
-      hijack_cursor = true,
       hijack_netrw = true,
-      hijack_unnamed_buffer_when_opening = true,
+      hijack_cursor = true,
+      hijack_unnamed_buffer_when_opening = false,
       sort = {
         sorter = "name",
         folders_first = true,
@@ -89,13 +89,13 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       root_dirs = {},
       prefer_startup_root = true,
       sync_root_with_cwd = true,
-      reload_on_bufenter = false,
+      reload_on_bufenter = true,
       respect_buf_cwd = false,
       remove_keymaps = false,
       select_prompts = false,
       hijack_directories = {
-        enable = true,
-        auto_open = true,
+        enable = false,
+        auto_open = false,
       },
       update_focused_file = {
         enable = true,
@@ -170,7 +170,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         },
         icons = {
           webdev_colors = true,
-          git_placement = "after",
+          git_placement = "before",
           modified_placement = "after",
           padding = " ",
           symlink_arrow = " ➛ ",
