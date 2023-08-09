@@ -1,10 +1,10 @@
 let s:startup_done = 0
-function! StartupStuff()
+function! Startup()
     if s:startup_done  == 0
-      lua require('tree')
-      lua require('treesitter')
+      " lua require('tree')
+      " lua require('treesitter')
       lua require('telescope-config')
       lua require('nvim-lsp')
-      lua require'colorizer'.setup()
+      let s:startup_done = 1
     endif
 endfunction

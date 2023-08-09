@@ -1,5 +1,6 @@
 let mapleader = ","
-nnoremap <silent> <leader>c :nohlsearch<CR>
+
+nnoremap <silent> <leader><leader> :nohlsearch<CR>
 
 " Telescope
 nnoremap <silent> <leader>tl :Telescope<cr>
@@ -27,8 +28,9 @@ nnoremap <silent> <leader>ws yw :Rg<cr><cmd>put +<cr>
 nnoremap <silent> <leader>bs yw :BLines<cr><cmd>put +<cr>
 nnoremap <silent> <leader>tb :BTags<cr>
 
-nnoremap <silent> <space><space> :call StartupStuff()<bar>NvimTreeOpen<cr>
-nnoremap <silent> <space>f :call StartupStuff()<bar>NvimTreeToggle<cr>
+" nnoremap <silent> <space><space> :call StartupStuff()<bar>NvimTreeOpen<cr>
+" nnoremap <silent> <space>f :call StartupStuff()<bar>NvimTreeToggle<cr>
+nnoremap <silent> <space><space> :call Startup()<bar>NvimTreeToggle<cr>
 
 " Jump to next and previous method
 nnoremap <silent> <M-S-m> [m
@@ -49,7 +51,7 @@ nnoremap o o<Esc>
 
 " Switch window focus
 " in terminal mode
-tnoremap <silent> <leader><leader> <C-\><C-n>
+tnoremap <silent> <leader><leader> <C-\><C-n>:nohlsearch<CR>
 tnoremap <silent> <M-h> <C-\><C-n><C-w>h
 tnoremap <silent> <M-j> <C-\><C-n><C-w>j
 tnoremap <silent> <M-k> <C-\><C-n><C-w>k

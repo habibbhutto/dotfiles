@@ -1,6 +1,5 @@
 call plug#begin('~/.config/nvim/.plugged')
   Plug 'sainnhe/gruvbox-material'
-  Plug 'yuttie/inkstained-vim'
   Plug 'shaunsingh/nord.nvim'
   Plug 'rktjmp/lush.nvim'
   Plug 'mcchrish/zenbones.nvim'
@@ -32,13 +31,13 @@ call plug#begin('~/.config/nvim/.plugged')
   Plug 'mfussenegger/nvim-dap'
 
   " Tree-sitter
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate'}
       Plug 'nvim-treesitter/nvim-treesitter-refactor'
       Plug 'nvim-treesitter/nvim-treesitter-context'
-      " Plug 'ziontee113/syntax-tree-surfer'
+      Plug 'ziontee113/syntax-tree-surfer'
 
   Plug 'nvim-tree/nvim-tree.lua'
-  " Plug 'nvim-neo-tree/neo-tree.nvim'
+  " Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v3.x'}
       Plug 'kyazdani42/nvim-web-devicons'
   "    Plug 'MunifTanjim/nui.nvim'
   "    Plug 's1n7ax/nvim-window-picker'

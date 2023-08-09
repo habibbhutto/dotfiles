@@ -2,20 +2,23 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 set t_Co=256
 
-let g:gruvbox_material_better_performance = 1
-let g:gruvbox_material_background = 'hard'
+lua require'colorizer'.setup()
 
-let g:zenbones_italic_comments = v:false
+function! OnColorSchemeChange()
+  hi! VertSplit guibg=bg ctermbg=NONE
+"  let &fillchars = 'vert:│,eob: '
+  highlight SignColumn guibg=bg ctermbg=NONE
+  highlight LineNr guibg=bg ctermbg=NONE
+  highlight CursorLineNr guibg=bg ctermbg=NONE
+endfunction
+
+autocmd ColorScheme * call OnColorSchemeChange()
+
+let g:gruvbox_material_foreground='original'
+let g:gruvbox_material_background='medium'
+let g:gruvbox_material_better_performance=1
 
 set background=dark
 colorscheme zenwritten
 
-let g:gitgutter_override_sign_column_highlight = 1
-highlight SignColumn guibg = bg
-highlight LineNr guibg = bg
-highlight CursorLineNr guibg = bg
-highlight SignColumn ctermbg = NONE
-highlight LineNr ctermbg = NONE
-highlight CursorLineNr ctermbg = NONE
-
-hi! VertSplit guifg=bg guibg=bg
+call OnColorSchemeChange()

@@ -37,8 +37,7 @@ set timeout timeoutlen=500 ttimeoutlen=30
 set cmdheight=2
 set cmdwinheight=10
 set keywordprg=:help
-
-let &fillchars = 'vert:│,eob: '
+set updatetime=100
 
 " I guess, this setup for clipboard would work almost everywhere
 " If it doesn't work well in some environment, I will find a way
@@ -83,28 +82,18 @@ let g:clipboard = {
 "       \}
 " unlet s:win32yank
 "
-" In case I am in need of cursorcolumn later
-" set cursorcolumn
-" augroup cursor_off
-"     autocmd!
-"     autocmd WinLeave * set nocursorcolumn
-"     autocmd WinEnter * set cursorline cursorcolumn
-" augroup END
-" autocmd InsertEnter,InsertLeave * set cul! cuc!
-
-" Update sign column every quarter second
-set updatetime=100
+augroup cursor_off
+    autocmd!
+    autocmd WinLeave * set nocursorcolumn
+    autocmd WinEnter * set cursorline
+augroup END
+autocmd InsertEnter,InsertLeave * set cul! cuc!
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 0
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
-
-" augroup ProjectDrawer
-"   autocmd!
-"   autocmd VimEnter * :Vexplore
-" augroup END
 
 " TODO: Send the prettier output to locallist
 autocmd BufWritePost *.ts,*.js,*.json :!prettier --write %
@@ -115,7 +104,7 @@ autocmd BufWritePost *.jsx,*.lcss,*.less,*.scss :!prettier --write %
 autocmd BufReadPost,FileReadPost * normal zR
 
 let s:hidden_all = 0
-function! ToggleHiddenAll()
+function! ToggleFocusMode()
     if s:hidden_all  == 0
         let s:hidden_all = 1
         set noshowmode
