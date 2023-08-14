@@ -14,11 +14,11 @@ endfunction
 
 autocmd ColorScheme * call OnColorSchemeChange()
 
-let g:gruvbox_material_foreground='original'
+let g:gruvbox_material_foreground='mix'
 let g:gruvbox_material_background='medium'
 let g:gruvbox_material_better_performance=1
 
 set background=dark
-colorscheme zenwritten
+colorscheme gruvbox-material
 
 call OnColorSchemeChange()
