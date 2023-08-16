@@ -4,8 +4,8 @@ filetype on
 filetype plugin on
 filetype indent on
 syntax on
-set nonumber
-set norelativenumber
+set number
+set relativenumber
 set cursorline
 set shiftwidth=2
 set tabstop=2
@@ -34,7 +34,7 @@ set ttyfast
 set signcolumn=yes
 set encoding=utf-8
 set timeout timeoutlen=500 ttimeoutlen=30
-set cmdheight=2
+set cmdheight=1
 set cmdwinheight=10
 set keywordprg=:help
 set updatetime=100
@@ -89,12 +89,6 @@ augroup cursor_off
 augroup END
 autocmd InsertEnter,InsertLeave * set cul! cuc!
 
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 0
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
-
 " TODO: Send the prettier output to locallist
 autocmd BufWritePost *.ts,*.js,*.json :!prettier --write %
 autocmd BufWritePost *.yaml,*.yml,*.prettierrc :!prettier --write %
@@ -122,3 +116,36 @@ function! ToggleFocusMode()
     endif
 endfunction
 
+" netrw cofig
+let g:netrw_banner = 0
+let g:netrw_preview   = 1
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 0
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+let g:netrw_keepdir = 0
+let g:netrw_localcopydircmd = 'cp -r'
+
+hi! link netrwMarkFile Search
+
+
+function! NetrwMapping()
+  nmap <buffer> o <CR>
+
+  nmap <buffer> . cd
+  nmap <buffer> P <C-w>z
+
+  nmap <buffer> <silent> <nowait> <BS>  <Plug>NetrwTreeSqueeze
+
+  nmap <buffer> <TAB> mf
+  nmap <buffer> <S-TAB> mF
+  nmap <buffer> <Leader><TAB> mu
+endfunction
+
+augroup netrw_mapping
+  autocmd!
+  autocmd filetype netrw call NetrwMapping()
+augroup END
+
+nnoremap <leader>d :Lexplore %:p:h<CR>
+nnoremap <Leader>da :Lexplore<CR>
