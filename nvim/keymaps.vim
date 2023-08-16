@@ -30,7 +30,7 @@ nnoremap <silent> <leader>tb :BTags<cr>
 
 " nnoremap <silent> <space><space> :call StartupStuff()<bar>NvimTreeOpen<cr>
 " nnoremap <silent> <space>f :call StartupStuff()<bar>NvimTreeToggle<cr>
-nnoremap <silent> <space><space> :call Startup()<bar>NvimTreeToggle<cr>
+nnoremap <silent> <space><space> :call Startup()<BAR>NvimTreeToggle<CR>
 
 " Jump to next and previous method
 nnoremap <silent> <M-S-m> [m
