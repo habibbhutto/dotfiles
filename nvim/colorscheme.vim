@@ -1,6 +1,5 @@
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
-set t_Co=256
 
 lua require'colorizer'.setup()
 
