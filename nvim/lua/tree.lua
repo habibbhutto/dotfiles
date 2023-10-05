@@ -91,7 +91,6 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       sync_root_with_cwd = true,
       reload_on_bufenter = true,
       respect_buf_cwd = false,
-      remove_keymaps = false,
       select_prompts = false,
       hijack_directories = {
         enable = false,
@@ -110,18 +109,11 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         centralize_selection = true,
         cursorline = true,
         debounce_delay = 15,
-        hide_root_folder = false,
         side = "left",
         preserve_window_proportions = true,
         number = false,
         relativenumber = false,
         signcolumn = "yes",
-        mappings = {
-          custom_only = false,
-          list = {
-            -- user mappings go here
-          },
-        },
         float = {
           enable = false,
           open_win_config = function()
@@ -329,4 +321,4 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       },
     } -- END_DEFAULT_OPTS
 
-require("nvim-tree.api").tree.open()
+-- require("nvim-tree.api").tree.open()
