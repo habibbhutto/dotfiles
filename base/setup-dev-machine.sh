@@ -37,9 +37,7 @@ sudo apt -y install apt-transport-https \
     tar
 
 # Code editors
-wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb -P ~/
-sudo apt -y install ~/nvim-linux64.deb
-rm ~/nvim-linux64.deb
+sudo snap install nvim
 
 sudo apt -y install vim \
 	"fd-find" \
@@ -48,7 +46,7 @@ sudo apt -y install vim \
 
 # Version control
 sudo apt -y install git gh
-git config --global user.name $GIT_USER_NAME
+git config --global user.name "$GIT_USER_NAME"
 git config --global user.email $GIT_USER_EMAIL
 
 # Programming languages and compilers
@@ -74,7 +72,10 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 # https://github.com/rust-lang/rust-analyzer
 sudo snap install rust-analyzer --beta
 
+
 ## nodejs
+sudo snap install node
+
 sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 echo "export NVM_DIR="$HOME/.nvm"" >> ~/.bashrc
 echo "[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm"  >> ~/.bashrc
@@ -89,7 +90,7 @@ nvm install v18
 nvm use v18
 curl -fsSL https://get.pnpm.io/install.sh | sh -
 # https://github.com/typescript-language-server/typescript-language-server#installing
-pnpm install -g typescript-language-server typescript
+pnpm install -g typescript-language-server typescript nodmon
 
 sudo snap install universal-ctags
 
@@ -139,7 +140,6 @@ lxd init --auto
 sudo snap install microk8s --classic
 sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER ~/.kube
-su - $USER
 
 curl -s "https://get.sdkman.io" | bash
 source "/home/$USER/.sdkman/bin/sdkman-init.sh"
@@ -160,7 +160,7 @@ rm ~/skaffold
 sudo snap install helm --classic
 
 curl -sS https://starship.rs/install.sh | sh
-echo "eval "$(starship init bash)"" >> ~/.bashrc
-ehco "set -o vi" >> ~/.bashrc
+echo ""eval "$(starship init bash)""" >> ~/.bashrc
+echo "set -o emacs" >> ~/.bashrc
 cp shell/starship.toml ~/.config/starship.toml
 
