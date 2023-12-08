@@ -4,9 +4,9 @@ filetype on
 filetype plugin on
 filetype indent on
 syntax on
-set number
-set relativenumber
-set cursorline
+" set number
+" set relativenumber
+" set cursorline
 set shiftwidth=2
 set tabstop=2
 " set colorcolumn=80
@@ -23,8 +23,8 @@ set incsearch
 set ignorecase
 set smartcase
 set showcmd
-set showmode
-set showmatch
+set noshowmode
+" set showmatch
 set hlsearch
 set history=1000
 set wildmenu
@@ -38,6 +38,8 @@ set cmdheight=1
 set cmdwinheight=10
 set keywordprg=:help
 set updatetime=100
+set foldmethod=indent
+set laststatus=0
 
 " I guess, this setup for clipboard would work almost everywhere
 " If it doesn't work well in some environment, I will find a way
@@ -84,10 +86,10 @@ let g:clipboard = {
 "
 augroup cursor_off
     autocmd!
-    autocmd WinLeave * set nocursorcolumn
-    autocmd WinEnter * set cursorline
+"    autocmd WinLeave * set nocursorcolumn
+"    autocmd WinEnter * set cursorline
 augroup END
-autocmd InsertEnter,InsertLeave * set cul! cuc!
+" autocmd InsertEnter,InsertLeave * set cul! cuc!
 
 " TODO: Send the prettier output to locallist
 autocmd BufWritePost *.ts,*.js,*.json :!prettier --write %
@@ -108,11 +110,11 @@ function! ToggleFocusMode()
         set cmdheight=1
     else
         let s:hidden_all = 0
-        set showmode
+      " set showmode
         set ruler
         set laststatus=2
         set showcmd
-        set cmdheight=2
+        set cmdheight=1
     endif
 endfunction
 

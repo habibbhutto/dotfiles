@@ -5,7 +5,7 @@ lua require'colorizer'.setup()
 
 function! OnColorSchemeChange()
   hi! VertSplit guibg=bg ctermbg=NONE
-"  let &fillchars = 'vert:│,eob: '
+" let &fillchars = 'vert:│,eob: '
   highlight SignColumn guibg=bg ctermbg=NONE
   highlight LineNr guibg=bg ctermbg=NONE
   highlight CursorLineNr guibg=bg ctermbg=NONE
@@ -18,7 +18,6 @@ let g:gruvbox_material_background='hard'
 let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_disable_italic_comment=1
 
-set background=dark
-colorscheme duskfox
+colorscheme dayfox
 
 call OnColorSchemeChange()

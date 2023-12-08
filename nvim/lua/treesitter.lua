@@ -24,7 +24,7 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
   incremental_selection = {
-    enable = true,
+    enable = false,
     keymaps = {
       init_selection = "gnn",
       node_incremental = "grn",
@@ -40,13 +40,13 @@ require'nvim-treesitter.configs'.setup {
     },
     highlight_current_scope = { enable = false },
     smart_rename = {
-      enable = true,
+      enable = false,
       keymaps = {
         smart_rename = "grr",
       },
     },
     navigation = {
-      enable = true,
+      enable = false,
       keymaps = {
         goto_definition = "gnd",
         list_definitions = "gnD",
@@ -58,14 +58,11 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-vim.cmd([[
-    set foldmethod=expr
-    set foldexpr=nvim_treesitter#foldexpr()
-]])
+-- vim.cmd([[
+--     set foldmethod=expr
+--     set foldexpr=nvim_treesitter#foldexpr()
+-- ]])
 
--- set foldmethod=indent
--- set foldexpr=indent()
---
 --  {
 --    indicator_size = 100,
 --    type_patterns = {'class', 'function', 'method'},

@@ -33,8 +33,9 @@ call plug#begin('~/.config/nvim/.plugged')
   " Tree-sitter
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate'}
       Plug 'nvim-treesitter/nvim-treesitter-refactor'
-      Plug 'nvim-treesitter/nvim-treesitter-context'
-      Plug 'ziontee113/syntax-tree-surfer'
+    " The following plugins are slow impacting editing experience 
+    " Plug 'nvim-treesitter/nvim-treesitter-context'
+    " Plug 'ziontee113/syntax-tree-surfer'
 
   Plug 'nvim-tree/nvim-tree.lua'
   " Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v3.x'}
