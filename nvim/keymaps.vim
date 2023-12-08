@@ -67,22 +67,22 @@ nnoremap <silent> <M-j> <c-w>j
 nnoremap <silent> <M-k> <c-w>k
 nnoremap <silent> <M-l> <c-w>l
 
-" Switch window focus and maximize windows
+" Switch buffers
 " in normal mode
-noremap <silent> <M-S-k> <c-w>k:resize<cr>
-noremap <silent> <M-S-j> <c-w>j:resize<cr>
-noremap <silent> <M-S-h> <c-w>h:vert resize<cr>
-noremap <silent> <M-S-l> <c-w>l:vert resize<cr>
+noremap <silent> <M-S-k> :bp<cr>
+noremap <silent> <M-S-j> :bn<cr>
+noremap <silent> <M-S-h> :bfirst<cr>
+noremap <silent> <M-S-l> :blast<cr>
 " in insert mode
-inoremap <silent> <M-S-k> <C-\><C-n><c-w>k:resize<cr>
-inoremap <silent> <M-S-j> <C-\><C-n><c-w>j:resize<cr>
-inoremap <silent> <M-S-h> <C-\><C-n><c-w>h:vert resize<cr>
-inoremap <silent> <M-S-l> <C-\><C-n><c-w>l:vert resize<cr>
+inoremap <silent> <M-S-k> <C-\><C-n>:bp<cr>
+inoremap <silent> <M-S-j> <C-\><C-n>:bn<cr>
+inoremap <silent> <M-S-h> <C-\><C-n>:bfirst<cr>
+inoremap <silent> <M-S-l> <C-\><C-n>:blast<cr>
 " in terminal mode
-tnoremap <silent> <M-S-k> <C-\><C-n><C-w>k:resize<cr>
-tnoremap <silent> <M-S-j> <C-\><C-n><C-w>j:resize<cr>
-tnoremap <silent> <M-S-h> <C-\><C-n><C-w>h:vert resize<cr>
-tnoremap <silent> <M-S-l> <C-\><C-n><C-w>l:vert resize<cr>
+tnoremap <silent> <M-S-k> <C-\><C-n>:bp<cr>
+tnoremap <silent> <M-S-j> <C-\><C-n>:bn<cr>
+tnoremap <silent> <M-S-h> <C-\><C-n>:bfirst<cr>
+tnoremap <silent> <M-S-l> <C-\><C-n>:blast<cr>
 
 " Resize windows
 noremap <silent> <C-down> :resize +1<cr>

@@ -37,7 +37,7 @@ set timeout timeoutlen=500 ttimeoutlen=30
 set cmdheight=1
 set cmdwinheight=10
 set keywordprg=:help
-set updatetime=100
+set updatetime=50
 set foldmethod=indent
 set laststatus=0
 
