@@ -51,6 +51,8 @@ call plug#begin('~/.config/nvim/.plugged')
 
   " Design tools
   Plug 'norcalli/nvim-colorizer.lua'
+  " Markdown preview 
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 call plug#end()
 
 " augroup fmt

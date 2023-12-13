@@ -43,7 +43,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  -- vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
 local lsp_flags = {
@@ -71,7 +71,7 @@ local servers = {
 
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
-        autostart = false,
+        autostart = true,
         on_attach = on_attach,
         flags = lsp_flags,
         capabilities = capabilities,

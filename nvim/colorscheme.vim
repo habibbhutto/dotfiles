@@ -9,6 +9,9 @@ function! OnColorSchemeChange()
   highlight SignColumn guibg=bg ctermbg=NONE
   highlight LineNr guibg=bg ctermbg=NONE
   highlight CursorLineNr guibg=bg ctermbg=NONE
+  highlight Constant gui=none
+  highlight Comment gui=none
+  highlight Number gui=none
 endfunction
 
 autocmd ColorScheme * call OnColorSchemeChange()
@@ -17,7 +20,7 @@ let g:gruvbox_material_foreground='mix'
 let g:gruvbox_material_background='hard'
 let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_disable_italic_comment=1
-let g:gruvbox_material_transparent_background=2
+let g:gruvbox_material_transparent_background=0
 
 colorscheme dayfox
 
