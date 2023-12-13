@@ -4,13 +4,8 @@ filetype on
 filetype plugin on
 filetype indent on
 syntax on
-" set number
-" set relativenumber
-" set cursorline
 set shiftwidth=2
 set tabstop=2
-" set colorcolumn=80
-set textwidth=80
 set expandtab
 set nobackup
 set writebackup
@@ -24,14 +19,12 @@ set ignorecase
 set smartcase
 set showcmd
 set noshowmode
-" set showmatch
 set hlsearch
 set history=1000
 set wildmenu
 set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 set ttyfast
-set signcolumn=yes
 set encoding=utf-8
 set timeout timeoutlen=500 ttimeoutlen=30
 set cmdheight=1
@@ -92,6 +85,7 @@ augroup END
 " autocmd InsertEnter,InsertLeave * set cul! cuc!
 
 " TODO: Send the prettier output to locallist
+" TODO: Run it in a separate async thread 
 autocmd BufWritePost *.ts,*.js,*.json :!prettier --write %
 autocmd BufWritePost *.yaml,*.yml,*.prettierrc :!prettier --write %
 autocmd BufWritePost *.html,*.htm,*.css :!prettier --write %
@@ -99,24 +93,6 @@ autocmd BufWritePost *.jsx,*.lcss,*.less,*.scss :!prettier --write %
 
 autocmd BufReadPost,FileReadPost * normal zR
 
-let s:hidden_all = 0
-function! ToggleFocusMode()
-    if s:hidden_all  == 0
-        let s:hidden_all = 1
-        set noshowmode
-        set noruler
-        set laststatus=0
-        set noshowcmd
-        set cmdheight=1
-    else
-        let s:hidden_all = 0
-      " set showmode
-        set ruler
-        set laststatus=2
-        set showcmd
-        set cmdheight=1
-    endif
-endfunction
 
 " netrw cofig
 let g:netrw_banner = 0
@@ -149,5 +125,55 @@ augroup netrw_mapping
   autocmd filetype netrw call NetrwMapping()
 augroup END
 
-nnoremap <leader>d :Lexplore %:p:h<CR>
-nnoremap <Leader>da :Lexplore<CR>
+set number
+set numberwidth=15
+set signcolumn=yes
+set relativenumber
+
+let s:CenterLayout=1
+function! CenterLayoutToggle()
+  if s:CenterLayout == 0
+    let s:CenterLayout = 1
+
+    " suitable for the long lines
+    bufdo set numberwidth=15
+    bufdo set signcolumn=yes
+    hi! LineNr guifg=bg 
+  elseif s:CenterLayout == 1
+    let s:CenterLayout = 2
+
+    " suitable for no so long lines
+    bufdo set numberwidth=20
+    bufdo set signcolumn=yes:9
+    hi! LineNr guifg=bg
+  elseif s:CenterLayout == 2
+    let s:CenterLayout = 0
+
+    " bring it back to defaults
+    " suitable for long long lines
+    bufdo set numberwidth=4
+    bufdo set signcolumn=yes
+    hi! LineNr guifg=bg
+  endif
+endfunction
+
+nnoremap <silent> <C-c> :call CenterLayoutToggle()<cr>
+
+let s:hidden_all = 0
+function! ToggleFocusMode()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        set noruler
+        set laststatus=0
+        set noshowcmd
+        set cmdheight=1
+        :GitGutterSignsDisable
+    else
+        let s:hidden_all = 0
+        set ruler
+        set laststatus=0
+        set showcmd
+        set cmdheight=1
+        :GitGutterSignsEnable
+    endif
+endfunction

@@ -4,8 +4,9 @@ set termguicolors
 lua require'colorizer'.setup()
 
 function! OnColorSchemeChange()
-  hi! VertSplit guibg=bg ctermbg=NONE
-" let &fillchars = 'vert:│,eob: '
+  hi! VertSplit guibg=bg guifg=bg ctermbg=NONE ctermfg=NONE
+  hi! EndOfBuffer guibg=bg guifg=bg ctermbg=NONE ctermfg=NONE
+  " let &fillchars = 'vert:│,eob: '
   highlight SignColumn guibg=bg ctermbg=NONE
   highlight LineNr guibg=bg ctermbg=NONE
   highlight CursorLineNr guibg=bg ctermbg=NONE
@@ -24,4 +25,5 @@ let g:gruvbox_material_transparent_background=0
 
 colorscheme dayfox
 
+hi! LineNr guifg=bg
 call OnColorSchemeChange()
