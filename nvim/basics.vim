@@ -32,6 +32,7 @@ set cmdwinheight=10
 set keywordprg=:help
 set updatetime=50
 set foldmethod=indent
+set foldlevel=99
 set laststatus=0
 
 " I guess, this setup for clipboard would work almost everywhere
@@ -91,7 +92,8 @@ autocmd BufWritePost *.yaml,*.yml,*.prettierrc :!prettier --write %
 autocmd BufWritePost *.html,*.htm,*.css :!prettier --write %
 autocmd BufWritePost *.jsx,*.lcss,*.less,*.scss :!prettier --write %
 
-autocmd BufReadPost,FileReadPost * normal zR
+" autocmd BufReadPost,FileReadPost,BufWinEnter,BufNew,BufAdd * normal :set foldlevel=99
+autocmd BufReadPost,FileReadPost * normal :set foldlevel=99
 
 
 " netrw cofig
