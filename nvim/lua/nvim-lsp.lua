@@ -1,3 +1,4 @@
+-- https://github.com/neovim/neovim/issues/23526
 vim.cmd([[ set completeopt=menu,menuone,noselect ]])
 
 -- configure this later
@@ -77,6 +78,14 @@ for _, lsp in ipairs(servers) do
         capabilities = capabilities,
     }
 end
+
+local diagnostics = {
+  virtual_text = false, -- Disable builtin virtual text diagnostic
+  virtual_improved = {
+    current_line = 'only',
+  },
+}
+vim.diagnostic.config(diagnostics)
 
 -- Java Language Server
 -- It's the combination of the 
