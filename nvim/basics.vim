@@ -33,7 +33,7 @@ set keywordprg=:help
 set updatetime=50
 set foldmethod=indent
 set foldlevel=99
-set laststatus=0
+set laststatus=2
 
 " I guess, this setup for clipboard would work almost everywhere
 " If it doesn't work well in some environment, I will find a way
