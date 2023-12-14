@@ -12,7 +12,7 @@ nnoremap <silent> <leader>gst :Git stash list<cr>
 nnoremap <silent> <leader>gc :BCommits<cr>
 nnoremap <silent> <leader>gca :Commits<cr>
 nnoremap <silent> <leader>gb :Git branch --list<cr>
-nnoremap <silent> <leader>g :Git<cr>
+nnoremap <silent> <leader>gg :Git<cr>
 nnoremap <leader>pp :Git push
 
 " Jump between hunks
@@ -21,6 +21,7 @@ nmap ]c <Plug>(GitGutterPrevHunk)
 
 " Files and search
 nnoremap <silent> <leader>f :Files<cr>
+nnoremap <silent> <leader>F :GitFiles<cr>
 nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>tt :Tags<cr>
 nnoremap <silent> <leader>l :Rg<cr>
