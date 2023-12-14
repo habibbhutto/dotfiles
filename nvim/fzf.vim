@@ -1,10 +1,12 @@
 " Configuration for FZF
 " Popup window (center of the screen)
-let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.95 } }
-let g:fzf_preview_window = ['up:75%', 'ctrl-/']
+" let g:fzf_layout = { 'window': { 'width': 1, 'height': 1 } }
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.4, 'relative': v:true, 'yoffset': -1.0 } }
+let g:fzf_preview_window = []
+" let g:fzf_preview_window = ['down:75%', 'ctrl-/']
 let $FZF_DEFAULT_COMMAND="fdfind --hidden --no-ignore --ignore-case --follow"
 let $FZF_PREVIEW_COMMAND="cat -n {}"
-let $FZF_DEFAULT_OPTS="--bind ctrl-y:preview-up,ctrl-e:preview-down,
+let $FZF_DEFAULT_OPTS="--reverse --bind ctrl-y:preview-up,ctrl-e:preview-down,
  \ctrl-b:preview-page-up,ctrl-f:preview-page-down,
  \ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,
  \shift-up:preview-top,shift-down:preview-bottom,
@@ -19,7 +21,7 @@ endfunction
 let g:fzf_action = {
   \ 'ctrl-q': function('s:build_quickfix_list'),
   \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
+  \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
@@ -37,3 +39,11 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" Path completion with custom source command
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path('rg --files')
+
+" Word completion with custom spec with popup layout option
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'window': { 'width': 0.2, 'height': 0.9, 'xoffset': 1 }})
+
