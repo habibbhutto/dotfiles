@@ -93,12 +93,12 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       respect_buf_cwd = true,
       select_prompts = false,
       hijack_directories = {
-        enable = false,
-        auto_open = false,
+        enable = true,
+        auto_open = true,
       },
       update_focused_file = {
-        enable = true,
-        update_root = true,
+        enable = false,
+        update_root = false,
         ignore_list = {},
       },
       system_open = {
@@ -247,7 +247,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         use_system_clipboard = true,
         change_dir = {
           enable = true,
-          global = false,
+          global = true,
           restrict_above_cwd = false,
         },
         expand_all = {
@@ -321,4 +321,4 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       },
     } -- END_DEFAULT_OPTS
 
-require("nvim-tree.api").tree.open()
+-- require("nvim-tree.api").tree.open()
