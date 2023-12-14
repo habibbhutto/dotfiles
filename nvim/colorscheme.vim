@@ -23,7 +23,8 @@ let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_disable_italic_comment=1
 let g:gruvbox_material_transparent_background=0
 
-colorscheme dayfox
-
-hi! LineNr guifg=bg
+set bg=light
+colorscheme zenwritten
 call OnColorSchemeChange()
+hi! LineNr guifg=bg
+

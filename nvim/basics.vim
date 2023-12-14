@@ -128,11 +128,11 @@ augroup netrw_mapping
 augroup END
 
 set number
-set numberwidth=15
-set signcolumn=yes
 set relativenumber
+set numberwidth=4
+set signcolumn=yes
 
-let s:CenterLayout=1
+let s:CenterLayout=0
 function! CenterLayoutToggle()
   if s:CenterLayout == 0
     let s:CenterLayout = 1
