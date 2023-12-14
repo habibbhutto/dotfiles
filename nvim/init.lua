@@ -5,6 +5,7 @@ vim.loader.enable()
 
 vim.cmd([[
    autocmd VimEnter * source ~/vim-fiddle/nvim/colorscheme.vim
+   autocmd VimEnter * call Startup()
    " autocmd VimEnter * lua require('treesitter')
    " autocmd VimEnter * lua require('tree')
 ]]);
