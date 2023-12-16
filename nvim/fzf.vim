@@ -1,7 +1,5 @@
 " Configuration for FZF
-" Popup window (center of the screen)
-" let g:fzf_layout = { 'window': { 'width': 1, 'height': 1 } }
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.4, 'relative': v:true, 'yoffset': -1.0 } }
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.4, 'relative': v:false, 'yoffset': -1.0 } }
 let g:fzf_preview_window = []
 " let g:fzf_preview_window = ['down:75%', 'ctrl-/']
 let $FZF_DEFAULT_COMMAND="fdfind --hidden --no-ignore --ignore-case --follow"
@@ -45,5 +43,6 @@ inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
 inoremap <expr> <c-x><c-f> fzf#vim#complete#path('rg --files')
 
 " Word completion with custom spec with popup layout option
-inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'window': { 'width': 0.2, 'height': 0.9, 'xoffset': 1 }})
+" inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'window': { 'width': 0.2, 'height': 0.9, 'xoffset': 1 }})
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word()
 

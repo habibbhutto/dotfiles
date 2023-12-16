@@ -20,17 +20,15 @@ nmap [c <Plug>(GitGutterNextHunk)
 nmap ]c <Plug>(GitGutterPrevHunk)
 
 " Files and search
-nnoremap <silent> <leader>f :Files<cr>
-nnoremap <silent> <leader>F :GitFiles<cr>
+nnoremap <silent> <leader>F :Files<cr>
+nnoremap <silent> <leader>f :GitFiles<cr>
 nnoremap <silent> <leader>b :Buffers<cr>
-nnoremap <silent> <leader>tt :Tags<cr>
-nnoremap <silent> <leader>l :Rg<cr>
-nnoremap <silent> <leader>ws yw :Rg<cr><cmd>put +<cr>
-nnoremap <silent> <leader>bs yw :BLines<cr><cmd>put +<cr>
 nnoremap <silent> <leader>tb :BTags<cr>
+nnoremap <silent> <leader>tt :Tags<cr>
+nnoremap <silent> <leader>sf :Rg<cr>
+nnoremap <silent> <leader>sw yw :Rg<cr><cmd>put +<cr>
+nnoremap <silent> <leader>sb yw :BLines<cr><cmd>put +<cr>
 
-" nnoremap <silent> <space><space> :call StartupStuff()<bar>NvimTreeOpen<cr>
-" nnoremap <silent> <space>f :call StartupStuff()<bar>NvimTreeToggle<cr>
 nnoremap <silent> <space><space> :call Startup()<BAR>NvimTreeToggle<CR>
 
 " Jump to next and previous method
@@ -38,8 +36,8 @@ nnoremap <silent> <M-S-m> [m
 nnoremap <silent> <M-m> ]m
 
 " Navigate lists
-nnoremap <silent> <C-n> :lnext<cr>zR
-nnoremap <silent> <C-p> :lprevious<cr>zR
+nnoremap <silent> <C-n> :lnext<cr>
+nnoremap <silent> <C-p> :lprevious<cr>
 nnoremap <silent> [l :lfirst<cr>
 nnoremap <silent> ]l :llast<cr>
 
