@@ -78,7 +78,7 @@ local WIDTH_RATIO = 0.5   -- width ratio for float window
 require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       on_attach = on_attach,
       auto_reload_on_write = true,
-      disable_netrw = true,
+      disable_netrw = false,
       hijack_netrw = true,
       hijack_cursor = true,
       hijack_unnamed_buffer_when_opening = false,
@@ -87,18 +87,18 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         folders_first = true,
       },
       root_dirs = {},
-      prefer_startup_root = false,
+      prefer_startup_root = true,
       sync_root_with_cwd = true,
       reload_on_bufenter = true,
-      respect_buf_cwd = true,
+      respect_buf_cwd = false,
       select_prompts = false,
       hijack_directories = {
         enable = true,
         auto_open = true,
       },
       update_focused_file = {
-        enable = false,
-        update_root = false,
+        enable = true,
+        update_root = true,
         ignore_list = {},
       },
       system_open = {
