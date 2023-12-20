@@ -1,4 +1,3 @@
-let mapleader = ","
 
 nnoremap <silent> <leader><leader> :nohlsearch<CR>
 
@@ -20,6 +19,7 @@ nmap [c <Plug>(GitGutterNextHunk)
 nmap ]c <Plug>(GitGutterPrevHunk)
 
 " Files and search
+nnoremap <silent> <leader>H :History<cr>
 nnoremap <silent> <leader>F :Files<cr>
 nnoremap <silent> <leader>f :GitFiles<cr>
 nnoremap <silent> <leader>b :Buffers<cr>

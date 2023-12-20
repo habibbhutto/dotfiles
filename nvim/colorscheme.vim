@@ -26,5 +26,4 @@ let g:gruvbox_material_transparent_background=0
 set bg=dark
 colorscheme zenwritten
 call OnColorSchemeChange()
-hi! LineNr guifg=bg
 

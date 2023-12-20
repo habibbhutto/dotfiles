@@ -34,6 +34,7 @@ set updatetime=50
 set foldmethod=indent
 set foldlevel=99
 set laststatus=2
+let mapleader = ","
 
 " I guess, this setup for clipboard would work almost everywhere
 " If it doesn't work well in some environment, I will find a way
@@ -140,14 +141,12 @@ function! CenterLayoutToggle()
     " suitable for the long lines
     bufdo set numberwidth=15
     bufdo set signcolumn=yes
-    hi! LineNr guifg=bg 
   elseif s:CenterLayout == 1
     let s:CenterLayout = 2
 
     " suitable for no so long lines
     bufdo set numberwidth=20
     bufdo set signcolumn=yes:9
-    hi! LineNr guifg=bg
   elseif s:CenterLayout == 2
     let s:CenterLayout = 0
 
@@ -155,27 +154,43 @@ function! CenterLayoutToggle()
     " suitable for long long lines
     bufdo set numberwidth=4
     bufdo set signcolumn=yes
-    hi! LineNr guifg=bg
   endif
 endfunction
 
-nnoremap <silent> <C-c> :call CenterLayoutToggle()<cr>
+nnoremap <silent> <leader>kc :call CenterLayoutToggle()<cr>
 
-let s:hidden_all = 0
-function! ToggleFocusMode()
-    if s:hidden_all  == 0
-        let s:hidden_all = 1
+let s:zen_mode = 0
+function! ToggleZenMode()
+    if s:zen_mode  == 0
+        let s:zen_mode = 1
         set noruler
         set laststatus=0
         set noshowcmd
         set cmdheight=1
-        :GitGutterSignsDisable
+        hi! LineNr guifg=bg
+        GitGutterSignsDisable
     else
-        let s:hidden_all = 0
+        let s:zen_mode = 0
         set ruler
-        set laststatus=0
+        set laststatus=2
         set showcmd
         set cmdheight=1
-        :GitGutterSignsEnable
+        color zenwritten
+        GitGutterSignsEnable
     endif
 endfunction
+
+nnoremap <silent> <leader>kz :call ToggleZenMode()<cr>
+
+let s:wordwrap = 0
+function! ToggleWordWrap()
+    if s:wordwrap  == 0
+        let s:wordwrap  = 1
+        set wrap
+    else
+        let s:wordwrap  = 0
+        set nowrap
+    endif
+endfunction
+
+nnoremap <silent> <M-z> :call ToggleWordWrap()<cr>
