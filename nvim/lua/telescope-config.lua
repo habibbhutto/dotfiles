@@ -1,3 +1,6 @@
+-- telescope configuration 
+-- in some aspects telescope is doing better 
+-- while fzf is doing a lot better in many aspects 
 require('telescope').setup{
     defaults = {
       layout_strategy = 'vertical',
