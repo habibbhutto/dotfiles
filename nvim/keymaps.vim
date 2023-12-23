@@ -12,7 +12,7 @@ nnoremap <silent> <leader>gc :BCommits<cr>
 nnoremap <silent> <leader>gca :Commits<cr>
 nnoremap <silent> <leader>gb :Git branch --list<cr>
 nnoremap <silent> <leader>gg :Git<cr>
-nnoremap <leader>gp :Git push<cr>
+nnoremap <leader>gp :Git push
 
 " Jump between hunks
 nmap [c <Plug>(GitGutterNextHunk)
