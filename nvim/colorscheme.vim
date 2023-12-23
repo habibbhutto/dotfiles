@@ -18,7 +18,7 @@ endfunction
 autocmd ColorScheme * call OnColorSchemeChange()
 
 let g:gruvbox_material_foreground='mix'
-let g:gruvbox_material_background='hard'
+let g:gruvbox_material_background='medium'
 let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_disable_italic_comment=1
 let g:gruvbox_material_transparent_background=0

@@ -97,13 +97,9 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         auto_open = true,
       },
       update_focused_file = {
-        enable = true,
-        update_root = true,
+        enable = false,
+        update_root = false,
         ignore_list = {},
-      },
-      system_open = {
-        cmd = "sh",
-        args = {},
       },
       view = {
         centralize_selection = true,
@@ -142,7 +138,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       },
       renderer = {
         add_trailing = true,
-        group_empty = true,
+        group_empty = false,
         highlight_git = true,
         full_name = false,
         highlight_opened_files = "none",
@@ -162,7 +158,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         },
         icons = {
           webdev_colors = true,
-          git_placement = "before",
+          git_placement = "after",
           modified_placement = "after",
           padding = " ",
           symlink_arrow = " ➛ ",

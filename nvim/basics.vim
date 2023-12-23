@@ -94,7 +94,7 @@ autocmd BufWritePost *.html,*.htm,*.css :!prettier --write %
 autocmd BufWritePost *.jsx,*.lcss,*.less,*.scss :!prettier --write %
 
 " autocmd BufReadPost,FileReadPost,BufWinEnter,BufNew,BufAdd * normal :set foldlevel=99
-autocmd BufReadPost,FileReadPost * normal :set foldlevel=99
+autocmd BufReadPost,FileReadPost * normal <cmd>set foldlevel=99
 
 
 " netrw cofig
