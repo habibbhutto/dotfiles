@@ -168,7 +168,6 @@ function! ToggleZenMode()
         set noshowcmd
         set cmdheight=1
         hi! LineNr guifg=bg
-        GitGutterSignsDisable
     else
         let s:zen_mode = 0
         set ruler
@@ -176,7 +175,6 @@ function! ToggleZenMode()
         set showcmd
         set cmdheight=1
         color zenwritten
-        GitGutterSignsEnable
     endif
 endfunction
 
