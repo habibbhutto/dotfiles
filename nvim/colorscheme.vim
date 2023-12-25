@@ -23,7 +23,7 @@ let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_disable_italic_comment=1
 let g:gruvbox_material_transparent_background=0
 
-set bg=dark
+set bg=light
 colorscheme zenwritten
 call OnColorSchemeChange()
 

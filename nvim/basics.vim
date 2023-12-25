@@ -27,7 +27,7 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 set ttyfast
 set encoding=utf-8
 set timeout timeoutlen=500 ttimeoutlen=30
-set cmdheight=1
+set cmdheight=0
 set cmdwinheight=10
 set keywordprg=:help
 set updatetime=50
@@ -88,14 +88,18 @@ augroup END
 
 " TODO: Send the prettier output to locallist
 " TODO: Run it in a separate async thread 
-autocmd BufWritePost *.ts,*.js,*.json :!prettier --write %
-autocmd BufWritePost *.yaml,*.yml,*.prettierrc :!prettier --write %
-autocmd BufWritePost *.html,*.htm,*.css :!prettier --write %
-autocmd BufWritePost *.jsx,*.lcss,*.less,*.scss :!prettier --write %
+" autocmd BufWritePost *.ts,*.js,*.json :!prettier --write %
+" autocmd BufWritePost *.yaml,*.yml,*.prettierrc :!prettier --write %
+" autocmd BufWritePost *.html,*.htm,*.css :!prettier --write %
+" autocmd BufWritePost *.jsx,*.lcss,*.less,*.scss :!prettier --write %
+
+autocmd BufWritePre *.ts,*.js,*.json :lua vim.lsp.buf.format { async = false }
+autocmd BufWritePre *.yaml,*.yml,*.prettierrc :lua vim.lsp.buf.format { async = false }
+autocmd BufWritePre *.html,*.htm,*.css :lua vim.lsp.buf.format { async = false }
+autocmd BufWritePre *.jsx,*.lcss,*.less,*.scss :lua vim.lsp.buf.format { async = false }
 
 " autocmd BufReadPost,FileReadPost,BufWinEnter,BufNew,BufAdd * normal :set foldlevel=99
 autocmd BufReadPost,FileReadPost * normal <cmd>set foldlevel=99
-
 
 " netrw cofig
 let g:netrw_banner = 0
@@ -108,7 +112,6 @@ let g:netrw_keepdir = 0
 let g:netrw_localcopydircmd = 'cp -r'
 
 hi! link netrwMarkFile Search
-
 
 function! NetrwMapping()
   nmap <buffer> o <CR>
@@ -166,14 +169,12 @@ function! ToggleZenMode()
         set noruler
         set laststatus=0
         set noshowcmd
-        set cmdheight=1
         hi! LineNr guifg=bg
     else
         let s:zen_mode = 0
         set ruler
         set laststatus=2
         set showcmd
-        set cmdheight=1
         color zenwritten
     endif
 endfunction
