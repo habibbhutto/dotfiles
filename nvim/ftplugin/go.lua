@@ -50,6 +50,10 @@ local diagnostics = {
 vim.diagnostic.config(diagnostics)
 
 -- TODO: https://github.com/golang/tools/blob/master/gopls/doc/vim.md#neovim
+-- TODO: Explore this issue in depth and follow up 
+--       https://github.com/neovim/nvim-lspconfig/issues/2733
+-- TODO: Explore further improvements 
+--       https://github.com/neovim/nvim-lspconfig#Suggested-configuration
 vim.lsp.start({
   name = 'gopls',
   cmd = {'go', 'run', 'golang.org/x/tools/gopls@latest'},
