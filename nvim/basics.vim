@@ -27,7 +27,7 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 set ttyfast
 set encoding=utf-8
 set timeout timeoutlen=500 ttimeoutlen=30
-set cmdheight=0
+set cmdheight=1
 set cmdwinheight=10
 set keywordprg=:help
 set updatetime=50
