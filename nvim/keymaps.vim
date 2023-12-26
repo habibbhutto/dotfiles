@@ -12,6 +12,11 @@ nnoremap <silent> <leader>gc :BCommits<cr>
 nnoremap <silent> <leader>gca :Commits<cr>
 nnoremap <silent> <leader>gb :Git branch --list<cr>
 nnoremap <silent> <leader>gg :Git<cr>
+
+" temporary fix for fugitive cmdheight issue 
+autocmd BufEnter fugitive://* set cmdheight=1
+autocmd BufLeave fugitive://* set cmdheight=0
+
 nnoremap <leader>gp :Git push
 
 " Jump between hunks
