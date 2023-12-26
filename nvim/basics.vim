@@ -27,7 +27,7 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 set ttyfast
 set encoding=utf-8
 set timeout timeoutlen=500 ttimeoutlen=30
-set cmdheight=1
+set cmdheight=0
 set cmdwinheight=10
 set keywordprg=:help
 set updatetime=50
@@ -35,6 +35,7 @@ set foldmethod=indent
 set foldlevel=99
 set laststatus=2
 let mapleader = ","
+set guifont=Hack\ Nerd\ Font:h12
 
 " I guess, this setup for clipboard would work almost everywhere
 " If it doesn't work well in some environment, I will find a way
@@ -175,7 +176,7 @@ function! ToggleZenMode()
         set ruler
         set laststatus=2
         set showcmd
-        color zenwritten
+        execute "color " . g:colors_name . ""
     endif
 endfunction
 
@@ -197,7 +198,7 @@ nnoremap <silent> <M-z> :call ToggleWordWrap()<cr>
 let g:gitgutter_sign_added              = '┃'
 let g:gitgutter_sign_modified           = '┃'
 let g:gitgutter_sign_removed            = '┃'
-let g:gitgutter_sign_removed_first_line = '┃'
-let g:gitgutter_sign_removed_above_and_below = '┃'
 let g:gitgutter_sign_modified_removed   = '┃'
+let g:gitgutter_sign_removed_first_line = '┃'
+let g:gitgutter_sign_removed_above_and_below = ' ┃'
 
