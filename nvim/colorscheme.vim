@@ -18,8 +18,8 @@ function! OnColorSchemeChange()
 
   hi StatusLine guibg=bg
 
-  highlight GitGutterAdd    guifg=#009900 ctermfg=2
-  highlight GitGutterChange guifg=#0089ff ctermfg=3
+  highlight GitGutterAdd    guifg=#008800 ctermfg=2
+  highlight GitGutterChange guifg=#0077ff ctermfg=3
   highlight GitGutterDelete guifg=#dd000a ctermfg=1
 endfunction
 
@@ -31,7 +31,7 @@ let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_disable_italic_comment=1
 let g:gruvbox_material_transparent_background=0
 
-set bg=light
+set bg=dark
 colorscheme zenwritten
 call OnColorSchemeChange()
 
