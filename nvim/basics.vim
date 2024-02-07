@@ -35,7 +35,7 @@ set foldmethod=indent
 set foldlevel=99
 set laststatus=2
 let mapleader = ","
-set guifont=Hack\ Nerd\ Font:h12
+set guifont=Hack\ Nerd\ Font:h14
 
 " I guess, this setup for clipboard would work almost everywhere
 " If it doesn't work well in some environment, I will find a way
@@ -94,10 +94,10 @@ augroup END
 " autocmd BufWritePost *.html,*.htm,*.css :!prettier --write %
 " autocmd BufWritePost *.jsx,*.lcss,*.less,*.scss :!prettier --write %
 
-autocmd BufWritePre *.ts,*.js,*.json :lua vim.lsp.buf.format { async = false }
-autocmd BufWritePre *.yaml,*.yml,*.prettierrc :lua vim.lsp.buf.format { async = false }
-autocmd BufWritePre *.html,*.htm,*.css :lua vim.lsp.buf.format { async = false }
-autocmd BufWritePre *.jsx,*.lcss,*.less,*.scss :lua vim.lsp.buf.format { async = false }
+" autocmd BufWritePre *.ts,*.js,*.json :lua vim.lsp.buf.format { async = false }
+" autocmd BufWritePre *.yaml,*.yml,*.prettierrc :lua vim.lsp.buf.format { async = false }
+" autocmd BufWritePre *.html,*.htm,*.css :lua vim.lsp.buf.format { async = false }
+" autocmd BufWritePre *.jsx,*.lcss,*.less,*.scss :lua vim.lsp.buf.format { async = false }
 
 " autocmd BufReadPost,FileReadPost,BufWinEnter,BufNew,BufAdd * normal :set foldlevel=99
 autocmd BufReadPost,FileReadPost * normal <cmd>set foldlevel=99
