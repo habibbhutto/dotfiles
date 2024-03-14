@@ -16,7 +16,8 @@ function! OnColorSchemeChange()
   highlight Comment gui=none
   highlight Number gui=none
 
-  hi StatusLine guibg=bg
+  hi! StatusLine guibg=none guifg=fg gui=bold cterm=bold
+  hi! StatusLineNC guibg=none guifg=fg gui=NONE cterm=NONE
 
   highlight GitGutterAdd    guifg=#008800 ctermfg=2
   highlight GitGutterChange guifg=#0077ff ctermfg=3
@@ -31,8 +32,8 @@ let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_disable_italic_comment=1
 let g:gruvbox_material_transparent_background=0
 
-set bg=light
-colorscheme zenwritten
+set bg=dark
+colorscheme quiet
 call OnColorSchemeChange()
 
 " TODO: Follow system color scheme dark/light

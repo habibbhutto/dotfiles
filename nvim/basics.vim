@@ -13,7 +13,7 @@ set autoread
 set noswapfile
 set splitright
 set scrolloff=1
-set wrap
+set nowrap
 set incsearch
 set ignorecase
 set smartcase
