@@ -33,7 +33,7 @@ let g:gruvbox_material_disable_italic_comment=1
 let g:gruvbox_material_transparent_background=0
 
 set bg=dark
-colorscheme quiet
+colorscheme lunaperche
 call OnColorSchemeChange()
 
 " TODO: Follow system color scheme dark/light
