@@ -19,6 +19,10 @@ function! OnColorSchemeChange()
   hi! StatusLine guibg=none guifg=fg gui=bold cterm=bold
   hi! StatusLineNC guibg=none guifg=fg gui=NONE cterm=NONE
 
+  hi! Normal guibg=#202020
+  hi! LineNr guibg=#202020
+  hi! TabLineSel guibg=#202020
+
   highlight GitGutterAdd    guifg=#008800 ctermfg=2
   highlight GitGutterChange guifg=#0077ff ctermfg=3
   highlight GitGutterDelete guifg=#dd000a ctermfg=1
@@ -35,6 +39,9 @@ let g:gruvbox_material_transparent_background=0
 set bg=dark
 colorscheme lunaperche
 call OnColorSchemeChange()
+
+let g:neovide_scale_factor=1.1
+let g:neovide_theme = 'auto'
 
 " TODO: Follow system color scheme dark/light
 " The idea is to get the color scheme info into an env variable
