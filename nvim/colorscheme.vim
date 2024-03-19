@@ -18,10 +18,11 @@ function! OnColorSchemeChange()
 
   hi! StatusLine guibg=none guifg=fg gui=bold cterm=bold
   hi! StatusLineNC guibg=none guifg=fg gui=NONE cterm=NONE
-
+if &background ==# 'dark'
   hi! Normal guibg=#202020
   hi! LineNr guibg=#202020
   hi! TabLineSel guibg=#202020
+endif
 
   highlight GitGutterAdd    guifg=#008800 ctermfg=2
   highlight GitGutterChange guifg=#0077ff ctermfg=3

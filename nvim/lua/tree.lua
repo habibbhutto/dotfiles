@@ -97,9 +97,9 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         auto_open = true,
       },
       update_focused_file = {
-        enable = false,
-        update_root = false,
-        ignore_list = {},
+        enable = true,
+        update_root = true,
+        ignore_list = {'.git'},
       },
       view = {
         centralize_selection = true,
@@ -140,9 +140,9 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         add_trailing = true,
         group_empty = false,
         highlight_git = true,
-        full_name = false,
-        highlight_opened_files = "none",
-        highlight_modified = "none",
+        full_name = true,
+        highlight_opened_files = "all",
+        highlight_modified = "all",
         root_folder_label = ":~:s?$?/..?",
         indent_width = 2,
         indent_markers = {
@@ -216,7 +216,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       },
       filters = {
         git_ignored = false,
-        dotfiles = false,
+        dotfiles = true,
         git_clean = false,
         no_buffer = false,
         custom = {},
@@ -260,7 +260,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
           },
         },
         open_file = {
-          quit_on_open = false,
+          quit_on_open = true,
           resize_window = true,
           window_picker = {
             enable = true,
