@@ -18,11 +18,22 @@ function! OnColorSchemeChange()
 
   hi! StatusLine guibg=none guifg=fg gui=bold cterm=bold
   hi! StatusLineNC guibg=none guifg=fg gui=NONE cterm=NONE
-if &background ==# 'dark'
-  hi! Normal guibg=#202020
-  hi! LineNr guibg=#202020
-  hi! TabLineSel guibg=#202020
-endif
+
+" hi! Pmenu guibg=#101010
+
+  hi! NvimTreeNormalFloat guibg=bg
+  hi! TabLineFill guibg=bg
+  hi! TabLine gui=none guibg=bg guifg=fg 
+  hi! TabLineSel gui=bold guibg=fg guifg=bg 
+
+  hi! NvimTreeSpecialFile guifg=fg gui=bold
+  hi! NvimTreeExecFile guifg=fg gui=bold
+
+" if &background ==# 'dark'
+"   hi! Normal guibg=#202020
+"   hi! LineNr guibg=#202020
+"   hi! TabLineSel guibg=#202020 guifg=fg
+" endif
 
   highlight GitGutterAdd    guifg=#008800 ctermfg=2
   highlight GitGutterChange guifg=#0077ff ctermfg=3
@@ -37,11 +48,18 @@ let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_disable_italic_comment=1
 let g:gruvbox_material_transparent_background=0
 
-set bg=dark
+let themeStyle = system("[[ `gsettings get org.gnome.desktop.interface color-scheme` =~ 'dark' ]] && 'dark' || 'light'") 
+
+if themeStyle =~ 'dark' 
+  set bg=dark
+else
+  set bg=light
+endif 
+
 colorscheme lunaperche
 call OnColorSchemeChange()
 
-let g:neovide_scale_factor=1.1
+let g:neovide_scale_factor=1.2
 let g:neovide_theme = 'auto'
 
 " TODO: Follow system color scheme dark/light
