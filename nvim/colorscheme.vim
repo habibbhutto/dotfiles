@@ -8,7 +8,7 @@ function! OnColorSchemeChange()
   hi! EndOfBuffer guibg=bg guifg=bg ctermbg=NONE ctermfg=NONE
   " let &fillchars = 'vert:│,eob: '
   highlight SignColumn guibg=bg ctermbg=NONE
-  highlight LineNr guibg=bg ctermbg=NONE
+  highlight LineNr guibg=bg ctermbg=NONE guifg=grey
 
   " highlight CursorLineNr guibg=bg ctermbg=NONE
 
@@ -18,8 +18,6 @@ function! OnColorSchemeChange()
 
   hi! StatusLine guibg=none guifg=fg gui=bold cterm=bold
   hi! StatusLineNC guibg=none guifg=fg gui=NONE cterm=NONE
-
-" hi! Pmenu guibg=#101010
 
   hi! NvimTreeNormalFloat guibg=bg
   hi! TabLineFill guibg=bg gui=none
