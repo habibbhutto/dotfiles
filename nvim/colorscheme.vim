@@ -22,7 +22,7 @@ function! OnColorSchemeChange()
 " hi! Pmenu guibg=#101010
 
   hi! NvimTreeNormalFloat guibg=bg
-  hi! TabLineFill guibg=bg
+  hi! TabLineFill guibg=bg gui=none
   hi! TabLine gui=none guibg=bg guifg=fg 
   hi! TabLineSel gui=bold guibg=fg guifg=bg 
 
