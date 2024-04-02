@@ -19,6 +19,7 @@ function! OnColorSchemeChange()
   hi! StatusLine guibg=none guifg=fg gui=bold cterm=bold
   hi! StatusLineNC guibg=none guifg=fg gui=NONE cterm=NONE
 
+  hi! FloatBorder guifg=fg
   hi! NvimTreeNormalFloat guibg=bg
   hi! TabLineFill guibg=bg gui=none
   hi! TabLine gui=none guibg=bg guifg=fg 
