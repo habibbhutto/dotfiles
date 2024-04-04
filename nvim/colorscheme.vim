@@ -58,7 +58,7 @@ endif
 colorscheme lunaperche
 call OnColorSchemeChange()
 
-let g:neovide_scale_factor=1
+let g:neovide_scale_factor=1.2
 let g:neovide_theme = 'auto'
 
 " TODO: Follow system color scheme dark/light
