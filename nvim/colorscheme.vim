@@ -8,7 +8,7 @@ function! OnColorSchemeChange()
   hi! EndOfBuffer guibg=bg guifg=bg ctermbg=NONE ctermfg=NONE
   " let &fillchars = 'vert:│,eob: '
   highlight SignColumn guibg=bg ctermbg=NONE
-  highlight LineNr guibg=bg ctermbg=NONE guifg=grey
+  highlight LineNr guibg=bg ctermbg=NONE guifg=bg
 
   " highlight CursorLineNr guibg=bg ctermbg=NONE
 
