@@ -163,6 +163,9 @@ endfunction
 
 nnoremap <silent> <leader>kc :call CenterLayoutToggle()<cr>
 
+nnoremap <silent> <leader>kN :set nu rnu<cr>
+nnoremap <silent> <leader>kn :set nonu nornu<cr>
+
 let s:zen_mode = 0
 function! ToggleZenMode()
     if s:zen_mode  == 0

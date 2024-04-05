@@ -8,7 +8,7 @@ function! OnColorSchemeChange()
   hi! EndOfBuffer guibg=bg guifg=bg ctermbg=NONE ctermfg=NONE
   " let &fillchars = 'vert:│,eob: '
   highlight SignColumn guibg=bg ctermbg=NONE
-  highlight LineNr guibg=bg ctermbg=NONE guifg=bg
+  highlight LineNr guibg=bg ctermbg=NONE
 
   " highlight CursorLineNr guibg=bg ctermbg=NONE
 
@@ -47,7 +47,7 @@ let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_disable_italic_comment=1
 let g:gruvbox_material_transparent_background=0
 
-let themeStyle = system("[[ `gsettings get org.gnome.desktop.interface color-scheme` =~ 'dark' ]] && 'dark' || 'light'") 
+let themeStyle = system("gsettings get org.gnome.desktop.interface color-scheme") 
 
 if themeStyle =~ 'dark' 
   set bg=dark
@@ -58,10 +58,21 @@ endif
 colorscheme lunaperche
 call OnColorSchemeChange()
 
-let g:neovide_scale_factor=1.2
+" neovide 
 let g:neovide_theme = 'auto'
+let g:neovide_scale_factor=1.2
+
+let g:neovide_cursor_trail_size = 0.2
+let g:neovide_cursor_animation_length = 0.10
+let g:neovide_cursor_vfx_mode = ""
+
+let g:neovide_padding_top = 0
+let g:neovide_padding_bottom = 0
+let g:neovide_padding_right = 0
+let g:neovide_padding_left = 0
 
 " TODO: Follow system color scheme dark/light
 " The idea is to get the color scheme info into an env variable
 " then use that env variable in vim script to load dark/light profile
-" [[ `gsettings get org.gnome.desktop.interface color-scheme` =~ 'dark' ]] && echo dark mode active || echo dark mode inactive
+" [[ `gsettings get org.gnome.desktop.interface color-scheme` =~ 'dark' ]] 
+" && echo dark mode active || echo dark mode inactive
