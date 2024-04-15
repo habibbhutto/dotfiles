@@ -4,6 +4,16 @@ set termguicolors
 lua require'colorizer'.setup()
 
 function! OnColorSchemeChange()
+  let themeStyle = system("gsettings get org.gnome.desktop.interface color-scheme") 
+
+  if themeStyle =~ 'dark' 
+    set bg=dark
+    " the color of Gnome top panel 
+    " hi! Normal guibg=#131313
+  else
+    set bg=light
+  endif 
+
   hi! VertSplit guibg=bg guifg=bg ctermbg=NONE ctermfg=NONE
   hi! EndOfBuffer guibg=bg guifg=bg ctermbg=NONE ctermfg=NONE
   " let &fillchars = 'vert:│,eob: '
@@ -37,28 +47,19 @@ function! OnColorSchemeChange()
   highlight GitGutterAdd    guifg=#008800 ctermfg=2
   highlight GitGutterChange guifg=#0077ff ctermfg=3
   highlight GitGutterDelete guifg=#dd000a ctermfg=1
+
 endfunction
 
 autocmd! ColorScheme * call OnColorSchemeChange()
 
-let g:gruvbox_material_foreground='mix'
+let g:gruvbox_material_foreground='material'
 let g:gruvbox_material_background='medium'
 let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_disable_italic_comment=1
 let g:gruvbox_material_transparent_background=0
 
-let themeStyle = system("gsettings get org.gnome.desktop.interface color-scheme") 
-
-if themeStyle =~ 'dark' 
-  set bg=dark
-else
-  set bg=light
-endif 
-
 colorscheme lunaperche
 call OnColorSchemeChange()
-
-hi! Normal guibg=#131313
 
 " neovide 
 let g:neovide_theme = 'auto'
