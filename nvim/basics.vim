@@ -35,7 +35,7 @@ set foldmethod=indent
 set foldlevel=99
 set laststatus=2
 let mapleader = ","
-" set guifont=Hack\ Nerd\ Font:h12
+set guifont=FiraCode\ Nerd\ Font\ Ret:h12
 
 " I guess, this setup for clipboard would work almost everywhere
 " If it doesn't work well in some environment, I will find a way

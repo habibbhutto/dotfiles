@@ -58,9 +58,11 @@ endif
 colorscheme lunaperche
 call OnColorSchemeChange()
 
+hi! Normal guibg=#131313
+
 " neovide 
 let g:neovide_theme = 'auto'
-let g:neovide_scale_factor=1.2
+let g:neovide_scale_factor=1.5
 
 let g:neovide_cursor_trail_size = 0.2
 let g:neovide_cursor_animation_length = 0.10
