@@ -58,12 +58,18 @@ let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_disable_italic_comment=1
 let g:gruvbox_material_transparent_background=0
 
-colorscheme lunaperche
+colorscheme quiet
 call OnColorSchemeChange()
+
+hi! Comment guifg=#707070 gui=none
+hi! Type guifg=#0066CC gui=bold
+hi! Statement gui=bold
+hi! Conditional gui=none
+hi! Repeat gui=none
 
 " neovide 
 let g:neovide_theme = 'auto'
-let g:neovide_scale_factor=1.5
+let g:neovide_scale_factor=1
 
 let g:neovide_cursor_trail_size = 0.2
 let g:neovide_cursor_animation_length = 0.10
@@ -79,3 +85,18 @@ let g:neovide_padding_left = 0
 " then use that env variable in vim script to load dark/light profile
 " [[ `gsettings get org.gnome.desktop.interface color-scheme` =~ 'dark' ]] 
 " && echo dark mode active || echo dark mode inactive
+
+" hi! Structure guifg=#00AACC #0088DD #0077BB gui=bold
+" hi! Statement guifg=#0077BB gui=none
+" hi! Type guifg=#0077BB gui=none
+" hi! Structure guifg=#0077BB gui=none
+" hi! PreProc guifg=#0077BB gui=none
+" hi! Constant guifg=#202020 gui=bold
+" hi! Comment guifg=#777777 gui=none
+"
+" hi! Normal guibg=#FFFFFF
+" hi! Normal guibg=#FFFFFF
+" hi! Type guifg=#0066CC gui=bold
+" hi! Statement gui=bold
+" hi! Conditional gui=none
+" hi! Repeat gui=none
