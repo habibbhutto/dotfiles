@@ -10,8 +10,12 @@ function! OnColorSchemeChange()
     set bg=dark
     " the color of Gnome top panel 
     " hi! Normal guibg=#131313
+    hi! StatusLine guibg=#181818 guifg=fg gui=bold cterm=bold
+    hi! StatusLineNC guibg=#101010 guifg=fg gui=NONE cterm=NONE
   else
     set bg=light
+    hi! StatusLine guibg=#bbbbbb guifg=fg gui=bold cterm=bold
+    hi! StatusLineNC guibg=#cccccc guifg=fg gui=NONE cterm=NONE
   endif 
 
   hi! VertSplit guibg=bg guifg=bg ctermbg=NONE ctermfg=NONE
@@ -25,9 +29,6 @@ function! OnColorSchemeChange()
   highlight Constant gui=none
   highlight Comment gui=none
   highlight Number gui=none
-
-  hi! StatusLine guibg=none guifg=fg gui=bold cterm=bold
-  hi! StatusLineNC guibg=none guifg=fg gui=NONE cterm=NONE
 
   hi! FloatBorder guifg=fg guibg=none
   hi! NvimTreeNormalFloat guibg=bg
