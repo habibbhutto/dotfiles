@@ -80,7 +80,7 @@ hi! Repeat gui=none
 
 " neovide 
 let g:neovide_theme = 'auto'
-let g:neovide_scale_factor=1
+let g:neovide_scale_factor=1.1
 
 let g:neovide_cursor_trail_size = 0.2
 let g:neovide_cursor_animation_length = 0.10
@@ -90,6 +90,10 @@ let g:neovide_padding_top = 0
 let g:neovide_padding_bottom = 0
 let g:neovide_padding_right = 0
 let g:neovide_padding_left = 0
+
+nmap <silent> <C-=> :let neovide_scale_factor=neovide_scale_factor+0.1<CR>
+nmap <silent> <C--> :let neovide_scale_factor=neovide_scale_factor-0.1<CR>
+nmap <silent> <C-0> :let neovide_scale_factor=1<CR>
 
 " TODO: Follow system color scheme dark/light
 " The idea is to get the color scheme info into an env variable
