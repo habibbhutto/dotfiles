@@ -10,12 +10,21 @@ function! OnColorSchemeChange()
     set bg=dark
     " the color of Gnome top panel 
     " hi! Normal guibg=#131313
-    hi! StatusLine guibg=#181818 guifg=fg gui=bold cterm=bold
-    hi! StatusLineNC guibg=#101010 guifg=fg gui=NONE cterm=NONE
+    if g:colors_name =~ "quiet"
+      hi! StatusLine guibg=#181818 guifg=fg gui=bold cterm=bold
+      hi! StatusLineNC guibg=#101010 guifg=fg gui=NONE cterm=NONE
+    endif
   else
     set bg=light
-    hi! StatusLine guibg=#bbbbbb guifg=fg gui=bold cterm=bold
-    hi! StatusLineNC guibg=#cccccc guifg=fg gui=NONE cterm=NONE
+    if g:colors_name =~ "quiet"
+      hi! StatusLine guibg=#bbbbbb guifg=fg gui=bold cterm=bold
+      hi! StatusLineNC guibg=#cccccc guifg=fg gui=NONE cterm=NONE
+    endif
+
+
+    if g:colors_name =~ "blue"
+      hi! Normal guifg=#ffffff
+    endif
   endif 
 
   hi! VertSplit guibg=bg guifg=bg ctermbg=NONE ctermfg=NONE
