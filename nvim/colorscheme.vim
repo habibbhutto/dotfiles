@@ -72,6 +72,7 @@ colorscheme quiet
 call OnColorSchemeChange()
 
 hi! Comment guifg=#707070 gui=none
+hi! Keyword guifg=#0066CC gui=bold
 hi! Type guifg=#0066CC gui=bold
 hi! Statement gui=bold
 hi! Conditional gui=none
