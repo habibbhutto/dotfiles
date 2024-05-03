@@ -10,13 +10,13 @@ function! OnColorSchemeChange()
     set bg=dark
     " the color of Gnome top panel 
     " hi! Normal guibg=#131313
-    if g:colors_name =~ "quiet"
+    if g:colors_name =~ "quiet" || g:colors_name =~ "lunaperche"
       hi! StatusLine guibg=#181818 guifg=fg gui=bold cterm=bold
       hi! StatusLineNC guibg=#101010 guifg=fg gui=NONE cterm=NONE
     endif
   else
     set bg=light
-    if g:colors_name =~ "quiet"
+    if g:colors_name =~ "quiet" || g:colors_name =~ "lunaperche"
       hi! StatusLine guibg=#bbbbbb guifg=fg gui=bold cterm=bold
       hi! StatusLineNC guibg=#cccccc guifg=fg gui=NONE cterm=NONE
     endif
@@ -68,7 +68,7 @@ let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_disable_italic_comment=1
 let g:gruvbox_material_transparent_background=0
 
-colorscheme quiet
+colorscheme carbonfox
 call OnColorSchemeChange()
 
 hi! Comment guifg=#707070 gui=none

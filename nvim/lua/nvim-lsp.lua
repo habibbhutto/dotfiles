@@ -73,7 +73,7 @@ local servers = {
 
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
-        autostart = false,
+        autostart = true,
         on_attach = on_attach,
         flags = lsp_flags,
         capabilities = capabilities,
