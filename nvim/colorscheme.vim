@@ -5,24 +5,25 @@ lua require'colorizer'.setup()
 
 function! OnColorSchemeChange()
   let themeStyle = system("gsettings get org.gnome.desktop.interface color-scheme") 
+  let color = g:colors_name
 
   if themeStyle =~ 'dark' 
     set bg=dark
     " the color of Gnome top panel 
     " hi! Normal guibg=#131313
-    if g:colors_name =~ "quiet" || g:colors_name =~ "lunaperche"
+    if color =~ "quiet" || color =~ "lunaperche"
       hi! StatusLine guibg=#181818 guifg=fg gui=bold cterm=bold
       hi! StatusLineNC guibg=#101010 guifg=fg gui=NONE cterm=NONE
     endif
   else
     set bg=light
-    if g:colors_name =~ "quiet" || g:colors_name =~ "lunaperche"
-      hi! StatusLine guibg=#bbbbbb guifg=fg gui=bold cterm=bold
-      hi! StatusLineNC guibg=#cccccc guifg=fg gui=NONE cterm=NONE
+    if color =~ "quiet" || color =~ "lunaperche"
+      hi! StatusLine guibg=#eeeeee guifg=fg gui=bold cterm=bold
+      hi! StatusLineNC guibg=#eeeeee guifg=fg gui=NONE cterm=NONE
     endif
 
 
-    if g:colors_name =~ "blue"
+    if color =~ "blue"
       hi! Normal guifg=#ffffff
     endif
   endif 
@@ -68,7 +69,7 @@ let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_disable_italic_comment=1
 let g:gruvbox_material_transparent_background=0
 
-colorscheme carbonfox
+colorscheme lunaperche
 call OnColorSchemeChange()
 
 hi! Comment guifg=#707070 gui=none
