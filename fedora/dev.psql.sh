@@ -1,4 +1,4 @@
 #/bin/bash
 
 # Database clients and tools
-sudo dnf -y install postgresql-client
+sudo dnf install -y postgresql
