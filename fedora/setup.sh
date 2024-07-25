@@ -177,6 +177,16 @@ sudo flatpak install com.mattjakeman.ExtensionManager
 # configure gnome using gnome config tools
 
 # Fonts
+mkdir -p ~/.local/share/fonts
+
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
+unzip FiraCode.zip -p ~/.local/share/fonts
+rm FiraCode.zip
+
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip
+unzip Hack.zip -p ~/.local/share/fonts
+rm Hack.zip
+
 #######################
 # User configurations #
 #######################
@@ -184,18 +194,18 @@ sudo flatpak install com.mattjakeman.ExtensionManager
 # configure root profile
 
 # Configure default editor and bash mode
-echo "alias nv=nvim" >> ~/.bashrc
-echo "export EDITOR=nvim" >> ~/.bashrc
-echo "export VISUAL=nvim" >> ~/.bashrc
-echo "export PAGER=less" >> ~/.bashrc
+echo 'alias nv=nvim' >> ~/.bashrc
+echo 'export EDITOR=nvim' >> ~/.bashrc
+echo 'export VISUAL=nvim' >> ~/.bashrc
+echo 'export PAGER=less' >> ~/.bashrc
 # This to enable colors in LESS but it doesn't work properly
-# echo "export LESS="-iMSx4 -FX"" >> ~/.bashrc
+# echo 'export LESS="-iMSx4 -FX"' >> ~/.bashrc
 
 # Configure starship
 # install and configure shell
 curl -sS https://starship.rs/install.sh | sh
 cp starship.toml ~/.config/starship.toml
-echo "eval "$(starship init bash)"" >> ~/.bashrc
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
 # initialize sdkman
 echo '#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!' >> ~/.bashrc
 echo 'export SDKMAN_DIR="$HOME/.sdkman"' >> ~/.bashrc
