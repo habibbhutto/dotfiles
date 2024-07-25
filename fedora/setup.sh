@@ -166,6 +166,8 @@ sudo dnf install -y gnome-calendar
 #########################
 # System configurations #
 #########################
+# gnome tweaks
+sudo dnf install -y gnome-tweaks
 # install gnome extension manager 
 sudo flatpak install org.gnome.Extensions
 # install gnome extensions for dash, icons, etc
