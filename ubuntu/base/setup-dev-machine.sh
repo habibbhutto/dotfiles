@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# TODO: Configure max file watch 
+# https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc
 # For WSL enable sysmted before executing this script
 # First, run this manually and then restart the distro
 # echo "[boot]" | sudo tee /etc/wsl.conf
