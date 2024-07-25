@@ -12,19 +12,19 @@ function! OnColorSchemeChange()
     " the color of Gnome top panel 
     " hi! Normal guibg=#131313
     if color =~ "quiet" || color =~ "lunaperche"
-      hi! StatusLine guibg=#181818 guifg=fg gui=bold cterm=bold
-      hi! StatusLineNC guibg=#101010 guifg=fg gui=NONE cterm=NONE
+      " hi! StatusLine guibg=#181818 guifg=fg gui=bold cterm=bold
+      " hi! StatusLineNC guibg=#101010 guifg=fg gui=NONE cterm=NONE
     endif
   else
     set bg=light
     if color =~ "quiet" || color =~ "lunaperche"
-      hi! StatusLine guibg=#eeeeee guifg=fg gui=bold cterm=bold
-      hi! StatusLineNC guibg=#eeeeee guifg=fg gui=NONE cterm=NONE
+      " hi! StatusLine guibg=#eeeeee guifg=fg gui=bold cterm=bold
+      " hi! StatusLineNC guibg=#eeeeee guifg=fg gui=NONE cterm=NONE
     endif
 
 
     if color =~ "blue"
-      hi! Normal guifg=#ffffff
+      " hi! Normal guifg=#ffffff
     endif
   endif 
 
@@ -59,6 +59,9 @@ function! OnColorSchemeChange()
   highlight GitGutterChange guifg=#0077ff ctermfg=3
   highlight GitGutterDelete guifg=#dd000a ctermfg=1
 
+" hi! Normal guibg=transparent
+" hi! NormalNC guibg=transparent
+" hi! NormalFloat guibg=transparent
 endfunction
 
 autocmd! ColorScheme * call OnColorSchemeChange()
@@ -69,15 +72,16 @@ let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_disable_italic_comment=1
 let g:gruvbox_material_transparent_background=0
 
-colorscheme lunaperche
+colorscheme default
 call OnColorSchemeChange()
 
-hi! Comment guifg=#707070 gui=none
-hi! Keyword guifg=#0066CC gui=bold
-hi! Type guifg=#0066CC gui=bold
-hi! Statement gui=bold
-hi! Conditional gui=none
-hi! Repeat gui=none
+" DISABLE CUSTOM COLOR MARKERS
+" hi! Comment guifg=#707070 gui=none
+" hi! Keyword guifg=#0066CC gui=bold
+" hi! Type guifg=#0066CC gui=bold
+" hi! Statement gui=bold
+" hi! Conditional gui=none
+" hi! Repeat gui=none
 
 " neovide 
 let g:neovide_theme = 'auto'

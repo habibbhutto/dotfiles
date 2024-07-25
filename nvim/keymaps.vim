@@ -115,3 +115,8 @@ noremap <M-down> :m +1<cr>
 nnoremap <leader>w <cmd>w<cr>
 inoremap <C-s> <cmd>w<cr>
 
+
+vmap RRC :!psql service=ContractProd -a -t -A<enter>
+vmap RRL :!psql service=LoyaltyProd -a -t -A<enter>
+vmap RRW :!psql service=WebshopProd -a -t -A<enter>
+vmap JJJ :!jq<enter>

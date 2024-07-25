@@ -9,7 +9,7 @@ vim.cmd([[
    " Disabling it for now as it's seems slower
    " autocmd VimEnter * lua require('treesitter')
    autocmd VimEnter * lua require('tree')
-   autocmd VimEnter * call ToggleZenMode()
+   " autocmd VimEnter * call ToggleZenMode()
 ]]);
 
 vim.cmd 'source ~/vim-fiddle/nvim/plugins.vim'

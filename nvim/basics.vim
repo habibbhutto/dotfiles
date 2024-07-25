@@ -35,7 +35,7 @@ set foldmethod=indent
 set foldlevel=99
 set laststatus=2
 let mapleader = ","
-set guifont=FiraCode\ Nerd\ Font\ Ret:h12
+set guifont=FiraCode\ Nerd\ Font:h12
 
 " I guess, this setup for clipboard would work almost everywhere
 " If it doesn't work well in some environment, I will find a way
@@ -133,7 +133,7 @@ augroup netrw_mapping
 augroup END
 
 set number
-set relativenumber
+" set relativenumber
 set numberwidth=4
 set signcolumn=yes
 
