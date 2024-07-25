@@ -144,7 +144,9 @@ sudo chown -f -R $USER ~/.kube
 curl -s "https://get.sdkman.io" | bash
 source "/home/$USER/.sdkman/bin/sdkman-init.sh"
 
-sdk install java 22.2.r17-nik
+sdk install java
+sdk install maven
+sdk install gradle
 
 # Install Java Language Server
 # https://github.com/eclipse/eclipse.jdt.ls

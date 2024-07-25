@@ -32,22 +32,48 @@ sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.re
 sudo dnf install -y gh --repo gh-cli
 
 # k8s and Container tooling
-# podman podman-desktop podman/docker-compose kind
-# k8s
-# kubectl
+sudo dnf -y install podman
+sudo flatpak install flathub io.podman_desktop.PodmanDesktop
+# kubectl - latest version can be installed by enabling podman desktop extension
+# kind - latest version can be installed by enabling podman desktop extension
+# k8s - latest cluster can be created from podman desktop or using kind
+# podman compose - latest version can be installed from podman desktop 
+
 # skaffold
+curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64 && \
+sudo install skaffold /usr/local/bin/
+rm ~/skaffold
+
 # helm
-# sudo dnf install -y podman podman-desktop kind podman-compose etc
+sudo dnf install -y helm
+
+# Google cloud
+sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
+[google-cloud-cli]
+name=Google Cloud CLI
+baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el9-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+EOM
+
+sudo dnf install -y google-cloud-cli
 
 # Kernel sources and development libraries
-
-# Neovide
+sudo dnf install -y kernel-devel
 
 # Vim and Neovim
 sudo dnf install -y \
 		neovim \
 		vim \
 		ctags \
+
+# Neovide
+# I think it turns out to be a distraction
+# It's not available in default package repositories
+# https://neovide.dev/installation.html
+# cargo install --git https://github.com/neovide/neovide
 
 # Code 
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -58,8 +84,7 @@ sudo dnf install -y code # or code-insiders
 # Database clients and tools
 sudo dnf install -y postgresql
 
-# C
-# CPP
+# C and CPP
 sudo dnf install -y \
 	gcc \
 	clang \
@@ -68,24 +93,40 @@ sudo dnf install -y \
 	make \
 	cmake 
 
-# Go
-sudo dnf install -y golang golang-x-tools-gopls
-
-# Java
-## sdkman
-## java
-## jdtls
-## gradle
-## maven
-
-
-# Node
-# Perl
-# Python
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 sudo dnf install -y rust-analyzer
 
+# Go
+sudo dnf install -y golang golang-x-tools-gopls
+
+# Node
+sudo dnf install -y nodejs
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.bashrc
+
+nvm install v20
+nvm use v20
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+# https://github.com/typescript-language-server/typescript-language-server#installing
+pnpm install -g typescript-language-server typescript nodmon
+
+# Java
+# sdkman
+curl -s "https://get.sdkman.io" | bash
+source "/home/$USER/.sdkman/bin/sdkman-init.sh"
+# install java, maven and gradle using sdk man
+sdk install java
+sdk install maven
+sdk install gradle
+
+# jdtls - Install Java Language Server
+# https://github.com/eclipse/eclipse.jdt.ls
+curl https://raw.githubusercontent.com/eruizc-dev/jdtls-launcher/master/install.sh | bash
+
+# WIP: Following are work in progress
+# Perl - seems pre-installed in fedora
+# Python - seems pre-installed in fedora
 # V
 # Zig
 
@@ -117,38 +158,49 @@ sudo dnf install -y geary
 # Issues with Google tasks, chats, etc
 sudo dnf install -y thunderbird
 
-# It seems clone of Geary
-# sudo dnf install -y elementary-mail
-
 # Little complicated
 sudo dnf install -y evolution
 # Gnome Calendar
-# sudo flatpak install flathub org.gnome.Calendar
-
+sudo dnf install -y gnome-calendar
 
 #########################
 # System configurations #
 #########################
+# install gnome extension manager 
+sudo flatpak install org.gnome.Extensions
+# install gnome extensions for dash, icons, etc
+sudo flatpak install com.mattjakeman.ExtensionManager
 
 #############################
 # Gnome shell configuration #
 #############################
+# configure gnome using gnome config tools
 
+# Fonts
 #######################
 # User configurations #
 #######################
+# configure bashrc 
+# configure root profile
 
-# curl -sS https://starship.rs/install.sh | sh
-# echo "eval "$(starship init bash)"" >> ~/.bashrc
-# ehco "set -o vi" >> ~/.bashrc
-# cp shell/starship.toml ~/.config/starship.toml
+# Configure default editor and bash mode
+echo "alias nv=nvim" >> ~/.bashrc
+echo "export EDITOR=nvim" >> ~/.bashrc
+echo "export VISUAL=nvim" >> ~/.bashrc
+echo "export PAGER=less" >> ~/.bashrc
+# This to enable colors in LESS but it doesn't work properly
+# echo "export LESS="-iMSx4 -FX"" >> ~/.bashrc
 
-# configure starship
+# Configure starship
+# install and configure shell
+curl -sS https://starship.rs/install.sh | sh
+cp starship.toml ~/.config/starship.toml
+echo "eval "$(starship init bash)"" >> ~/.bashrc
+# initialize sdkman
+echo '#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!' >> ~/.bashrc
+echo 'export SDKMAN_DIR="$HOME/.sdkman"' >> ~/.bashrc
+echo '[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"' >> ~/.bashrc
+# Configure custom environment variables
 
-# configure sdkman
-
-# configure default editor and bash mode
-
-# configure custom environment variables
-
-# Trackpoint configuration
+# WIP Trackpoint configuration
+# This got to be rules file to tune the trackpoint sensitivity
