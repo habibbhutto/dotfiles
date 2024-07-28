@@ -32,6 +32,12 @@ sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.re
 sudo dnf install -y gh --repo gh-cli
 
 # k8s and Container tooling
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+rm get-docker.sh
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
 sudo dnf -y install podman
 sudo flatpak install flathub io.podman_desktop.PodmanDesktop
 # kubectl - latest version can be installed by enabling podman desktop extension
@@ -42,7 +48,7 @@ sudo flatpak install flathub io.podman_desktop.PodmanDesktop
 # skaffold
 curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64 && \
 sudo install skaffold /usr/local/bin/
-rm ~/skaffold
+rm skaffold
 
 # helm
 sudo dnf install -y helm
@@ -182,11 +188,11 @@ sudo flatpak install com.mattjakeman.ExtensionManager
 mkdir -p ~/.local/share/fonts
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
-unzip FiraCode.zip -p ~/.local/share/fonts
+unzip FiraCode.zip -d ~/.local/share/fonts
 rm FiraCode.zip
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip
-unzip Hack.zip -p ~/.local/share/fonts
+unzip Hack.zip -d ~/.local/share/fonts
 rm Hack.zip
 
 #######################
