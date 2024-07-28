@@ -105,7 +105,7 @@ tnoremap <silent> <M-PageUp> <C-\><C-n><PageUp>
 tnoremap <silent> <M-PageDown> <C-\><C-n><PageDown>
 
 " Start a terminal at the bottom
-noremap <silent> <leader>t :bot bel new<bar>term<cr>
+noremap <silent> <leader>t :bot bel new<bar>term<cr>a
 
 " Shift buffer lines up and down
 noremap <M-up> :m -2<cr>
