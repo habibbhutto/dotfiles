@@ -87,6 +87,9 @@ echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com
 sudo dnf check-update
 sudo dnf install -y code # or code-insiders
 
+# Zed editor
+curl -f https://zed.dev/install.sh | sh
+
 # Database clients and tools
 sudo dnf install -y postgresql
 
