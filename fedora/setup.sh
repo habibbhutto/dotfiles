@@ -80,6 +80,9 @@ sudo dnf install -y \
 # It's not available in default package repositories
 # https://neovide.dev/installation.html
 # cargo install --git https://github.com/neovide/neovide
+# Alacritty 
+sudo dnf install -y alacritty
+cp -r alacritty/ ~/.config/
 
 # Code 
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc

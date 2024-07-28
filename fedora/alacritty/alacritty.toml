@@ -1,0 +1,36 @@
+# https://www.joshmedeski.com/posts/setting-up-alacritty-for-a-fast-minimal-terminal-emulator/
+# https://alacritty.org/config-alacritty.html
+# https://alacritty.org/config-alacritty-bindings.html
+
+live_config_reload = true
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+# opacity = 0.9
+decorations = "NONE"
+# startup_mode = "Maximized"
+padding = { x = 0, y = 0 }
+# dimensions = { columns = 120, lines = 36 }
+
+
+[font]
+size = 15.0
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "Medium"
+
+[font.bold]
+family = "FiraCode Nerd Font"
+style = "Heavy"
+
+[font.bold_italic]
+family = "FiraCode Nerd Font"
+style = "Heavy Italic"
+
+[font.italic]
+family = "FiraCode Nerd Font"
+style = "Medium Italic"
+
