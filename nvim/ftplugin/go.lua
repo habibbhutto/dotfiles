@@ -54,6 +54,7 @@ vim.diagnostic.config(diagnostics)
 --       https://github.com/neovim/nvim-lspconfig/issues/2733
 -- TODO: Explore further improvements 
 --       https://github.com/neovim/nvim-lspconfig#Suggested-configuration
+-- https://github.com/golang/tools/blob/master/gopls/doc/features/README.md
 vim.lsp.start({
   name = 'gopls',
   cmd = {'go', 'run', 'golang.org/x/tools/gopls@latest'},
