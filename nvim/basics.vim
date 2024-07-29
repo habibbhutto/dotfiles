@@ -40,17 +40,17 @@ set guifont=FiraCode\ Nerd\ Font:h12
 " I guess, this setup for clipboard would work almost everywhere
 " If it doesn't work well in some environment, I will find a way
 set clipboard+=unnamedplus
-let g:clipboard = {
-      \   'name': 'xclip-custom',
-      \   'copy': {
-      \      '+': 'xclip -i -selection clipboard',
-      \      '*': 'xclip -i -selection primary',
-      \    },
-      \   'paste': {
-      \      '+': 'xclip -o -selection clipboard',
-      \      '*': 'xclip -o -selection primary',
-      \   },
-      \ }
+" let g:clipboard = {
+"       \   'name': 'xclip-custom',
+"       \   'copy': {
+"       \      '+': 'xclip -i -selection clipboard',
+"       \      '*': 'xclip -i -selection primary',
+"       \    },
+"       \   'paste': {
+"       \      '+': 'xclip -o -selection clipboard',
+"       \      '*': 'xclip -o -selection primary',
+"       \   },
+"       \ }
 
 " On WSL this works well but slower at times
 " let g:clipboard = {
