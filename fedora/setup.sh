@@ -111,6 +111,7 @@ sudo dnf install -y rust-analyzer
 
 # Go
 sudo dnf install -y golang golang-x-tools-gopls
+go install golang.org/x/tools/gopls@latest
 
 # Node
 sudo dnf install -y nodejs
