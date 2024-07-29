@@ -1,5 +1,9 @@
 #/bin/bash
-
+# TODO:
+# * Configure trackpoint for T480
+#   https://wiki.archlinux.org/title/TrackPoint
+#   https://bbs.archlinux.org/viewtopic.php?id=227818
+#   https://wiki.archlinux.org/title/TrackPoint#systemd.path_unit
 ##########################
 # System tools and utils #
 ##########################
