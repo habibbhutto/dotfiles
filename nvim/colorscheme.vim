@@ -4,29 +4,29 @@ set termguicolors
 lua require'colorizer'.setup()
 
 function! OnColorSchemeChange()
-  let themeStyle = system("gsettings get org.gnome.desktop.interface color-scheme") 
-  let color = g:colors_name
+  " let themeStyle = system("gsettings get org.gnome.desktop.interface color-scheme") 
+  " let color = g:colors_name
 
-  if themeStyle =~ 'dark' 
-    set bg=dark
-    " the color of Gnome top panel 
-    " hi! Normal guibg=#131313
-    if color =~ "quiet" || color =~ "lunaperche"
-      " hi! StatusLine guibg=#181818 guifg=fg gui=bold cterm=bold
-      " hi! StatusLineNC guibg=#101010 guifg=fg gui=NONE cterm=NONE
-    endif
-  else
-    set bg=light
-    if color =~ "quiet" || color =~ "lunaperche"
-      " hi! StatusLine guibg=#eeeeee guifg=fg gui=bold cterm=bold
-      " hi! StatusLineNC guibg=#eeeeee guifg=fg gui=NONE cterm=NONE
-    endif
+  " if themeStyle =~ 'dark' 
+  "   set bg=dark
+  "   " the color of Gnome top panel 
+  "   " hi! Normal guibg=#131313
+  "   if color =~ "quiet" || color =~ "lunaperche"
+  "     " hi! StatusLine guibg=#181818 guifg=fg gui=bold cterm=bold
+  "     " hi! StatusLineNC guibg=#101010 guifg=fg gui=NONE cterm=NONE
+  "   endif
+  " else
+  "   set bg=light
+  "   if color =~ "quiet" || color =~ "lunaperche"
+  "     " hi! StatusLine guibg=#eeeeee guifg=fg gui=bold cterm=bold
+  "     " hi! StatusLineNC guibg=#eeeeee guifg=fg gui=NONE cterm=NONE
+  "   endif
 
 
-    if color =~ "blue"
-      " hi! Normal guifg=#ffffff
-    endif
-  endif 
+  "   if color =~ "blue"
+  "     " hi! Normal guifg=#ffffff
+  "   endif
+  " endif 
 
   hi! VertSplit guibg=bg guifg=bg ctermbg=NONE ctermfg=NONE
   hi! EndOfBuffer guibg=bg guifg=bg ctermbg=NONE ctermfg=NONE
@@ -49,11 +49,11 @@ function! OnColorSchemeChange()
   hi! NvimTreeSpecialFile guifg=fg gui=bold
   hi! NvimTreeExecFile guifg=fg gui=bold
 
-" if &background ==# 'dark'
-"   hi! Normal guibg=#202020
-"   hi! LineNr guibg=#202020
-"   hi! TabLineSel guibg=#202020 guifg=fg
-" endif
+  " if &background ==# 'dark'
+  "   hi! Normal guibg=#202020
+  "   hi! LineNr guibg=#202020
+  "   hi! TabLineSel guibg=#202020 guifg=fg
+  " endif
 
   highlight GitGutterAdd    guifg=#008800 ctermfg=2
   highlight GitGutterChange guifg=#0077ff ctermfg=3
@@ -72,7 +72,7 @@ let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_disable_italic_comment=1
 let g:gruvbox_material_transparent_background=0
 
-colorscheme default
+colorscheme basic
 call OnColorSchemeChange()
 
 " DISABLE CUSTOM COLOR MARKERS
