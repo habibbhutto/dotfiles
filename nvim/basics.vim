@@ -40,6 +40,8 @@ set guifont=FiraCode\ Nerd\ Font:h12
 " I guess, this setup for clipboard would work almost everywhere
 " If it doesn't work well in some environment, I will find a way
 set clipboard+=unnamedplus
+
+" uncomment this if you are on WSL or Windows
 " let g:clipboard = {
 "       \   'name': 'xclip-custom',
 "       \   'copy': {
