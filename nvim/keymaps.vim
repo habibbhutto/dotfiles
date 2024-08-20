@@ -25,14 +25,16 @@ nmap ]c <Plug>(GitGutterPrevHunk)
 
 " Files and search
 nnoremap <silent> <leader>H :History<cr>
-nnoremap <silent> <leader>F :Files<cr>
-nnoremap <silent> <leader>f :GitFiles<cr>
-nnoremap <silent> <leader>b :Buffers<cr>
+nnoremap <silent> <leader>f :Files<cr>
+nnoremap <silent> <leader>ff :GitFiles<cr>
+nnoremap <silent> <leader>fff :Buffers<cr>
 nnoremap <silent> <leader>tb :BTags<cr>
 nnoremap <silent> <leader>tt :Tags<cr>
 nnoremap <silent> <leader>sf :Rg<cr>
 nnoremap <silent> <leader>sw yw :Rg<cr><cmd>put +<cr>
 nnoremap <silent> <leader>sb yw :BLines<cr><cmd>put +<cr>
+vmap <silent> <leader>ss yw :Rg<cr><cmd>put +<cr>
+vmap <silent> <leader>s yw :BLines<cr><cmd>put +<cr>
 
 nnoremap <silent> <space><space> :call Startup()<BAR>NvimTreeToggle<CR>
 

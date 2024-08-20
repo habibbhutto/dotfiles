@@ -121,7 +121,7 @@ vim.keymap.set('n', '<C-0>',
 
 
 vim.cmd('source ~/vim-fiddle/nvim/keymaps.vim')
-
+vim.cmd('source ~/vim-fiddle/nvim/fzf.vim')
 vim.g.fzf_layout = { 
   window =  { 
     width = 0.9,
