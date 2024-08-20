@@ -14,8 +14,8 @@ nnoremap <silent> <leader>gb :Git branch --list<cr>
 nnoremap <silent> <leader>gg :Git<cr>
 
 " temporary fix for fugitive cmdheight issue 
-autocmd BufEnter fugitive://* set cmdheight=1
-autocmd BufLeave fugitive://* set cmdheight=0
+" autocmd BufEnter fugitive://* set cmdheight=1
+" autocmd BufLeave fugitive://* set cmdheight=0
 
 nnoremap <leader>gp :Git push
 
