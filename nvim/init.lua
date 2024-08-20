@@ -21,6 +21,7 @@
 -- vim.api.diff basic.vim init.lua
 --
 
+vim.cmd('source ~/vim-fiddle/nvim/plugins.vim')
 
 vim.cmd.set("nocompatible")
 vim.cmd.filetype("plugin on")
@@ -61,4 +62,74 @@ vim.cmd.let("mapleader = ','")
 vim.cmd.set("guifont=FiraCode\\ Nerd\\ Font:h12")
 vim.cmd.set("clipboard+=unnamedplus")
 
-vim.cmd.colorscheme("habamax")
+vim.g.gruvbox_material_better_performance=1
+-- https://neovim.io/doc/user/faq.html
+vim.cmd.set('termguicolors')
+vim.cmd.set('background=dark')
+vim.cmd.colorscheme("basic-plus")
+
+vim.cmd.set("number")
+vim.cmd.set("relativenumber")
+vim.cmd.set("numberwidth=4")
+vim.cmd.set("signcolumn=yes")
+
+vim.g.gitgutter_sign_added              = '┃'
+vim.g.gitgutter_sign_modified           = '┃'
+vim.g.gitgutter_sign_removed            = '┃'
+vim.g.gitgutter_sign_modified_removed   = '┃'
+vim.g.gitgutter_sign_removed_first_line = '┃'
+vim.g.gitgutter_sign_removed_above_and_below = '┃'
+
+vim.cmd([[
+  highlight GitGutterAdd    guifg=#008800 ctermfg=2
+  highlight GitGutterChange guifg=#0077ff ctermfg=3
+  highlight GitGutterDelete guifg=#dd000a ctermfg=1
+]])
+
+require'colorizer'.setup()
+
+-- neovide 
+vim.g.neovide_theme = 'auto'
+vim.g.neovide_scale_factor=1.1
+
+vim.g.neovide_cursor_trail_size = 0.2
+vim.g.neovide_cursor_animation_length = 0.10
+vim.g.neovide_cursor_vfx_mode = ''
+
+vim.g.neovide_padding_top = 0
+vim.g.neovide_padding_bottom = 0
+vim.g.neovide_padding_right = 0
+vim.g.neovide_padding_left = 0
+
+vim.keymap.set('n', '<C-=>', 
+  '<cmd>let neovide_scale_factor=neovide_scale_factor+0.1', { 
+  desc = 'Execute action from plugin',
+  silent = true
+})
+
+vim.keymap.set('n', '<C-->', 
+  '<cmd>let neovide_scale_factor=neovide_scale_factor-0.1', { 
+  desc = 'Execute action from plugin',
+  silent = true
+})
+
+vim.keymap.set('n', '<C-0>', 
+  '<cmd>let neovide_scale_factor=1', { 
+  desc = 'Execute action from plugin',
+  silent = true
+})
+
+
+vim.cmd('source ~/vim-fiddle/nvim/keymaps.vim')
+
+vim.g.fzf_layout = { 
+  window =  { 
+    width = 0.9,
+    height = 0.95,
+    relative = 'v:false',
+    yoffset = -1.0
+  }
+}
+
+vim.g.fzf_preview_window = { 'down:80%', 'ctrl-/' }
+

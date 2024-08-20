@@ -104,7 +104,7 @@ if &background ==# 'dark'
   hi Normal guifg=#c6c6c6 guibg=#000000 gui=NONE cterm=NONE
   hi Statusline guifg=#c6c6c6 guibg=#000000 gui=bold,reverse cterm=bold,reverse
   hi StatuslineNC guifg=#767676 guibg=#000000 gui=reverse cterm=reverse
-  hi VertSplit guifg=#767676 guibg=#767676 gui=NONE cterm=NONE
+  hi VertSplit guifg=#767676 guibg=#000000 gui=NONE cterm=NONE
   hi TabLine guifg=#000000 guibg=#c6c6c6 gui=NONE cterm=NONE
   hi TabLineFill guifg=NONE guibg=#767676 gui=NONE cterm=NONE
   hi TabLineSel guifg=#ffffff guibg=#000000 gui=bold cterm=bold
@@ -199,7 +199,7 @@ else
   hi Normal guifg=#000000 guibg=#ffffff gui=NONE cterm=NONE
   hi Statusline guifg=#ffffff guibg=#000000 gui=bold cterm=bold
   hi StatuslineNC guifg=#ffffff guibg=#767676 gui=NONE cterm=NONE
-  hi VertSplit guifg=#767676 guibg=#767676 gui=NONE cterm=NONE
+  hi VertSplit guifg=#767676 guibg=#ffffff gui=NONE cterm=NONE
   hi TabLine guifg=#000000 guibg=#bcbcbc gui=NONE cterm=NONE
   hi TabLineFill guifg=NONE guibg=#767676 gui=NONE cterm=NONE
   hi TabLineSel guifg=#ffffff guibg=#000000 gui=bold,reverse cterm=bold,reverse

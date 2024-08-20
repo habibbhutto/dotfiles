@@ -5,8 +5,8 @@ call plug#begin('~/.config/nvim/.plugged')
   Plug 'mcchrish/zenbones.nvim'
   Plug 'EdenEast/nightfox.nvim'
 
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-      Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
   Plug 'tpope/vim-fugitive'
       Plug 'airblade/vim-gitgutter'
