@@ -1,7 +1,7 @@
--- vim.loader.enable()
--- 
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
+vim.loader.enable()
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 -- 
 -- vim.cmd([[
 --    autocmd VimEnter * source ~/vim-fiddle/nvim/colorscheme.vim
@@ -123,3 +123,17 @@ vim.keymap.set('n', '<C-0>',
 vim.cmd('source ~/vim-fiddle/nvim/keymaps.vim')
 vim.cmd('source ~/vim-fiddle/nvim/fzf.vim')
 
+vim.cmd([[
+   let s:startup_done = 0
+   function! Startup()
+       if s:startup_done  == 0
+         " lua require('telescope-config')
+         lua require('nvim-lsp')
+         lua require('completion')
+         let s:startup_done = 1
+       endif
+   endfunction
+   autocmd VimEnter * call Startup()
+   " autocmd VimEnter * lua require('treesitter')
+   autocmd VimEnter * lua require('tree')
+]]);

@@ -1,17 +1,9 @@
 " Configuration for FZF
-let g:fzf_layout = { 
-  'window': {
-    'width': 0.8,
-    'height': 0.8,
-    'relative': v:false,
-    'yoffset': -1.0
-  }
-}
-
+"" Initialize configuration dictionary
 let g:fzf_vim = {}
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8, 'relative': v:false, 'yoffset': -1.0 } }
 let g:fzf_vim.preview_window = ['hidden,down,80%', 'ctrl-p']
-let g:fzf_vim.grep_multi_line = 0
-
+let g:fzf_vim.grep_multi_line = 1
 let $FZF_DEFAULT_COMMAND="fd --hidden --no-ignore --ignore-case --follow"
 let $FZF_PREVIEW_COMMAND="cat -n {}"
 let $FZF_DEFAULT_OPTS="--reverse --bind ctrl-y:preview-up,ctrl-e:preview-down,
