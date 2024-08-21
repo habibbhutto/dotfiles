@@ -6,6 +6,7 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
+config.prefer_egl = true
 config.front_end = "OpenGL"
 
 config.color_scheme = 'Gruvbox Material (Gogh)'
