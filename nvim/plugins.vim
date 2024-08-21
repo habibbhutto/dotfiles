@@ -8,6 +8,12 @@ call plug#begin('~/.config/nvim/.plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
+  " TODO: https://github.com/kevinhwang91/nvim-bqf
+  "       https://github.com/yuki-yano/fzf-preview.vim?tab=readme-ov-file#usage
+  "       https://github.com/junegunn/fzf.vim
+  "       refine it further
+  " Plug 'kevinhwang91/nvim-bqf', { 'ft': 'qf' }
+
   Plug 'tpope/vim-fugitive'
       Plug 'airblade/vim-gitgutter'
 
@@ -39,9 +45,16 @@ call plug#begin('~/.config/nvim/.plugged')
 
   Plug 'nvim-tree/nvim-tree.lua'
   " Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v3.x'}
-      Plug 'kyazdani42/nvim-web-devicons'
+       Plug 'kyazdani42/nvim-web-devicons'
   "    Plug 'MunifTanjim/nui.nvim'
   "    Plug 's1n7ax/nvim-window-picker'
+
+  Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v3.x' }
+      Plug 'nvim-lua/plenary.nvim'
+      Plug 's1n7ax/nvim-window-picker'
+      Plug 'nvim-tree/nvim-web-devicons'
+      Plug 'MunifTanjim/nui.nvim'
+      Plug '3rd/image.nvim'
 
   " Search, sort and pick
   Plug 'nvim-telescope/telescope.nvim'

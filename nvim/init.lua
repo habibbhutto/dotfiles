@@ -66,7 +66,7 @@ vim.g.gruvbox_material_better_performance=1
 -- https://neovim.io/doc/user/faq.html
 vim.cmd.set('termguicolors')
 vim.cmd.set('background=dark')
-vim.cmd.colorscheme("basic-plus")
+vim.cmd.colorscheme("gruvbox-material")
 
 vim.cmd.set("number")
 vim.cmd.set("relativenumber")
@@ -122,14 +122,4 @@ vim.keymap.set('n', '<C-0>',
 
 vim.cmd('source ~/vim-fiddle/nvim/keymaps.vim')
 vim.cmd('source ~/vim-fiddle/nvim/fzf.vim')
-vim.g.fzf_layout = { 
-  window =  { 
-    width = 0.9,
-    height = 0.95,
-    relative = 'v:false',
-    yoffset = -1.0
-  }
-}
-
-vim.g.fzf_preview_window = { 'down:80%', 'ctrl-/' }
 
