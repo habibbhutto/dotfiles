@@ -19,7 +19,16 @@ config.font = wezterm.font("JetBrains Mono", {weight="Regular", stretch="Normal"
 -- config.window_decorations = "NONE"
 config.window_decorations = "RESIZE"
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0, }
-
+config.window_frame = {
+  border_left_width = '0.2cell',
+  border_right_width = '0.2cell',
+  border_bottom_height = '0.2cell',
+  border_top_height = '0.2cell',
+  border_left_color = '#202020',
+  border_right_color = '#202020',
+  border_bottom_color = '#202020',
+  border_top_color = '#202020',
+}
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.show_tabs_in_tab_bar = false
