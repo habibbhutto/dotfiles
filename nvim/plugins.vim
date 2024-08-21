@@ -12,7 +12,7 @@ call plug#begin('~/.config/nvim/.plugged')
   "       https://github.com/yuki-yano/fzf-preview.vim?tab=readme-ov-file#usage
   "       https://github.com/junegunn/fzf.vim
   "       refine it further
-  " Plug 'kevinhwang91/nvim-bqf', { 'ft': 'qf' }
+  Plug 'kevinhwang91/nvim-bqf', { 'ft': 'qf' }
 
   Plug 'tpope/vim-fugitive'
       Plug 'airblade/vim-gitgutter'
