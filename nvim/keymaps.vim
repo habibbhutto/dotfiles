@@ -128,6 +128,17 @@ vmap RRTN :!psql service=test-newsletter -a <enter>
 vmap JJJ :!jq<enter>
 
 " noremap grt <cmd>bot term cd '%:h' && yarn test '%' 2>&1 <bar> tee %:t.log <CR>
+"
+"
+
+lua <<EOF
+vim.keymap.set('n', 'grtt', 
+  "<cmd>lua vim.cmd('bel 10new | term cd ' .. vim.fs.dirname(vim.fs.find({'package.json'}, { upward = true, path = vim.fs.dirname(vim.api.nvim_buf_get_name(0)) })[1]) .. ' && yarn test ' .. vim.api.nvim_buf_get_name(0))<cr>", { 
+  desc = 'Execute action from plugin',
+  silent = true
+})
+EOF
+
 noremap grt <cmd>bot term cd '%:h' && yarn jest tests/%:t 2>&1 <bar> tee %:t.log <CR>
 noremap grtd <cmd>bot term cd '%:h' && yarn test:debug '%' 2>&1 <bar> tee %:t.log <CR>
 noremap <leader>ttl <cmd>e %.log<cr>

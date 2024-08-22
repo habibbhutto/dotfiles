@@ -66,4 +66,5 @@ vim.lsp.start({
   capabilities = capabilities,
 })
 
+-- lua vim.cmd('bel term cd ' .. vim.fs.dirname(vim.fs.find({'package.json'}, { upward = true, path = vim.fs.dirname(vim.api.nvim_buf_get_name(0)) })[1]) .. ' && yarn test ' .. vim.api.nvim_buf_get_name(0))
 -- lua print(vim.fs.dirname(vim.fs.find({'package.json'}, { upward = true, path = vim.fs.dirname(vim.api.nvim_buf_get_name(0)) })[1]))
