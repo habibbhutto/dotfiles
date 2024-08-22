@@ -137,3 +137,6 @@ vim.cmd([[
    " autocmd VimEnter * lua require('treesitter')
    autocmd VimEnter * lua require('tree')
 ]]);
+-- WIP
+-- https://github.com/ibhagwan/fzf-lua
+-- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
