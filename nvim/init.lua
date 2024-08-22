@@ -59,7 +59,7 @@ vim.cmd.set("foldmethod=indent")
 vim.cmd.set("foldlevel=99")
 vim.cmd.set("laststatus=2")
 vim.cmd.let("mapleader = ','")
-vim.cmd.set("guifont=FiraCode\\ Nerd\\ Font:h12")
+-- vim.cmd.set("guifont=FiraCode\\ Nerd\\ Font:h12")
 vim.cmd.set("clipboard+=unnamedplus")
 
 vim.g.gruvbox_material_better_performance=1
