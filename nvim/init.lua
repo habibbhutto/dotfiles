@@ -59,7 +59,7 @@ vim.cmd.set("foldmethod=indent")
 vim.cmd.set("foldlevel=99")
 vim.cmd.set("laststatus=2")
 vim.cmd.let("mapleader = ','")
--- vim.cmd.set("guifont=FiraCode\\ Nerd\\ Font:h12")
+vim.cmd.set("guifont=FiraCode\\ Nerd\\ Font:h12")
 vim.cmd.set("clipboard+=unnamedplus")
 
 vim.g.gruvbox_material_better_performance=1
@@ -102,19 +102,19 @@ vim.g.neovide_padding_right = 0
 vim.g.neovide_padding_left = 0
 
 vim.keymap.set('n', '<C-=>', 
-  '<cmd>let neovide_scale_factor=neovide_scale_factor+0.1', { 
+  '<cmd>let neovide_scale_factor=neovide_scale_factor+0.1<cr>', { 
   desc = 'Execute action from plugin',
   silent = true
 })
 
 vim.keymap.set('n', '<C-->', 
-  '<cmd>let neovide_scale_factor=neovide_scale_factor-0.1', { 
+  '<cmd>let neovide_scale_factor=neovide_scale_factor-0.1<cr>', { 
   desc = 'Execute action from plugin',
   silent = true
 })
 
 vim.keymap.set('n', '<C-0>', 
-  '<cmd>let neovide_scale_factor=1', { 
+  '<cmd>let neovide_scale_factor=1<cr>', { 
   desc = 'Execute action from plugin',
   silent = true
 })

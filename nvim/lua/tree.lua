@@ -216,7 +216,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       },
       filters = {
         git_ignored = false,
-        dotfiles = true,
+        dotfiles = false,
         git_clean = false,
         no_buffer = false,
         custom = {},
