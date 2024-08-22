@@ -84,6 +84,8 @@ sudo dnf install -y \
 # It's not available in default package repositories
 # https://neovide.dev/installation.html
 # cargo install --git https://github.com/neovide/neovide
+cp -r neovide/ ~/.config/
+
 # Alacritty 
 sudo dnf install -y alacritty
 cp -r alacritty/ ~/.config/
