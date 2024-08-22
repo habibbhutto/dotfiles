@@ -140,3 +140,4 @@ vim.cmd([[
 -- WIP
 -- https://github.com/ibhagwan/fzf-lua
 -- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
+-- https://neovim.io/doc/user/lua-guide.html
