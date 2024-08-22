@@ -65,3 +65,5 @@ vim.lsp.start({
   flags = lsp_flags,
   capabilities = capabilities,
 })
+
+-- lua print(vim.fs.dirname(vim.fs.find({'package.json'}, { upward = true, path = vim.fs.dirname(vim.api.nvim_buf_get_name(0)) })[1]))
