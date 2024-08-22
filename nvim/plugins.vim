@@ -1,6 +1,7 @@
 call plug#begin('~/.config/nvim/.plugged')
   Plug 'sainnhe/gruvbox-material'
   Plug 'shaunsingh/nord.nvim'
+  Plug 'arcticicestudio/nord-vim'
   Plug 'rktjmp/lush.nvim'
   Plug 'mcchrish/zenbones.nvim'
   Plug 'EdenEast/nightfox.nvim'
@@ -72,3 +73,10 @@ call plug#end()
 "   autocmd!
 "   autocmd BufWritePre * undojoin | Neoformat
 " augroup END
+
+" Enable true color 启用终端24位色
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
