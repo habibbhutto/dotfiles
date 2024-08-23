@@ -27,3 +27,6 @@ curl to get the script | sh to execute the script
 
 ## k8s dev environment
 https://kardinal.dev/
+
+## Ideas
+https://cedaei.com/posts/ideas-from-my-dev-setup-always-tmux/
