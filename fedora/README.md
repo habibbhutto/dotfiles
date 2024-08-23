@@ -24,3 +24,6 @@ curl to get the script | sh to execute the script
     * fine tune treesitter  
     * theme changing mechanism  
     * reactive to system style  
+
+## k8s dev environment
+https://kardinal.dev/
