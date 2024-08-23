@@ -32,6 +32,9 @@ sudo dnf install -y git
 git config --global user.name "Habib Ahmed Bhutto"
 git config --global user.email "habibbhutto@gmail.com"
 
+sudo dnf copr enable atim/lazygit -y
+sudo dnf install lazygit
+
 # Github CLI 
 sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
 sudo dnf install -y gh --repo gh-cli
