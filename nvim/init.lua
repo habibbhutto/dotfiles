@@ -65,7 +65,8 @@ vim.cmd.set("clipboard+=unnamedplus")
 vim.g.gruvbox_material_better_performance=1
 -- https://neovim.io/doc/user/faq.html
 vim.cmd.set('termguicolors')
-vim.cmd.set('background=dark')
+vim.o.termguicolors = true
+vim.o.background= 'dark'
 vim.cmd.colorscheme("gruvbox-material")
 
 vim.cmd.set("number")

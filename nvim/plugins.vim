@@ -74,7 +74,7 @@ call plug#end()
 "   autocmd BufWritePre * undojoin | Neoformat
 " augroup END
 
-" Enable true color 启用终端24位色
+" Enable true color
 " https://github.com/tmux/tmux/issues/1246
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
