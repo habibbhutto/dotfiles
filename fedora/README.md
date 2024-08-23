@@ -12,7 +12,10 @@ curl to get the script | sh to execute the script
 ```
 
 ## TODO
-* vim-fiddle    
+* merge verbose-machine to vim-fiddle
+  Merge master of one repository to master of another 
+* rename vim-fiddle to dotfiles
+* vim configuration    
     * migrated keymaps to lua    
     * improve keymaps for testing    
     * improve project based config  
