@@ -30,3 +30,6 @@ https://kardinal.dev/
 
 ## Ideas
 https://cedaei.com/posts/ideas-from-my-dev-setup-always-tmux/
+https://www.atlassian.com/git/tutorials/dotfiles
+https://www.daytona.io/dotfiles/ultimate-guide-to-dotfiles
+https://github.com/holman/dotfiles
