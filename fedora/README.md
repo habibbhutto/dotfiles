@@ -12,7 +12,6 @@ curl to get the script | sh to execute the script
 ```
 
 ## TODO
-* link config files instead of copying    
 * vim-fiddle    
     * migrated keymaps to lua    
     * improve keymaps for testing    

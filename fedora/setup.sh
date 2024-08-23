@@ -85,14 +85,18 @@ sudo dnf install -y \
 # It's not available in default package repositories
 # https://neovide.dev/installation.html
 # cargo install --git https://github.com/neovide/neovide
-cp -r neovide/ ~/.config/
+# cp -r neovide/ ~/.config/
+ln -s $(pwd)/neovide ~/.config/
 
 # Alacritty 
 sudo dnf install -y alacritty
-cp -r alacritty/ ~/.config/
+# cp -r alacritty/ ~/.config/
+ln -s $(pwd)/alacritty ~/.config/
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
-cp -r tmux/ ~/.config/
-git clone https://github.com/nordtheme/tmux ~/.tmux/themes/nord-tmux
+
+# cp -r tmux/ ~/.config/
+ln -s $(pwd)/tmux ~/.config/
+git clone https://github.com/nordtheme/tmux ~/.config/tmux/themes/nord-tmux
 
 # Wezterm
 flatpak install flathub org.wezfurlong.wezterm
