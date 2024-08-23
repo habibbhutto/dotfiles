@@ -10,3 +10,15 @@ Automates the first time setup of a new Fedora Linux installation.
 ```
 curl to get the script | sh to execute the script
 ```
+
+## TODO
+* link config files instead of copying    
+* vim-fiddle    
+    * migrated keymaps to lua    
+    * improve keymaps for testing    
+    * improve project based config  
+    * fine tune lsp config  
+    * fine tune ctags  
+    * fine tune treesitter  
+    * theme changing mechanism  
+    * reactive to system style  

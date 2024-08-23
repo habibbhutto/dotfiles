@@ -1,11 +1,18 @@
 # https://www.joshmedeski.com/posts/setting-up-alacritty-for-a-fast-minimal-terminal-emulator/
 # https://alacritty.org/config-alacritty.html
 # https://alacritty.org/config-alacritty-bindings.html
+# https://github.com/alacritty/alacritty-theme
+import = [
+    "~/.config/alacritty/themes/themes/gruvbox_material_medium_dark.toml"
+]
 
 live_config_reload = true
 
 [env]
 TERM = "xterm-256color"
+
+[shell]
+program = "tmux"
 
 [window]
 # opacity = 0.9
@@ -14,9 +21,8 @@ decorations = "NONE"
 padding = { x = 0, y = 0 }
 # dimensions = { columns = 120, lines = 36 }
 
-
 [font]
-size = 15.0
+size = 12.25
 
 [font.normal]
 family = "FiraCode Nerd Font"
@@ -24,11 +30,11 @@ style = "Medium"
 
 [font.bold]
 family = "FiraCode Nerd Font"
-style = "Heavy"
+style = "Bold"
 
 [font.bold_italic]
 family = "FiraCode Nerd Font"
-style = "Heavy Italic"
+style = "Bold Italic"
 
 [font.italic]
 family = "FiraCode Nerd Font"

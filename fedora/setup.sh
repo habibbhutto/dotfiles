@@ -20,7 +20,8 @@ sudo dnf -y \
 	tar \
 	"fd-find" \
 	fzf \
-	ripgrep
+	ripgrep \
+  tmux
 
 ######################################
 # Development tools and technologies #
@@ -89,6 +90,9 @@ cp -r neovide/ ~/.config/
 # Alacritty 
 sudo dnf install -y alacritty
 cp -r alacritty/ ~/.config/
+git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+cp -r tmux/ ~/.config/
+git clone https://github.com/nordtheme/tmux ~/.tmux/themes/nord-tmux
 
 # Wezterm
 flatpak install flathub org.wezfurlong.wezterm
