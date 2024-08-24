@@ -104,19 +104,19 @@ vim.g.neovide_padding_left = 0
 
 vim.keymap.set('n', '<C-=>', 
   '<cmd>let neovide_scale_factor=neovide_scale_factor+0.1<cr>', { 
-  desc = 'Execute action from plugin',
+  desc = 'Neovide zoom in',
   silent = true
 })
 
 vim.keymap.set('n', '<C-->', 
   '<cmd>let neovide_scale_factor=neovide_scale_factor-0.1<cr>', { 
-  desc = 'Execute action from plugin',
+  desc = 'Neovide zoom out',
   silent = true
 })
 
 vim.keymap.set('n', '<C-0>', 
   '<cmd>let neovide_scale_factor=1<cr>', { 
-  desc = 'Execute action from plugin',
+  desc = 'Neovide zoom reset',
   silent = true
 })
 

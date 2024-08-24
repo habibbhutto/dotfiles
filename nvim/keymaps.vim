@@ -132,9 +132,10 @@ vmap JJJ :!jq<enter>
 "
 
 lua <<EOF
+-- TODO: generalize this for more ts, js, go, c, cpp, rust, v
 vim.keymap.set('n', 'grtt', 
   "<cmd>lua vim.cmd('bel 10new | term cd ' .. vim.fs.dirname(vim.fs.find({'package.json'}, { upward = true, path = vim.fs.dirname(vim.api.nvim_buf_get_name(0)) })[1]) .. ' && jest --runInBand ' .. vim.api.nvim_buf_get_name(0))<cr>", { 
-  desc = 'Execute action from plugin',
+  desc = 'Run current jest test file',
   silent = true
 })
 EOF
