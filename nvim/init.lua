@@ -4,7 +4,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 -- 
 -- vim.cmd([[
---    autocmd VimEnter * source ~/vim-fiddle/nvim/colorscheme.vim
+--    autocmd VimEnter * source ~/dotfiles/nvim/colorscheme.vim
 --    autocmd VimEnter * call Startup()
 --    " Disabling it for now as it's seems slower
 --    " autocmd VimEnter * lua require('treesitter')
@@ -12,11 +12,11 @@ vim.g.loaded_netrwPlugin = 1
 --    " autocmd VimEnter * call ToggleZenMode()
 -- ]]);
 -- 
--- vim.cmd 'source ~/vim-fiddle/nvim/plugins.vim'
--- vim.cmd 'source ~/vim-fiddle/nvim/basics.vim'
--- vim.cmd 'source ~/vim-fiddle/nvim/lazy-start.vim'
--- vim.cmd 'source ~/vim-fiddle/nvim/fzf.vim'
--- vim.cmd 'source ~/vim-fiddle/nvim/keymaps.vim'
+-- vim.cmd 'source ~/dotfiles/nvim/plugins.vim'
+-- vim.cmd 'source ~/dotfiles/nvim/basics.vim'
+-- vim.cmd 'source ~/dotfiles/nvim/lazy-start.vim'
+-- vim.cmd 'source ~/dotfiles/nvim/fzf.vim'
+-- vim.cmd 'source ~/dotfiles/nvim/keymaps.vim'
 -- 
 -- vim.api.diff basic.vim init.lua
 --

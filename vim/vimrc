@@ -1,8 +1,8 @@
-source ~/vim-fiddle/vim/plugins.vim
-source ~/vim-fiddle/vim/basics.vim
-source ~/vim-fiddle/vim/colorscheme.vim
-source ~/vim-fiddle/vim/keymaps.vim
-" source ~/vim-fiddle/vim/lsp.vim
+source ~/dotfiles/vim/plugins.vim
+source ~/dotfiles/vim/basics.vim
+source ~/dotfiles/vim/colorscheme.vim
+source ~/dotfiles/vim/keymaps.vim
+" source ~/dotfiles/vim/lsp.vim
 
 " Popup window (center of the screen)
 let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.95 } }
