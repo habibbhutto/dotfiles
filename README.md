@@ -2,7 +2,7 @@
 Development setup and configuration files
 
 ## TODO
-[*] neovim configuration    
+[ ] neovim configuration    
     * migrated keymaps to lua    
     * improve keymaps for testing    
     * improve project based config  
