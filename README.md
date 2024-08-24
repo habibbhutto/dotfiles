@@ -2,10 +2,7 @@
 Development setup and configuration files
 
 ## TODO
-* merge verbose-machine to vim-fiddle  
-  Merge master of one repository to master of another 
-* rename vim-fiddle to dotfiles
-* vim configuration    
+* neovim configuration    
     * migrated keymaps to lua    
     * improve keymaps for testing    
     * improve project based config  
@@ -23,7 +20,7 @@ https://cedaei.com/posts/ideas-from-my-dev-setup-always-tmux/
 https://www.atlassian.com/git/tutorials/dotfiles
 https://www.daytona.io/dotfiles/ultimate-guide-to-dotfiles
 https://github.com/holman/dotfiles
-Try Ptyxis terminal 
+Try Ptyxis terminal, though I seem to be happy with Alacritty + Tmux setup
 ```bash
 flatpak install --user --from https://nightly.gnome.org/repo/appstream/org.gnome.Ptyxis.Devel.flatpakref
 ```

@@ -21,7 +21,7 @@ vim.g.loaded_netrwPlugin = 1
 -- vim.api.diff basic.vim init.lua
 --
 
-vim.cmd('source ~/vim-fiddle/nvim/plugins.vim')
+vim.cmd('source ~/dotfiles/nvim/plugins.vim')
 
 vim.cmd.set("nocompatible")
 vim.cmd.filetype("plugin on")
@@ -121,8 +121,8 @@ vim.keymap.set('n', '<C-0>',
 })
 
 
-vim.cmd('source ~/vim-fiddle/nvim/keymaps.vim')
-vim.cmd('source ~/vim-fiddle/nvim/fzf.vim')
+vim.cmd('source ~/dotfiles/nvim/keymaps.vim')
+vim.cmd('source ~/dotfiles/nvim/fzf.vim')
 
 vim.cmd([[
    let s:startup_done = 0
