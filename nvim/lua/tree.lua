@@ -260,7 +260,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
           },
         },
         open_file = {
-          quit_on_open = true,
+          quit_on_open = false,
           resize_window = false,
           window_picker = {
             enable = true,
@@ -300,7 +300,13 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
           trash = true,
         },
       },
-      experimental = {},
+      experimental = {
+        actions = {
+          open_file = {
+            relative_path =  true,
+          }
+        }
+      },
       log = {
         enable = false,
         truncate = false,
