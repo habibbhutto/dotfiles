@@ -103,7 +103,7 @@ git clone https://github.com/nordtheme/tmux ~/.config/tmux/themes/nord-tmux
 
 # Wezterm
 flatpak install flathub org.wezfurlong.wezterm
-cp -r wezterm/ ~/.config/
+ln -s $(pwd)/wezterm ~/.config/
 
 # Code 
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
