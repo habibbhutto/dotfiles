@@ -1,42 +1,123 @@
+lua <<EOF
+-- keymaps
+vim.keymap.set('n', '<leader><leader>', "<CMD>:nohlsearch<CR>", { 
+  desc = 'Run current jest test file',
+  silent = true
+})
 
-nnoremap <silent> <leader><leader> :nohlsearch<CR>
+-- file operations
+vim.keymap.set('n', '<leader>e', '<CMD>call Startup()<BAR>NvimTreeToggle<CR>', { 
+  desc = 'Toggle file tree',
+  silent = true
+})
 
-" Telescope
-nnoremap <silent> <leader>tl :Telescope<cr>
+vim.keymap.set('n', '<leader>ff', '<CMD>FZF<CR>', { 
+  desc = 'List files',
+  silent = true
+})
 
-" Git
-nnoremap <silent> <leader>gf :GitFiles<cr>
-nnoremap <silent> <leader>gs :GitFiles?<cr>
-nnoremap <silent> <leader>gst :Git stash list<cr>
-nnoremap <silent> <leader>gc :BCommits<cr>
-nnoremap <silent> <leader>gca :Commits<cr>
-nnoremap <silent> <leader>gb :Git branch --list<cr>
-nnoremap <silent> <leader>gg :Git<cr>
+vim.keymap.set('n', '<leader>fb', '<CMD>Buffers<CR>', { 
+  desc = 'List opened files',
+  silent = true
+})
 
-" temporary fix for fugitive cmdheight issue 
-" autocmd BufEnter fugitive://* set cmdheight=1
-" autocmd BufLeave fugitive://* set cmdheight=0
+vim.keymap.set('n', '<leader>fh', '<CMD>History<CR>', { 
+  desc = 'List file history',
+  silent = true
+})
+
+vim.keymap.set('n', '<leader>sf', '<CMD>Rg<CR>', { 
+  desc = 'Search in all files',
+  silent = true
+})
+
+vim.keymap.set({'n', 'v'}, '<leader>sa', 'yw<CMD>Rg<CR><CMD>put +<CR>', { 
+  desc = 'Search word or selection in current working directory',
+  silent = true
+})
+
+vim.keymap.set({'n', 'v'}, '<leader>ss', 'yw<CMD>BLines<CR><CMD>put +<CR>', { 
+  desc = 'Search word or selection in current buffer',
+  silent = true
+})
+
+-- Git related file operations
+vim.keymap.set('n', '<leader>gg', '<CMD>Git<CR>', { 
+  desc = 'Launch fugitive git window',
+  silent = true
+})
+
+-- TODO: simplify this
+vim.keymap.set('n', '<leader>fgg', '<CMD>GitFiles<CR>', { 
+  desc = 'Search git files',
+  silent = true
+})
+
+-- TODO: run inside the current file's directory
+vim.keymap.set('n', '<leader>laz', '<CMD>tabnew <bar> term lazygit<CR>', { 
+  desc = 'Launch lazygit in a new tab',
+  silent = true
+})
+
+vim.keymap.set('n', '<leader>fgs', '<CMD>Git stash list<CR>', { 
+  desc = 'List git stashes',
+  silent = true
+})
+
+vim.keymap.set('n', '<leader>fgc', '<CMD>BCommits<CR>', { 
+  desc = 'Show git commits for current file',
+  silent = true
+})
+
+vim.keymap.set('n', '<leader>fgac', '<CMD>Commits<CR>', { 
+  desc = 'Show git commits',
+  silent = true
+})
+
+vim.keymap.set('n', '<leader>bb', '<CMD>Git branch --list<CR>', { 
+  desc = 'List git branches',
+  silent = true
+})
+
+-- Code Symbols and Tags
+
+vim.keymap.set('n', '<leader>tt', '<CMD>BTags<CR>', { 
+  desc = 'List tags in current file',
+  silent = true
+})
+
+vim.keymap.set('n', '<leader>ta', '<CMD>Tags<CR>', { 
+  desc = 'List tags in current project',
+  silent = true
+})
+
+-- Keymaps list
+vim.keymap.set('n', '<leader>km', '<CMD>Telescope keymaps<CR>', { 
+  desc = 'List keymaps',
+  silent = true
+})
+
+-- Telescope when I need it
+vim.keymap.set('n', '<leader>tl', '<CMD>Telescope<CR>', { 
+  desc = 'Launch Telescope',
+  silent = true
+})
+
+-- auto commands
+vim.api.nvim_create_autocmd("TermClose", {
+    pattern = { "*lazygit" },
+    callback = function()
+       vim.cmd("close")
+    end
+})
+
+EOF
 
 nnoremap <leader>gp :Git push
 
 " Jump between hunks
 nmap [c <Plug>(GitGutterNextHunk)
 nmap ]c <Plug>(GitGutterPrevHunk)
-
-" Files and search
-nnoremap <silent> <leader>H :History<cr>
-nnoremap <silent> <leader>f :Files<cr>
-nnoremap <silent> <leader>ff :GitFiles<cr>
-nnoremap <silent> <leader>fff :Buffers<cr>
-nnoremap <silent> <leader>tb :BTags<cr>
-nnoremap <silent> <leader>tt :Tags<cr>
-nnoremap <silent> <leader>sf :Rg<cr>
-nnoremap <silent> <leader>sw yw :Rg<cr><cmd>put +<cr>
-nnoremap <silent> <leader>sb yw :BLines<cr><cmd>put +<cr>
-vmap <silent> <leader>ss yw :Rg<cr><cmd>put +<cr>
-vmap <silent> <leader>s yw :BLines<cr><cmd>put +<cr>
-
-nnoremap <silent> <space><space> :call Startup()<BAR>NvimTreeToggle<CR>
 
 " Jump to next and previous method
 nnoremap <silent> <M-S-m> [m
@@ -62,6 +143,7 @@ tnoremap <silent> <M-h> <C-\><C-n><C-w>h
 tnoremap <silent> <M-j> <C-\><C-n><C-w>j
 tnoremap <silent> <M-k> <C-\><C-n><C-w>k
 tnoremap <silent> <M-l> <C-\><C-n><C-w>l
+"
 " in insert mode
 inoremap <silent> <M-h> <C-\><C-n><C-w>h
 inoremap <silent> <M-j> <C-\><C-n><C-w>j
