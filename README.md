@@ -3,14 +3,14 @@ Development setup and configuration files
 
 ## TODO
 * neovim configuration    
-    * migrated keymaps to lua    
-    * improve keymaps for testing    
-    * improve project based config  
-    * fine tune lsp config  
-    * fine tune ctags  
-    * fine tune treesitter  
-    * theme changing mechanism  
-    * reactive to system style  
+    * WIP: migrated keymaps to lua 
+    * improve keymaps for testing
+    * improve project based config
+    * fine tune lsp config
+    * fine tune ctags
+    * fine tune treesitter
+    * theme changing mechanism
+    * reactive to system style
 
 ## k8s dev environment
 https://kardinal.dev/

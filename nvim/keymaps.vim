@@ -1,17 +1,11 @@
 lua <<EOF
--- keymaps
-vim.keymap.set('n', '<leader><leader>', "<CMD>:nohlsearch<CR>", { 
-  desc = 'Run current jest test file',
-  silent = true
-})
-
--- file operations
+-- files keymap
 vim.keymap.set('n', '<leader>e', '<CMD>call Startup()<BAR>NvimTreeToggle<CR>', { 
   desc = 'Toggle file tree',
   silent = true
 })
 
-vim.keymap.set('n', '<leader>ff', '<CMD>FZF<CR>', { 
+vim.keymap.set('n', '<leader>ff', '<CMD>Files<CR>', { 
   desc = 'List files',
   silent = true
 })
@@ -41,7 +35,7 @@ vim.keymap.set({'n', 'v'}, '<leader>ss', 'yw<CMD>BLines<CR><CMD>put +<CR>', {
   silent = true
 })
 
--- Git related file operations
+-- git and git files
 vim.keymap.set('n', '<leader>gg', '<CMD>Git<CR>', { 
   desc = 'Launch fugitive git window',
   silent = true
@@ -79,8 +73,26 @@ vim.keymap.set('n', '<leader>bb', '<CMD>Git branch --list<CR>', {
   silent = true
 })
 
--- Code Symbols and Tags
+function input_git_push() 
+  vim.api.nvim_input(":Git push")
+end
 
+vim.keymap.set('n', '<leader>gp', input_git_push, { 
+  desc = 'Populate CMD window with Git push',
+  silent = true
+})
+
+vim.keymap.set({'n'}, '<C-K>', '<Plug>(GitGutterNextHunk)', { 
+  desc = 'Jump to next hunk',
+  silent = true
+})
+
+vim.keymap.set({'n'}, '<C-H>', '<CMD>GitGutterPrevHunk<CR>', { 
+  desc = 'Jump to previous hunk',
+  silent = true
+})
+
+-- code symbols and tags
 vim.keymap.set('n', '<leader>tt', '<CMD>BTags<CR>', { 
   desc = 'List tags in current file',
   silent = true
@@ -103,6 +115,101 @@ vim.keymap.set('n', '<leader>tl', '<CMD>Telescope<CR>', {
   silent = true
 })
 
+-- other useful keymaps
+vim.keymap.set('n', '<leader><leader>', "<C-\><C-n><CMD>nohlsearch<CR>", { 
+  desc = 'Run current jest test file',
+  silent = true
+})
+
+
+vim.keymap.set('n', '<M-m>', ']m', { 
+  desc = 'Jump to next method',
+  silent = true
+})
+
+vim.keymap.set('n', '<M-S-m>', '[m', { 
+  desc = 'Jump to previous method',
+  silent = true
+})
+
+
+vim.keymap.set('n', 'n', 'nzz', { 
+  desc = '',
+  silent = true
+})
+
+vim.keymap.set('n', 'N', 'Nzz', { 
+  desc = '',
+  silent = true
+})
+
+vim.keymap.set('n', 'Y', 'y$', { 
+  desc = '',
+  silent = true
+})
+
+vim.keymap.set('n', 'O', 'O<Esc>', { 
+  desc = '',
+  silent = true
+})
+
+nnoremap o o<Esc>
+vim.keymap.set('n', 'o', 'o<Esc>', { 
+  desc = '',
+  silent = true
+})
+
+
+vim.keymap.set('n', '', '<CMD><CR>', { 
+  desc = '',
+  silent = true
+})
+
+-- Switch window focus
+vim.keymap.set({'t', 'n', 'i'}, '<M-h>', '<C-\><C-n><C-w>h', {
+  desc = '',
+  silent = true
+})
+vim.keymap.set({'t', 'n', 'i'}, '<M-j>', '<C-\><C-n><C-w>j', {
+  desc = '',
+  silent = true
+})
+vim.keymap.set({'t', 'n', 'i'}, '<M-k>', '<C-\><C-n><C-w>k', {
+  desc = '',
+  silent = true
+})
+vim.keymap.set({'t', 'n', 'i'}, '<M-l>', '<C-\><C-n><C-w>l', {
+  desc = '',
+  silent = true
+})
+
+-- Switch buffers
+vim.keymap.set({'t', 'n', 'i'}, '<M-h>', '<C-\><C-n><C-w>h', {
+  desc = '',
+  silent = true
+})
+vim.keymap.set({'t', 'n', 'i'}, '<M-j>', '<C-\><C-n><C-w>j', {
+  desc = '',
+  silent = true
+})
+vim.keymap.set({'t', 'n', 'i'}, '<M-k>', '<C-\><C-n><C-w>k', {
+  desc = '',
+  silent = true
+})
+vim.keymap.set({'t', 'n', 'i'}, '<M-l>', '<C-\><C-n><C-w>l', {
+  desc = '',
+  silent = true
+})
+
+-- TODO: This got to be dynamic mapings
+--       as I switch between qflist, cwindow, 
+--       and locallists
+-- " Navigate lists
+-- nnoremap <silent> <C-n> :lnext<cr>
+-- nnoremap <silent> <C-p> :lprevious<cr>
+-- nnoremap <silent> [l :lfirst<cr>
+-- nnoremap <silent> ]l :llast<cr>
+
 -- auto commands
 vim.api.nvim_create_autocmd("TermClose", {
     pattern = { "*lazygit" },
@@ -111,49 +218,12 @@ vim.api.nvim_create_autocmd("TermClose", {
     end
 })
 
+-- TODO: Continue translating maps in vim to lua
+-- TODO: Improve lazygit keymap, it got to find the git repo path for current file
+-- TODO: Improve test runs mapings and mechanisms
+-- TODO: Improve postgresql query run maps
+
 EOF
-
-nnoremap <leader>gp :Git push
-
-" Jump between hunks
-nmap [c <Plug>(GitGutterNextHunk)
-nmap ]c <Plug>(GitGutterPrevHunk)
-
-" Jump to next and previous method
-nnoremap <silent> <M-S-m> [m
-nnoremap <silent> <M-m> ]m
-
-" Navigate lists
-nnoremap <silent> <C-n> :lnext<cr>
-nnoremap <silent> <C-p> :lprevious<cr>
-nnoremap <silent> [l :lfirst<cr>
-nnoremap <silent> ]l :llast<cr>
-
-nnoremap n nzz
-nnoremap N Nzz
-
-nnoremap Y y$
-nnoremap O O<Esc>
-nnoremap o o<Esc>
-
-" Switch window focus
-" in terminal mode
-tnoremap <silent> <leader><leader> <C-\><C-n>:nohlsearch<CR>
-tnoremap <silent> <M-h> <C-\><C-n><C-w>h
-tnoremap <silent> <M-j> <C-\><C-n><C-w>j
-tnoremap <silent> <M-k> <C-\><C-n><C-w>k
-tnoremap <silent> <M-l> <C-\><C-n><C-w>l
-"
-" in insert mode
-inoremap <silent> <M-h> <C-\><C-n><C-w>h
-inoremap <silent> <M-j> <C-\><C-n><C-w>j
-inoremap <silent> <M-k> <C-\><C-n><C-w>k
-inoremap <silent> <M-l> <C-\><C-n><C-w>l
-" in normal mode
-nnoremap <silent> <M-h> <c-w>h
-nnoremap <silent> <M-j> <c-w>j
-nnoremap <silent> <M-k> <c-w>k
-nnoremap <silent> <M-l> <c-w>l
 
 " Switch buffers
 " in normal mode
