@@ -116,11 +116,10 @@ vim.keymap.set('n', '<leader>tl', '<CMD>Telescope<CR>', {
 })
 
 -- other useful keymaps
-vim.keymap.set('n', '<leader><leader>', "<C-\><C-n><CMD>nohlsearch<CR>", { 
+vim.keymap.set('n', '<leader><leader>', '<C-Bslash><C-n><CMD>nohlsearch<CR>', { 
   desc = 'Run current jest test file',
   silent = true
 })
-
 
 vim.keymap.set('n', '<M-m>', ']m', { 
   desc = 'Jump to next method',
@@ -131,7 +130,6 @@ vim.keymap.set('n', '<M-S-m>', '[m', {
   desc = 'Jump to previous method',
   silent = true
 })
-
 
 vim.keymap.set('n', 'n', 'nzz', { 
   desc = '',
@@ -153,50 +151,110 @@ vim.keymap.set('n', 'O', 'O<Esc>', {
   silent = true
 })
 
-nnoremap o o<Esc>
 vim.keymap.set('n', 'o', 'o<Esc>', { 
   desc = '',
   silent = true
 })
 
-
-vim.keymap.set('n', '', '<CMD><CR>', { 
-  desc = '',
-  silent = true
-})
-
 -- Switch window focus
-vim.keymap.set({'t', 'n', 'i'}, '<M-h>', '<C-\><C-n><C-w>h', {
+vim.keymap.set({'t', 'n', 'i'}, '<M-h>', '<C-Bslash><C-n><C-w>h', {
   desc = '',
   silent = true
 })
-vim.keymap.set({'t', 'n', 'i'}, '<M-j>', '<C-\><C-n><C-w>j', {
+vim.keymap.set({'t', 'n', 'i'}, '<M-j>', '<C-Bslash><C-n><C-w>j', {
   desc = '',
   silent = true
 })
-vim.keymap.set({'t', 'n', 'i'}, '<M-k>', '<C-\><C-n><C-w>k', {
+vim.keymap.set({'t', 'n', 'i'}, '<M-k>', '<C-Bslash><C-n><C-w>k', {
   desc = '',
   silent = true
 })
-vim.keymap.set({'t', 'n', 'i'}, '<M-l>', '<C-\><C-n><C-w>l', {
+vim.keymap.set({'t', 'n', 'i'}, '<M-l>', '<C-Bslash><C-n><C-w>l', {
+  desc = '',
+  silent = true
+})
+
+-- Switch windows
+vim.keymap.set({'t', 'n', 'i'}, '<M-h>', '<C-Bslash><C-n><C-w>h', {
+  desc = '',
+  silent = true
+})
+vim.keymap.set({'t', 'n', 'i'}, '<M-j>', '<C-Bslash><C-n><C-w>j', {
+  desc = '',
+  silent = true
+})
+vim.keymap.set({'t', 'n', 'i'}, '<M-k>', '<C-Bslash><C-n><C-w>k', {
+  desc = '',
+  silent = true
+})
+vim.keymap.set({'t', 'n', 'i'}, '<M-l>', '<C-Bslash><C-n><C-w>l', {
   desc = '',
   silent = true
 })
 
 -- Switch buffers
-vim.keymap.set({'t', 'n', 'i'}, '<M-h>', '<C-\><C-n><C-w>h', {
+vim.keymap.set({'t', 'n', 'i'}, '<M-S-k>', '<C-Bslash><C-n><CMD>bp<CR>', {
   desc = '',
   silent = true
 })
-vim.keymap.set({'t', 'n', 'i'}, '<M-j>', '<C-\><C-n><C-w>j', {
+vim.keymap.set({'t', 'n', 'i'}, '<M-S-j>', '<C-Bslash><C-n><CMD>bn<CR>', {
   desc = '',
   silent = true
 })
-vim.keymap.set({'t', 'n', 'i'}, '<M-k>', '<C-\><C-n><C-w>k', {
+
+vim.keymap.set({'t', 'n', 'i'}, '<M-S-h>', '<C-Bslash><C-n><CMD>bfirst<CR>', {
   desc = '',
   silent = true
 })
-vim.keymap.set({'t', 'n', 'i'}, '<M-l>', '<C-\><C-n><C-w>l', {
+vim.keymap.set({'t', 'n', 'i'}, '<M-S-l>', '<C-Bslash><C-n><CMD>blast<CR>', {
+  desc = '',
+  silent = true
+})
+
+-- resize windows
+vim.keymap.set({'t', 'n', 'i'}, '<C-down>', '<C-Bslash><C-n><CMD>resize +1<CR>', {
+  desc = '',
+  silent = true
+})
+vim.keymap.set({'t', 'n', 'i'}, '<C-up>', '<C-Bslash><C-n><CMD>resize -1<CR>', {
+  desc = '',
+  silent = true
+})
+vim.keymap.set({'t', 'n', 'i'}, '<C-right>', '<C-Bslash><C-n><CMD>vert resize +1<CR>', {
+  desc = '',
+  silent = true
+})
+vim.keymap.set({'t', 'n', 'i'}, '<C-left>', '<C-Bslash><C-n><CMD>vert resize -1<CR>', {
+  desc = '',
+  silent = true
+})
+
+-- Shift buffer lines up and down
+vim.keymap.set('n', '<M-up>', '<CMD>m -2<CR>', { 
+  desc = 'Shift buffer lines up',
+  silent = true
+})
+vim.keymap.set('n', '<M-down>', '<CMD>m +1<CR>', { 
+  desc = 'Shift buffer lines down',
+  silent = true
+})
+
+-- Save current buffer
+vim.keymap.set('n', '<leader>w', '<CMD>w<CR>', { 
+  desc = 'Save current file',
+  silent = true
+})
+vim.keymap.set('n', '<C-s>', '<CMD>w<CR>', { 
+  desc = 'Save current file',
+  silent = true
+})
+vim.keymap.set('n', '<leader>dd', '<CMD>bd<CR>', { 
+  desc = 'Delete current buffer',
+  silent = true
+})
+
+-- start a terminal at the bottom
+vim.keymap.set('n', '<leader>t', '<CMD>bel term<CR>', { 
   desc = '',
   silent = true
 })
@@ -225,49 +283,6 @@ vim.api.nvim_create_autocmd("TermClose", {
 
 EOF
 
-" Switch buffers
-" in normal mode
-noremap <silent> <M-S-k> :bp<cr>
-noremap <silent> <M-S-j> :bn<cr>
-noremap <silent> <M-S-h> :bfirst<cr>
-noremap <silent> <M-S-l> :blast<cr>
-" in insert mode
-inoremap <silent> <M-S-k> <C-\><C-n>:bp<cr>
-inoremap <silent> <M-S-j> <C-\><C-n>:bn<cr>
-inoremap <silent> <M-S-h> <C-\><C-n>:bfirst<cr>
-inoremap <silent> <M-S-l> <C-\><C-n>:blast<cr>
-" in terminal mode
-tnoremap <silent> <M-S-k> <C-\><C-n>:bp<cr>
-tnoremap <silent> <M-S-j> <C-\><C-n>:bn<cr>
-tnoremap <silent> <M-S-h> <C-\><C-n>:bfirst<cr>
-tnoremap <silent> <M-S-l> <C-\><C-n>:blast<cr>
-
-" Resize windows
-noremap <silent> <C-down> :resize +1<cr>
-noremap <silent> <C-up> :resize -1<cr>
-noremap <silent> <C-right> :vert resize +1<cr>
-noremap <silent> <C-left> :vert resize -1<cr>
-
-tnoremap <silent> <C-down> <C-\><C-n>:resize +1<cr>
-tnoremap <silent> <C-up> <C-\><C-n>:resize -1<cr>
-tnoremap <silent> <C-right> <C-\><C-n>:vert resize +1<cr>
-tnoremap <silent> <C-left> <C-\><C-n>:vert resize -1<cr>
-
-inoremap <silent> <M-PageUp> <C-\><C-n><PageUp>
-inoremap <silent> <M-PageDown> <C-\><C-n><PageDown>
-tnoremap <silent> <M-PageUp> <C-\><C-n><PageUp>
-tnoremap <silent> <M-PageDown> <C-\><C-n><PageDown>
-
-" Start a terminal at the bottom
-noremap <silent> <leader>t :bot bel new<bar>term<cr>a
-
-" Shift buffer lines up and down
-noremap <M-up> :m -2<cr>
-noremap <M-down> :m +1<cr>
-
-" Save current buffer
-nnoremap <leader>w <cmd>w<cr>
-inoremap <C-s> <cmd>w<cr>
 
 
 vmap RRC :!psql service=ContractProd -a -t -A<enter>
