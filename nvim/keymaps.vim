@@ -82,12 +82,12 @@ vim.keymap.set('n', '<leader>gp', input_git_push, {
   silent = true
 })
 
-vim.keymap.set({'n'}, '<C-K>', '<Plug>(GitGutterNextHunk)', { 
+vim.keymap.set({'n'}, '<C-J>', '<Plug>(GitGutterNextHunk)', { 
   desc = 'Jump to next hunk',
   silent = true
 })
 
-vim.keymap.set({'n'}, '<C-H>', '<CMD>GitGutterPrevHunk<CR>', { 
+vim.keymap.set({'n'}, '<C-K>', '<CMD>GitGutterPrevHunk<CR>', { 
   desc = 'Jump to previous hunk',
   silent = true
 })
@@ -116,7 +116,7 @@ vim.keymap.set('n', '<leader>tl', '<CMD>Telescope<CR>', {
 })
 
 -- other useful keymaps
-vim.keymap.set('n', '<leader><leader>', '<C-Bslash><C-n><CMD>nohlsearch<CR>', { 
+vim.keymap.set({'n', 'i', 't'}, '<leader><leader>', '<C-Bslash><C-n><CMD>nohlsearch<CR>', { 
   desc = 'Run current jest test file',
   silent = true
 })
@@ -305,16 +305,26 @@ vim.keymap.set('n', 'grtt',
   desc = 'Run current jest test file',
   silent = true
 })
+
+vim.keymap.set('n', 'grtd', 
+  "<cmd>lua vim.cmd('bel 10new | term cd ' .. vim.fs.dirname(vim.fs.find({'package.json'}, { upward = true, path = vim.fs.dirname(vim.api.nvim_buf_get_name(0)) })[1]) .. ' && jest --watch --runInBand ' .. vim.api.nvim_buf_get_name(0))<cr>", { 
+  desc = 'Run current jest test file',
+  silent = true
+})
 EOF
 
 noremap grt <cmd>bot term cd '%:h' && yarn jest tests/%:t 2>&1 <bar> tee %:t.log <CR>
-noremap grtd <cmd>bot term cd '%:h' && yarn test:debug '%' 2>&1 <bar> tee %:t.log <CR>
+" noremap grtd <cmd>bot term cd '%:h' && yarn test:debug '%' 2>&1 <bar> tee %:t.log <CR>
 noremap <leader>ttl <cmd>e %.log<cr>
 noremap <leader>ttt <cmd>e %:p:h/tests/%:t:r.spec.ts<cr>
 noremap <leader>ttf <cmd>e %:p:h:h/%:t:r:r.ts<cr>
 
 noremap <leader>jjj :diffget //2 <bar> diffupdate<enter>
 noremap <leader>kkk :diffget //3 <bar> diffupdate<enter>
+
+map ,rr :diffg RE<cr>
+map ,ll :diffg LO<cr>
+map ,bb :diffg BA<cr>
 
 " netrw cofig
 let g:netrw_banner = 0

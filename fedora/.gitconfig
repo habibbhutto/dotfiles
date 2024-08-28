@@ -1,0 +1,18 @@
+[user]
+	name = Habib Ahmed Bhutto
+	email = habibbhutto@gmail.com
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[merge]
+  conflictstyle = diff3
+  tool = nvimdiff
+[mergetool "nvimdiff"]
+  layout = "(LOCAL/BASE/REMOTE),MERGED + BASE,LOCAL + BASE,REMOTE + LOCAL,BASE,REMOTE / MERGED"
+  hideResolved = false
+  trustExitCode = false
+[mergetool]
+  trustExitCode = false
+  hideResolved = false
+  prompt = true
+	keepBackup = true
+  keepTemporaries = true

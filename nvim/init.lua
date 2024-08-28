@@ -30,47 +30,50 @@ vim.cmd.syntax("on")
 
 vim.cmd.set("shiftwidth=2")
 vim.cmd.set("tabstop=2")
-vim.cmd.set("expandtab")
-vim.cmd.set("nobackup")
-vim.cmd.set("writebackup")
-vim.cmd.set("autoread")
-vim.cmd.set("noswapfile")
-vim.cmd.set("splitright")
-vim.cmd.set("scrolloff=1")
-vim.cmd.set("nowrap")
-vim.cmd.set("incsearch")
-vim.cmd.set("ignorecase")
-vim.cmd.set("smartcase")
-vim.cmd.set("noshowcmd")
-vim.cmd.set("noshowmode")
-vim.cmd.set("hlsearch")
-vim.cmd.set("history=1000")
-vim.cmd.set("wildmenu")
-vim.cmd.set("wildmode=list:longest")
-vim.cmd.set("wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx")
-vim.cmd.set("ttyfast")
-vim.cmd.set("encoding=utf-8")
-vim.cmd.set("timeout timeoutlen=500 ttimeoutlen=30 ")
-vim.cmd.set("cmdheight=1")
-vim.cmd.set("cmdwinheight=10")
-vim.cmd.set("keywordprg=:help")
-vim.cmd.set("updatetime=50")
-vim.cmd.set("foldmethod=indent")
-vim.cmd.set("foldlevel=99")
-vim.cmd.set("laststatus=2")
-vim.cmd.let("mapleader = ','")
-vim.cmd.set("guifont=FiraCode\\ Nerd\\ Font:h12")
+vim.o.expandtab = true
+vim.o.backup = false
+vim.o.writebackup = true
+vim.o.autoread = true
+vim.o.swapfile = false
+vim.o.splitright = true
+vim.o.scrolloff = 1
+vim.o.wrap = false
+vim.o.incsearch = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.showcmd = false
+vim.o.showmode = false
+vim.o.hlsearch = true
+vim.o.history = 1000
+vim.o.wildmenu = true
+vim.o.wildmode = "list:longest"
+vim.o.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
+vim.o.ttyfast = true
+vim.o.encoding = "utf-8"
+vim.o.timeout = true
+vim.o.timeoutlen = 500
+vim.o.ttimeoutlen = 100
+vim.o.cmdheight = 1
+vim.o.cmdwinheight = 10
+vim.o.keywordprg=":help"
+vim.o.updatetime = 50
+vim.o.foldmethod = indent
+vim.o.foldlevel = 99
+vim.o.laststatus = 2
+vim.cmd.let("mapleader=','")
+vim.o.guifont="FiraCode\\ Nerd\\ Font:h12"
 vim.cmd.set("clipboard+=unnamedplus")
 
 vim.g.gruvbox_material_better_performance=1
 -- https://neovim.io/doc/user/faq.html
 vim.cmd.set('termguicolors')
 vim.o.termguicolors = true
+vim.o.cursorline = true
 vim.o.background= 'dark'
-vim.cmd.colorscheme("gruvbox-material")
+vim.cmd.colorscheme("zenwritten")
 
 vim.cmd.set("number")
-vim.cmd.set("relativenumber")
+-- vim.cmd.set("relativenumber")
 vim.cmd.set("numberwidth=4")
 vim.cmd.set("signcolumn=yes")
 
@@ -123,6 +126,7 @@ vim.keymap.set('n', '<C-0>',
 
 vim.cmd('source ~/dotfiles/nvim/keymaps.vim')
 vim.cmd('source ~/dotfiles/nvim/fzf.vim')
+require('treesitter')
 
 vim.cmd([[
    let s:startup_done = 0
