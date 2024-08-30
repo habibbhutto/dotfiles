@@ -73,7 +73,8 @@ local servers = {
 
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
-        autostart = false,
+        autostart = true,
+        root_dir = lspconfig.util.find_git_ancestor,
         on_attach = on_attach,
         flags = lsp_flags,
         capabilities = capabilities,
