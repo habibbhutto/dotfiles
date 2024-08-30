@@ -258,8 +258,15 @@ vim.keymap.set('n', '<leader>dd', '<CMD>bd!<CR>', {
   silent = true
 })
 
+function term_in_current_project()
+    local current_file = vim.api.nvim_buf_get_name(0)
+    local current_file_path = vim.fs.dirname(current_file)
+    local opts = { upward = true, path = current_file_path }
+    local project_dir = vim.fs.dirname(vim.fs.find({'package.json'}, opts)[1])
+    vim.system({ 'tmux', 'split-window', '-c', project_dir }, { text = true }):wait()
+end
 -- start a terminal at the bottom
-vim.keymap.set('n', '<leader>t', '<CMD>bel term<CR>', { 
+vim.keymap.set('n', '<leader>term', term_in_current_project, { 
   desc = '',
   silent = true
 })
@@ -301,7 +308,7 @@ vim.keymap.set('n', '<leader>bb', '<CMD>diffget BA <bar> diffupdate<CR>', {
 
 -- Test Run
 -- TODO: generalize this for more ts, js, go, c, cpp, rust, v
-function jest_current_file(jest_opts)
+function jest_current_file_v1(jest_opts)
     local current_file = vim.api.nvim_buf_get_name(0)
     local current_file_path = vim.fs.dirname(vim.api.nvim_buf_get_name(0))
     local opts = { upward = true, path = current_file_path }
@@ -309,14 +316,25 @@ function jest_current_file(jest_opts)
     vim.cmd('bel 10new | term cd ' .. project_dir .. ' && jest --runInBand ' .. jest_opts .. current_file)
 end
 
+function jest_current_file_v2(jest_opts)
+    jest_opts = jest_opts == nil and '' or jest_opts;
+    local current_file = vim.api.nvim_buf_get_name(0)
+    local current_file_path = vim.fs.dirname(vim.api.nvim_buf_get_name(0))
+    local opts = { upward = true, path = current_file_path }
+    local project_dir = vim.fs.dirname(vim.fs.find({'package.json'}, opts)[1])
+    local test_cmd = {'jest', '--runInBand', jest_opts, current_file }
+          test_cmd = string.format("%s; exec bash", table.concat(test_cmd, " "))
+    vim.system({ 'tmux', 'split-window', '-c', project_dir, test_cmd, }, { text = true }):wait()
+end
+
 vim.keymap.set('n', '<leader>test', function ()
-  jest_current_file('')
+  jest_current_file_v2()
 end, { 
   desc = 'Run current jest test file',
   silent = true
 })
 vim.keymap.set('n', '<leader>ttest', function ()
-  jest_current_file(' --watch ')
+  jest_current_file_v2('--watch')
 end, { 
   desc = 'Run current jest test file',
   silent = true

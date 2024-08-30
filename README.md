@@ -3,9 +3,10 @@ Development setup and configuration files
 
 ## TODO
 * neovim configuration    
-    * fix keymaps for window resizing
-    * improve keymaps for testing
-      - test run logs
+    * test run logs
+    * fine tune ctags
+      - ctags should auto run
+      - this should be project based
     * improve project based config
       - the lsp config is fixed
       - load project specifc config
@@ -14,9 +15,6 @@ Development setup and configuration files
       - the lsp config is fixed
       - move lsp config to language specifc plugins
       - fix cmp showing double entries when listing files
-    * fine tune ctags
-      - ctags should auto run
-      - this should be project based
     * fine tune treesitter
       - for now it seems like working
       - outline would be useful
