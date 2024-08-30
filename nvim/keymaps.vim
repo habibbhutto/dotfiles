@@ -327,21 +327,21 @@ end, {
 -- noremap grt <cmd>bot term cd '%:h' && yarn jest tests/%:t 2>&1 <bar> tee %:t.log <CR>
 -- " noremap grtd <cmd>bot term cd '%:h' && yarn test:debug '%' 2>&1 <bar> tee %:t.log <CR>
 -- cdm context specific
-vim.keymap.set('n', '<leade>ttl', '<CMD>e %.log<CR>', { 
+vim.keymap.set('n', '<leader>ttl', '<CMD>e %.log<CR>', { 
   desc = 'Open run log file of current spec file',
   silent = true
 })
-vim.keymap.set('n', '<leade>ttt', '<CMD>e %:p:h/tests/%:t:r.spec.ts<CR>', { 
+vim.keymap.set('n', '<leader>ttt', '<CMD>e %:p:h/tests/%:t:r.spec.ts<CR>', { 
   desc = 'Open spec file of current file file',
   silent = true
 })
-vim.keymap.set('n', '<leade>ttl', '<CMD>e %:p:h:h/%:t:r:r.ts<CR>', { 
+vim.keymap.set('n', '<leader>ttf', '<CMD>e %:p:h:h/%:t:r:r.ts<CR>', { 
   desc = 'Open source file of current spec file',
   silent = true
 })
 
 -- PSQL query run
-vim.keymap.set('v', '<leade>sqlc', '<CMD>psql service=ContractProd -a -t -A<CR>', { 
+vim.keymap.set('v', '<leader>sqlc', '<CMD>psql service=ContractProd -a -t -A<CR>', { 
   desc = 'send query to Contract Prod',
   silent = true
 })
