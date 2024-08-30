@@ -1,4 +1,8 @@
 lua <<EOF
+-- TODO: Improve lazygit keymap, it got to find the git repo path for current file
+-- TODO: Improve test runs mapings and mechanisms
+-- TODO: Improve postgresql query run maps
+
 -- files keymap
 vim.keymap.set('n', '<leader>e', '<CMD>call Startup()<BAR>NvimTreeToggle<CR>', { 
   desc = 'Toggle file tree',
@@ -131,101 +135,102 @@ vim.keymap.set('n', '<M-S-m>', '[m', {
   silent = true
 })
 
-vim.keymap.set('n', 'n', 'nzz', { 
-  desc = '',
-  silent = true
-})
-
-vim.keymap.set('n', 'N', 'Nzz', { 
-  desc = '',
-  silent = true
-})
+-- It seems, I don't need it for neovim
+-- vim.keymap.set('n', 'n', 'nzz', { 
+--   desc = '',
+--   silent = true
+-- })
+--
+-- vim.keymap.set('n', 'N', 'Nzz', { 
+--   desc = '',
+--   silent = true
+-- })
 
 vim.keymap.set('n', 'Y', 'y$', { 
-  desc = '',
+  desc = 'Copy from here until the end of line',
   silent = true
 })
 
 vim.keymap.set('n', 'O', 'O<Esc>', { 
-  desc = '',
+  desc = 'Insert a line above',
   silent = true
 })
 
 vim.keymap.set('n', 'o', 'o<Esc>', { 
-  desc = '',
+  desc = 'Insert a line below',
   silent = true
 })
 
 -- Switch window focus
 vim.keymap.set({'t', 'n', 'i'}, '<M-h>', '<C-Bslash><C-n><C-w>h', {
-  desc = '',
+  desc = 'To window on left',
   silent = true
 })
 vim.keymap.set({'t', 'n', 'i'}, '<M-j>', '<C-Bslash><C-n><C-w>j', {
-  desc = '',
+  desc = 'To window below',
   silent = true
 })
 vim.keymap.set({'t', 'n', 'i'}, '<M-k>', '<C-Bslash><C-n><C-w>k', {
-  desc = '',
+  desc = 'To window above',
   silent = true
 })
 vim.keymap.set({'t', 'n', 'i'}, '<M-l>', '<C-Bslash><C-n><C-w>l', {
-  desc = '',
+  desc = 'To window on right',
   silent = true
 })
 
 -- Switch windows
-vim.keymap.set({'t', 'n', 'i'}, '<M-h>', '<C-Bslash><C-n><C-w>h', {
-  desc = '',
-  silent = true
-})
-vim.keymap.set({'t', 'n', 'i'}, '<M-j>', '<C-Bslash><C-n><C-w>j', {
-  desc = '',
-  silent = true
-})
-vim.keymap.set({'t', 'n', 'i'}, '<M-k>', '<C-Bslash><C-n><C-w>k', {
-  desc = '',
-  silent = true
-})
-vim.keymap.set({'t', 'n', 'i'}, '<M-l>', '<C-Bslash><C-n><C-w>l', {
-  desc = '',
-  silent = true
-})
+-- vim.keymap.set({'t', 'n', 'i'}, '<M-h>', '<C-Bslash><C-n><C-w>h', {
+--   desc = '',
+--   silent = true
+-- })
+-- vim.keymap.set({'t', 'n', 'i'}, '<M-j>', '<C-Bslash><C-n><C-w>j', {
+--   desc = '',
+--   silent = true
+-- })
+-- vim.keymap.set({'t', 'n', 'i'}, '<M-k>', '<C-Bslash><C-n><C-w>k', {
+--   desc = '',
+--   silent = true
+-- })
+-- vim.keymap.set({'t', 'n', 'i'}, '<M-l>', '<C-Bslash><C-n><C-w>l', {
+--   desc = '',
+--   silent = true
+-- })
 
 -- Switch buffers
 vim.keymap.set({'t', 'n', 'i'}, '<M-S-k>', '<C-Bslash><C-n><CMD>bp<CR>', {
-  desc = '',
+  desc = 'Previous buffer',
   silent = true
 })
 vim.keymap.set({'t', 'n', 'i'}, '<M-S-j>', '<C-Bslash><C-n><CMD>bn<CR>', {
-  desc = '',
+  desc = 'Next buffer',
   silent = true
 })
 
 vim.keymap.set({'t', 'n', 'i'}, '<M-S-h>', '<C-Bslash><C-n><CMD>bfirst<CR>', {
-  desc = '',
+  desc = 'First buffer',
   silent = true
 })
 vim.keymap.set({'t', 'n', 'i'}, '<M-S-l>', '<C-Bslash><C-n><CMD>blast<CR>', {
-  desc = '',
+  desc = 'Last buffer',
   silent = true
 })
 
 -- resize windows
 vim.keymap.set({'t', 'n', 'i'}, '<C-down>', '<C-Bslash><C-n><CMD>resize +1<CR>', {
-  desc = '',
+  desc = 'Increase window height',
   silent = true
 })
 vim.keymap.set({'t', 'n', 'i'}, '<C-up>', '<C-Bslash><C-n><CMD>resize -1<CR>', {
-  desc = '',
+  desc = 'Descrease window height',
   silent = true
 })
 vim.keymap.set({'t', 'n', 'i'}, '<C-right>', '<C-Bslash><C-n><CMD>vert resize +1<CR>', {
-  desc = '',
+  desc = 'Increase window width',
   silent = true
 })
 vim.keymap.set({'t', 'n', 'i'}, '<C-left>', '<C-Bslash><C-n><CMD>vert resize -1<CR>', {
-  desc = '',
+  desc = 'Descrease window width',
   silent = true
 })
 
@@ -248,8 +253,8 @@ vim.keymap.set('n', '<C-s>', '<CMD>w<CR>', {
   desc = 'Save current file',
   silent = true
 })
-vim.keymap.set('n', '<leader>dd', '<CMD>bd<CR>', { 
-  desc = 'Delete current buffer',
+vim.keymap.set('n', '<leader>dd', '<CMD>bd!<CR>', { 
+  desc = 'Delete current buffer - discards changes',
   silent = true
 })
 
@@ -268,6 +273,107 @@ vim.keymap.set('n', '<leader>t', '<CMD>bel term<CR>', {
 -- nnoremap <silent> [l :lfirst<cr>
 -- nnoremap <silent> ]l :llast<cr>
 
+-- git merge tools keymaps
+-- TODO: enable these kepmaps for diff buffers only
+-- fugitive
+vim.keymap.set('n', '<leader>jjj', '<CMD>diffget //2 <bar> diffupdate<CR>', { 
+  desc = '',
+  silent = true
+})
+vim.keymap.set('n', '<leader>kkk', '<CMD>diffget //3 <bar> diffupdate<CR>', { 
+  desc = '',
+  silent = true
+})
+
+-- When running `git mergetools --tool=nvimdiff`
+vim.keymap.set('n', '<leader>rr', '<CMD>diffget RE <bar> diffupdate<CR>', { 
+  desc = 'Get the changes from remote',
+  silent = true
+})
+vim.keymap.set('n', '<leader>ll', '<CMD>diffget LO <bar> diffupdate<CR>', { 
+  desc = 'Get the changes from local',
+  silent = true
+})
+vim.keymap.set('n', '<leader>bb', '<CMD>diffget BA <bar> diffupdate<CR>', { 
+  desc = 'Get the changes from base',
+  silent = true
+})
+
+-- Test Run
+-- TODO: generalize this for more ts, js, go, c, cpp, rust, v
+function jest_current_file(jest_opts)
+    local current_file = vim.api.nvim_buf_get_name(0)
+    local current_file_path = vim.fs.dirname(vim.api.nvim_buf_get_name(0))
+    local opts = { upward = true, path = current_file_path }
+    local project_dir = vim.fs.dirname(vim.fs.find({'package.json'}, opts)[1])
+    vim.cmd('bel 10new | term cd ' .. project_dir .. ' && jest --runInBand ' .. jest_opts .. current_file)
+end
+
+vim.keymap.set('n', '<leader>test', function ()
+  jest_current_file('')
+end, { 
+  desc = 'Run current jest test file',
+  silent = true
+})
+vim.keymap.set('n', '<leader>ttest', function ()
+  jest_current_file(' --watch ')
+end, { 
+  desc = 'Run current jest test file',
+  silent = true
+})
+
+-- TODO: reconfigure in lua with sensible maps
+-- " noremap grt <cmd>bot term cd '%:h' && yarn test '%' 2>&1 <bar> tee %:t.log <CR>
+-- noremap grt <cmd>bot term cd '%:h' && yarn jest tests/%:t 2>&1 <bar> tee %:t.log <CR>
+-- " noremap grtd <cmd>bot term cd '%:h' && yarn test:debug '%' 2>&1 <bar> tee %:t.log <CR>
+-- cdm context specific
+vim.keymap.set('n', '<leade>ttl', '<CMD>e %.log<CR>', { 
+  desc = 'Open run log file of current spec file',
+  silent = true
+})
+vim.keymap.set('n', '<leade>ttt', '<CMD>e %:p:h/tests/%:t:r.spec.ts<CR>', { 
+  desc = 'Open spec file of current file file',
+  silent = true
+})
+vim.keymap.set('n', '<leade>ttl', '<CMD>e %:p:h:h/%:t:r:r.ts<CR>', { 
+  desc = 'Open source file of current spec file',
+  silent = true
+})
+
+-- PSQL query run
+vim.keymap.set('v', '<leade>sqlc', '<CMD>psql service=ContractProd -a -t -A<CR>', { 
+  desc = 'send query to Contract Prod',
+  silent = true
+})
+vim.keymap.set('v', '<leader>sqll', '<CMD>psql service=LoyaltyProd -a -t -A<CR>', { 
+  desc = 'send query to Loyalty Prod',
+  silent = true
+})
+vim.keymap.set('v', '<leader>sqlw', '<CMD>psql service=WebshopProd -a -t -A<CR>', { 
+  desc = 'send query to Webshop Prod',
+  silent = true
+})
+vim.keymap.set('v', '<leader>sqlt', '<CMD>psql service=test-cdm -a -t -A<CR>', { 
+  desc = 'send query to test cdm',
+  silent = true
+})
+vim.keymap.set('v', '<leader>sqltc', '<CMD>psql service=test-contract -a -t -A<CR>', { 
+  desc = 'send query to test contract',
+  silent = true
+})
+vim.keymap.set('v', '<leader>sqltl', '<CMD>psql service=test-loyalty -a -t -A<CR>', { 
+  desc = 'send query to test Loyalty',
+  silent = true
+})
+vim.keymap.set('v', '<leader>sqltn', '<CMD>psql service=ContractProd -a -t -A<CR>', { 
+  desc = 'send query to test test newsletter',
+  silent = true
+})
+vim.keymap.set('v', '<leader>jq', '<CMD>!jq<CR>', { 
+  desc = 'format json with jq',
+  silent = true
+})
+
 -- auto commands
 vim.api.nvim_create_autocmd("TermClose", {
     pattern = { "*lazygit" },
@@ -276,82 +382,5 @@ vim.api.nvim_create_autocmd("TermClose", {
     end
 })
 
--- TODO: Continue translating maps in vim to lua
--- TODO: Improve lazygit keymap, it got to find the git repo path for current file
--- TODO: Improve test runs mapings and mechanisms
--- TODO: Improve postgresql query run maps
-
 EOF
 
-
-
-vmap RRC :!psql service=ContractProd -a -t -A<enter>
-vmap RRL :!psql service=LoyaltyProd -a -t -A<enter>
-vmap RRW :!psql service=WebshopProd -a -t -A<enter>
-vmap RRT :!psql service=test-cdm -a -t -A<enter>
-vmap RRTC :!psql service=test-contract -a <enter>
-vmap RRTL :!psql service=test-loyalty -a <enter>
-vmap RRTN :!psql service=test-newsletter -a <enter>
-vmap JJJ :!jq<enter>
-
-" noremap grt <cmd>bot term cd '%:h' && yarn test '%' 2>&1 <bar> tee %:t.log <CR>
-"
-"
-
-lua <<EOF
--- TODO: generalize this for more ts, js, go, c, cpp, rust, v
-vim.keymap.set('n', 'grtt', 
-  "<cmd>lua vim.cmd('bel 10new | term cd ' .. vim.fs.dirname(vim.fs.find({'package.json'}, { upward = true, path = vim.fs.dirname(vim.api.nvim_buf_get_name(0)) })[1]) .. ' && jest --runInBand ' .. vim.api.nvim_buf_get_name(0))<cr>", { 
-  desc = 'Run current jest test file',
-  silent = true
-})
-
-vim.keymap.set('n', 'grtd', 
-  "<cmd>lua vim.cmd('bel 10new | term cd ' .. vim.fs.dirname(vim.fs.find({'package.json'}, { upward = true, path = vim.fs.dirname(vim.api.nvim_buf_get_name(0)) })[1]) .. ' && jest --watch --runInBand ' .. vim.api.nvim_buf_get_name(0))<cr>", { 
-  desc = 'Run current jest test file',
-  silent = true
-})
-EOF
-
-noremap grt <cmd>bot term cd '%:h' && yarn jest tests/%:t 2>&1 <bar> tee %:t.log <CR>
-" noremap grtd <cmd>bot term cd '%:h' && yarn test:debug '%' 2>&1 <bar> tee %:t.log <CR>
-noremap <leader>ttl <cmd>e %.log<cr>
-noremap <leader>ttt <cmd>e %:p:h/tests/%:t:r.spec.ts<cr>
-noremap <leader>ttf <cmd>e %:p:h:h/%:t:r:r.ts<cr>
-
-noremap <leader>jjj :diffget //2 <bar> diffupdate<enter>
-noremap <leader>kkk :diffget //3 <bar> diffupdate<enter>
-
-map ,rr :diffg RE<cr>
-map ,ll :diffg LO<cr>
-map ,bb :diffg BA<cr>
-
-" netrw cofig
-let g:netrw_banner = 0
-let g:netrw_preview   = 1
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 0
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
-let g:netrw_keepdir = 0
-let g:netrw_localcopydircmd = 'cp -r'
-
-hi! link netrwMarkFile Search
-
-function! NetrwMapping()
-  nmap <buffer> o <CR>
-
-  nmap <buffer> . <CR> cd
-  nmap <buffer> P <C-w>z
-
-  nmap <buffer> <silent> <nowait> <BS>  <Plug>NetrwTreeSqueeze
-
-  nmap <buffer> <TAB> mf
-  nmap <buffer> <S-TAB> mF
-  nmap <buffer> <Leader><TAB> mu
-endfunction
-
-augroup netrw_mapping
-  autocmd!
-  autocmd filetype netrw call NetrwMapping()
-augroup END

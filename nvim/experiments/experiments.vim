@@ -31,3 +31,33 @@ endfunction
 " nnoremap <silent> <leader>aa <cmd>exec '!sh add-tags.sh '.expand('<cword>').' '.expand('%').' "/^'.getline('.').'"'<cr>
 "
 nnoremap <silent> <leader>tta <cmd>exec '!sh ~/dev/devx/add-tags.sh '.expand('<cword>').' '.expand('%').' "/^'.getline('.').'"'<cr>
+
+" " netrw cofig
+" let g:netrw_banner = 0
+" let g:netrw_preview   = 1
+" let g:netrw_liststyle = 3
+" let g:netrw_browse_split = 0
+" let g:netrw_altv = 1
+" let g:netrw_winsize = 25
+" let g:netrw_keepdir = 0
+" let g:netrw_localcopydircmd = 'cp -r'
+" 
+" hi! link netrwMarkFile Search
+" 
+" function! NetrwMapping()
+"   nmap <buffer> o <CR>
+" 
+"   nmap <buffer> . <CR> cd
+"   nmap <buffer> P <C-w>z
+" 
+"   nmap <buffer> <silent> <nowait> <BS>  <Plug>NetrwTreeSqueeze
+" 
+"   nmap <buffer> <TAB> mf
+"   nmap <buffer> <S-TAB> mF
+"   nmap <buffer> <Leader><TAB> mu
+" endfunction
+" 
+" augroup netrw_mapping
+"   autocmd!
+"   autocmd filetype netrw call NetrwMapping()
+" augroup END
