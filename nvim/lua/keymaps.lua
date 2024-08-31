@@ -1,4 +1,3 @@
-lua <<EOF
 -- TODO: Improve lazygit keymap, it got to find the git repo path for current file
 -- TODO: Improve test runs mapings and mechanisms
 -- TODO: Improve postgresql query run maps
@@ -77,7 +76,7 @@ vim.keymap.set('n', '<leader>bb', '<CMD>Git branch --list<CR>', {
   silent = true
 })
 
-function input_git_push()
+local function input_git_push()
   vim.api.nvim_input(":Git push")
 end
 
@@ -244,9 +243,22 @@ vim.keymap.set('n', '<M-down>', '<CMD>m +1<CR>', {
   silent = true
 })
 
+-- remove spaces at the line endings
+vim.keymap.set('n', '<leader>$$', function()
+  vim.cmd('%s/ *$//')
+  vim.api.nvim_input('``')
+end, {
+  desc = 'Remove spaces at the end of lines',
+  silent = true
+})
+
 -- Save current buffer
 vim.keymap.set('n', '<leader>w', '<CMD>w<CR>', {
   desc = 'Save current file',
+  silent = true
+})
+vim.keymap.set('n', '<leader>W', '<CMD>wa<CR>', {
+  desc = 'Save all files',
   silent = true
 })
 vim.keymap.set('n', '<C-s>', '<CMD>w<CR>', {
@@ -258,7 +270,7 @@ vim.keymap.set('n', '<leader>dd', '<CMD>bd!<CR>', {
   silent = true
 })
 
-function term_in_current_project()
+local function term_in_current_project()
     local current_file = vim.api.nvim_buf_get_name(0)
     local current_file_path = vim.fs.dirname(current_file)
     local opts = { upward = true, path = current_file_path }
@@ -308,23 +320,23 @@ vim.keymap.set('n', '<leader>bb', '<CMD>diffget BA <bar> diffupdate<CR>', {
 
 -- Test Run
 -- TODO: generalize this for more ts, js, go, c, cpp, rust, v
-function jest_current_file_v1(jest_opts)
-    local current_file = vim.api.nvim_buf_get_name(0)
-    local current_file_path = vim.fs.dirname(vim.api.nvim_buf_get_name(0))
-    local opts = { upward = true, path = current_file_path }
-    local project_dir = vim.fs.dirname(vim.fs.find({'package.json'}, opts)[1])
-    vim.cmd('bel 10new | term cd ' .. project_dir .. ' && jest --runInBand ' .. jest_opts .. current_file)
-end
+-- local function jest_current_file_v1(jest_opts)
+--     local current_file = vim.api.nvim_buf_get_name(0)
+--     local current_file_path = vim.fs.dirname(vim.api.nvim_buf_get_name(0))
+--     local opts = { upward = true, path = current_file_path }
+--     local project_dir = vim.fs.dirname(vim.fs.find({'package.json'}, opts)[1])
+--     vim.cmd('bel 10new | term cd ' .. project_dir .. ' && jest --runInBand ' .. jest_opts .. current_file)
+-- end
 
-function jest_current_file_v2(jest_opts)
+local function jest_current_file_v2(jest_opts)
     jest_opts = jest_opts == nil and '' or jest_opts;
     local current_file = vim.api.nvim_buf_get_name(0)
     local current_file_path = vim.fs.dirname(vim.api.nvim_buf_get_name(0))
     local opts = { upward = true, path = current_file_path }
     local project_dir = vim.fs.dirname(vim.fs.find({'package.json'}, opts)[1])
     local test_cmd = {'jest', '--runInBand', jest_opts, current_file }
-          test_cmd = string.format("%s; exec bash", table.concat(test_cmd, " "))
-    vim.system({ 'tmux', 'split-window', '-c', project_dir, test_cmd, }, { text = true }):wait()
+    local cmd = string.format("%s; exec bash", table.concat(test_cmd, " "))
+    vim.system({ 'tmux', 'split-window', '-c', project_dir, cmd, }, { text = true }):wait()
 end
 
 vim.keymap.set('n', '<leader>test', function ()
@@ -418,6 +430,4 @@ vim.api.nvim_create_autocmd("TermClose", {
        vim.cmd("close")
     end
 })
-
-EOF
 

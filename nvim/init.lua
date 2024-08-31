@@ -105,10 +105,9 @@ vim.g.neovide_padding_bottom = 0
 vim.g.neovide_padding_right = 0
 vim.g.neovide_padding_left = 0
 
-
-vim.cmd('source ~/dotfiles/nvim/keymaps.vim')
-vim.cmd('source ~/dotfiles/nvim/fzf.vim')
+require('keymaps')
 require('treesitter')
+vim.cmd('source ~/dotfiles/nvim/fzf.vim')
 
 vim.cmd([[
    let s:startup_done = 0
