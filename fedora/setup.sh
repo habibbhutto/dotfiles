@@ -23,6 +23,11 @@ sudo dnf -y \
 	ripgrep \
   tmux
 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
+
 ######################################
 # Development tools and technologies #
 ######################################
@@ -133,7 +138,7 @@ sudo dnf install -y \
 
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-sudo dnf install -y rust-analyzer
+rustup component add rust-analyzer
 
 # Go
 sudo dnf install -y golang golang-x-tools-gopls
@@ -162,6 +167,9 @@ sdk install gradle
 # jdtls - Install Java Language Server
 # https://github.com/eclipse/eclipse.jdt.ls
 curl https://raw.githubusercontent.com/eruizc-dev/jdtls-launcher/master/install.sh | bash
+
+# Lua
+brew install lua-language-server
 
 # WIP: Following are work in progress
 # Perl - seems pre-installed in fedora
