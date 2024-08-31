@@ -95,7 +95,7 @@ local servers = {
     'pyright',
     -- Typescript/Javascript Language Server
     'tsserver',
-    -- Gi Language Server
+    -- G0 Language Server
     'gopls',
 }
 
