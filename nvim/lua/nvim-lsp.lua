@@ -1,3 +1,7 @@
+local lspconfig = require('lspconfig')
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 -- https://github.com/neovim/neovim/issues/23526
 vim.cmd([[ set completeopt=menu,menuone,noselect ]])
 
@@ -25,42 +29,64 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = bufnr})
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gDD', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'gK', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<gk>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', 'gK', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gk', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol, bufopts)
+  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, opts)
+
+  -- At this point I don't utilize workspace features
   -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
   -- vim.keymap.set('n', '<space>wl', function()
   --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   -- end, bufopts)
-  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol, bufopts)
-  vim.keymap.set('n', '<space>f', function()
-    vim.lsp.buf.format { async = true }
-  end, opts)
+  --
+  local path = client.workspace_folders[1].name
+  if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
+    return
+  end
+
+  client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+    runtime = {
+      -- Tell the language server which version of Lua you're using
+      -- (most likely LuaJIT in the case of Neovim)
+      version = 'LuaJIT'
+    },
+    -- Make the server aware of Neovim runtime files
+    workspace = {
+      checkThirdParty = false,
+      library = {
+        vim.env.VIMRUNTIME
+        -- Depending on the usage, you might want to add additional paths here.
+        -- "${3rd}/luv/library"
+        -- "${3rd}/busted/library",
+      }
+      -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+      -- library = vim.api.nvim_get_runtime_file("", true)
+    }
+  })
 end
 
 local lsp_flags = {
-  debounce_text_changes = 100,
+  debounce_text_changes = 50,
 }
-
-local lspconfig = require('lspconfig')
--- Add additional capabilities supported by nvim-cmp
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
+    -- Lua Language Server
+    'lua_ls',
     -- Clangd Language Server
     'clangd',
     -- Rust Language Server
@@ -68,16 +94,22 @@ local servers = {
     -- Python Language Server
     'pyright',
     -- Typescript/Javascript Language Server
-    'tsserver'
+    'tsserver',
+    -- Gi Language Server
+    'gopls',
 }
 
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         autostart = true,
+        single_file_support = false,
         root_dir = lspconfig.util.find_git_ancestor,
         on_attach = on_attach,
         flags = lsp_flags,
         capabilities = capabilities,
+        settings = {
+          Lua = {}
+        }
     }
 end
 
@@ -97,7 +129,7 @@ vim.diagnostic.config(diagnostics)
 -- and https://github.com/eruizc-dev/jdtls-launcher#editor-configuration
 local lsp = vim.lsp;
 local offset_encoding = 'utf-16';
-local capabilities = vim.tbl_deep_extend(
+capabilities = vim.tbl_deep_extend(
                          'keep',
                          capabilities,
                          lsp.protocol.make_client_capabilities());
@@ -117,7 +149,7 @@ local extra_capabilities = {
     }
   }
 
-local capabilities = vim.tbl_deep_extend('keep', capabilities, extra_capabilities);
+capabilities = vim.tbl_deep_extend('keep', capabilities, extra_capabilities);
 
 local extendedClientCapabilities = {
   progressReportProvider = true;
@@ -159,7 +191,7 @@ lspconfig['jdtls'].setup{
 
 local request = function(bufnr, method, params, handler)
   local client = nil
-  for _, c in pairs(vim.lsp.get_active_clients({ bufnr = bufnr })) do
+  for _, c in pairs(vim.lsp.get_clients({ bufnr = bufnr })) do
     if c.name == 'jdtls' then
       client = c
       break
@@ -186,7 +218,7 @@ vim.lsp.commands['java.action.organizeImports'] = function (_, ctx)
 end
 
 vim.lsp.commands['java.action.overrideMethodsPrompt'] = function (_, context)
-  request(context.bufnr, 'java/listOverridableMethods', 
+  request(context.bufnr, 'java/listOverridableMethods',
           context.params, function(e1, result1)
     if e1 then
       print("Error getting overridable methods: " .. e1.message)
@@ -194,9 +226,9 @@ vim.lsp.commands['java.action.overrideMethodsPrompt'] = function (_, context)
     end
 
     local fmt = function(method)
-      return string.format("%s(%s) class: %s", 
-                            method.name, 
-                            table.concat(method.parameters, ", "), 
+      return string.format("%s(%s) class: %s",
+                            method.name,
+                            table.concat(method.parameters, ", "),
                             method.declaringClass)
     end
 

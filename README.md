@@ -3,7 +3,7 @@ Development setup and configuration files
 
 ## TODO
 * neovim configuration    
-    * test run logs
+    * test run logs, do I really need it?
     * fine tune ctags
       - ctags should auto run
       - this should be project based

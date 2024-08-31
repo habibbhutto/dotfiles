@@ -102,7 +102,7 @@ require("cmp_git").setup({
     remotes = { "upstream", "origin" }, -- in order of most to least prioritized
 -- enable git url rewrites, 
 -- see https://git-scm.com/docs/git-config#Documentation/git-config.txt-urlltbasegtinsteadOf
-    enableRemoteUrlRewrites = false, 
+    enableRemoteUrlRewrites = false,
     git = {
         commits = {
             limit = 100,
@@ -154,7 +154,7 @@ require("cmp_git").setup({
     trigger_actions = {
         {
             debug_name = "git_commits",
-            trigger_character = ":",
+            trigger_character = "::",
             action = function(sources, trigger_char, callback, params, git_info)
                 return sources.git:get_commits(callback, params, trigger_char)
             end,
