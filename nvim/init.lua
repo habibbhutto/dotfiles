@@ -2,7 +2,7 @@ vim.loader.enable()
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
--- 
+--
 -- vim.cmd([[
 --    autocmd VimEnter * source ~/dotfiles/nvim/colorscheme.vim
 --    autocmd VimEnter * call Startup()
@@ -11,13 +11,13 @@ vim.g.loaded_netrwPlugin = 1
 --    autocmd VimEnter * lua require('tree')
 --    " autocmd VimEnter * call ToggleZenMode()
 -- ]]);
--- 
+--
 -- vim.cmd 'source ~/dotfiles/nvim/plugins.vim'
 -- vim.cmd 'source ~/dotfiles/nvim/basics.vim'
 -- vim.cmd 'source ~/dotfiles/nvim/lazy-start.vim'
 -- vim.cmd 'source ~/dotfiles/nvim/fzf.vim'
 -- vim.cmd 'source ~/dotfiles/nvim/keymaps.vim'
--- 
+--
 -- vim.api.diff basic.vim init.lua
 --
 
@@ -92,7 +92,7 @@ vim.cmd([[
 
 require'colorizer'.setup()
 
--- neovide 
+-- neovide
 vim.g.neovide_theme = 'auto'
 vim.g.neovide_scale_factor=1.1
 
@@ -104,24 +104,6 @@ vim.g.neovide_padding_top = 0
 vim.g.neovide_padding_bottom = 0
 vim.g.neovide_padding_right = 0
 vim.g.neovide_padding_left = 0
-
-vim.keymap.set('n', '<C-=>', 
-  '<cmd>let neovide_scale_factor=neovide_scale_factor+0.1<cr>', { 
-  desc = 'Neovide zoom in',
-  silent = true
-})
-
-vim.keymap.set('n', '<C-->', 
-  '<cmd>let neovide_scale_factor=neovide_scale_factor-0.1<cr>', { 
-  desc = 'Neovide zoom out',
-  silent = true
-})
-
-vim.keymap.set('n', '<C-0>', 
-  '<cmd>let neovide_scale_factor=1<cr>', { 
-  desc = 'Neovide zoom reset',
-  silent = true
-})
 
 
 vim.cmd('source ~/dotfiles/nvim/keymaps.vim')

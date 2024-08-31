@@ -4,159 +4,159 @@ lua <<EOF
 -- TODO: Improve postgresql query run maps
 
 -- files keymap
-vim.keymap.set('n', '<leader>e', '<CMD>call Startup()<BAR>NvimTreeToggle<CR>', { 
+vim.keymap.set('n', '<leader>e', '<CMD>call Startup()<BAR>NvimTreeToggle<CR>', {
   desc = 'Toggle file tree',
   silent = true
 })
 
-vim.keymap.set('n', '<leader>ff', '<CMD>Files<CR>', { 
+vim.keymap.set('n', '<leader>ff', '<CMD>Files<CR>', {
   desc = 'List files',
   silent = true
 })
 
-vim.keymap.set('n', '<leader>fb', '<CMD>Buffers<CR>', { 
+vim.keymap.set('n', '<leader>fb', '<CMD>Buffers<CR>', {
   desc = 'List opened files',
   silent = true
 })
 
-vim.keymap.set('n', '<leader>fh', '<CMD>History<CR>', { 
+vim.keymap.set('n', '<leader>fh', '<CMD>History<CR>', {
   desc = 'List file history',
   silent = true
 })
 
-vim.keymap.set('n', '<leader>sf', '<CMD>Rg<CR>', { 
+vim.keymap.set('n', '<leader>sf', '<CMD>Rg<CR>', {
   desc = 'Search in all files',
   silent = true
 })
 
-vim.keymap.set({'n', 'v'}, '<leader>sa', 'yw<CMD>Rg<CR><CMD>put +<CR>', { 
+vim.keymap.set({'n', 'v'}, '<leader>sa', 'yw<CMD>Rg<CR><CMD>put +<CR>', {
   desc = 'Search word or selection in current working directory',
   silent = true
 })
 
-vim.keymap.set({'n', 'v'}, '<leader>ss', 'yw<CMD>BLines<CR><CMD>put +<CR>', { 
+vim.keymap.set({'n', 'v'}, '<leader>ss', 'yw<CMD>BLines<CR><CMD>put +<CR>', {
   desc = 'Search word or selection in current buffer',
   silent = true
 })
 
 -- git and git files
-vim.keymap.set('n', '<leader>gg', '<CMD>Git<CR>', { 
+vim.keymap.set('n', '<leader>gg', '<CMD>Git<CR>', {
   desc = 'Launch fugitive git window',
   silent = true
 })
 
 -- TODO: simplify this
-vim.keymap.set('n', '<leader>fgg', '<CMD>GitFiles<CR>', { 
+vim.keymap.set('n', '<leader>fgg', '<CMD>GitFiles<CR>', {
   desc = 'Search git files',
   silent = true
 })
 
 -- TODO: run inside the current file's directory
-vim.keymap.set('n', '<leader>laz', '<CMD>tabnew <bar> term lazygit<CR>', { 
+vim.keymap.set('n', '<leader>laz', '<CMD>tabnew <bar> term lazygit<CR>', {
   desc = 'Launch lazygit in a new tab',
   silent = true
 })
 
-vim.keymap.set('n', '<leader>fgs', '<CMD>Git stash list<CR>', { 
+vim.keymap.set('n', '<leader>fgs', '<CMD>Git stash list<CR>', {
   desc = 'List git stashes',
   silent = true
 })
 
-vim.keymap.set('n', '<leader>fgc', '<CMD>BCommits<CR>', { 
+vim.keymap.set('n', '<leader>fgc', '<CMD>BCommits<CR>', {
   desc = 'Show git commits for current file',
   silent = true
 })
 
-vim.keymap.set('n', '<leader>fgac', '<CMD>Commits<CR>', { 
+vim.keymap.set('n', '<leader>fgac', '<CMD>Commits<CR>', {
   desc = 'Show git commits',
   silent = true
 })
 
-vim.keymap.set('n', '<leader>bb', '<CMD>Git branch --list<CR>', { 
+vim.keymap.set('n', '<leader>bb', '<CMD>Git branch --list<CR>', {
   desc = 'List git branches',
   silent = true
 })
 
-function input_git_push() 
+function input_git_push()
   vim.api.nvim_input(":Git push")
 end
 
-vim.keymap.set('n', '<leader>gp', input_git_push, { 
+vim.keymap.set('n', '<leader>gp', input_git_push, {
   desc = 'Populate CMD window with Git push',
   silent = true
 })
 
-vim.keymap.set({'n'}, '<C-J>', '<Plug>(GitGutterNextHunk)', { 
+vim.keymap.set({'n'}, '<C-J>', '<Plug>(GitGutterNextHunk)', {
   desc = 'Jump to next hunk',
   silent = true
 })
 
-vim.keymap.set({'n'}, '<C-K>', '<CMD>GitGutterPrevHunk<CR>', { 
+vim.keymap.set({'n'}, '<C-K>', '<CMD>GitGutterPrevHunk<CR>', {
   desc = 'Jump to previous hunk',
   silent = true
 })
 
 -- code symbols and tags
-vim.keymap.set('n', '<leader>tt', '<CMD>BTags<CR>', { 
+vim.keymap.set('n', '<leader>tt', '<CMD>BTags<CR>', {
   desc = 'List tags in current file',
   silent = true
 })
 
-vim.keymap.set('n', '<leader>ta', '<CMD>Tags<CR>', { 
+vim.keymap.set('n', '<leader>ta', '<CMD>Tags<CR>', {
   desc = 'List tags in current project',
   silent = true
 })
 
 -- Keymaps list
-vim.keymap.set('n', '<leader>km', '<CMD>Telescope keymaps<CR>', { 
+vim.keymap.set('n', '<leader>km', '<CMD>Telescope keymaps<CR>', {
   desc = 'List keymaps',
   silent = true
 })
 
 -- Telescope when I need it
-vim.keymap.set('n', '<leader>tl', '<CMD>Telescope<CR>', { 
+vim.keymap.set('n', '<leader>tl', '<CMD>Telescope<CR>', {
   desc = 'Launch Telescope',
   silent = true
 })
 
 -- other useful keymaps
-vim.keymap.set({'n', 'i', 't'}, '<leader><leader>', '<C-Bslash><C-n><CMD>nohlsearch<CR>', { 
+vim.keymap.set({'n', 'i', 't'}, '<leader><leader>', '<C-Bslash><C-n><CMD>nohlsearch<CR>', {
   desc = 'Run current jest test file',
   silent = true
 })
 
-vim.keymap.set('n', '<M-m>', ']m', { 
+vim.keymap.set('n', '<M-m>', ']m', {
   desc = 'Jump to next method',
   silent = true
 })
 
-vim.keymap.set('n', '<M-S-m>', '[m', { 
+vim.keymap.set('n', '<M-S-m>', '[m', {
   desc = 'Jump to previous method',
   silent = true
 })
 
 -- It seems, I don't need it for neovim
--- vim.keymap.set('n', 'n', 'nzz', { 
+-- vim.keymap.set('n', 'n', 'nzz', {
 --   desc = '',
 --   silent = true
 -- })
 --
--- vim.keymap.set('n', 'N', 'Nzz', { 
+-- vim.keymap.set('n', 'N', 'Nzz', {
 --   desc = '',
 --   silent = true
 -- })
 
-vim.keymap.set('n', 'Y', 'y$', { 
+vim.keymap.set('n', 'Y', 'y$', {
   desc = 'Copy from here until the end of line',
   silent = true
 })
 
-vim.keymap.set('n', 'O', 'O<Esc>', { 
+vim.keymap.set('n', 'O', 'O<Esc>', {
   desc = 'Insert a line above',
   silent = true
 })
 
-vim.keymap.set('n', 'o', 'o<Esc>', { 
+vim.keymap.set('n', 'o', 'o<Esc>', {
   desc = 'Insert a line below',
   silent = true
 })
@@ -235,25 +235,25 @@ vim.keymap.set({'t', 'n', 'i'}, '<C-left>', '<C-Bslash><C-n><CMD>vert resize -1<
 })
 
 -- Shift buffer lines up and down
-vim.keymap.set('n', '<M-up>', '<CMD>m -2<CR>', { 
+vim.keymap.set('n', '<M-up>', '<CMD>m -2<CR>', {
   desc = 'Shift buffer lines up',
   silent = true
 })
-vim.keymap.set('n', '<M-down>', '<CMD>m +1<CR>', { 
+vim.keymap.set('n', '<M-down>', '<CMD>m +1<CR>', {
   desc = 'Shift buffer lines down',
   silent = true
 })
 
 -- Save current buffer
-vim.keymap.set('n', '<leader>w', '<CMD>w<CR>', { 
+vim.keymap.set('n', '<leader>w', '<CMD>w<CR>', {
   desc = 'Save current file',
   silent = true
 })
-vim.keymap.set('n', '<C-s>', '<CMD>w<CR>', { 
+vim.keymap.set('n', '<C-s>', '<CMD>w<CR>', {
   desc = 'Save current file',
   silent = true
 })
-vim.keymap.set('n', '<leader>dd', '<CMD>bd!<CR>', { 
+vim.keymap.set('n', '<leader>dd', '<CMD>bd!<CR>', {
   desc = 'Delete current buffer - discards changes',
   silent = true
 })
@@ -266,13 +266,13 @@ function term_in_current_project()
     vim.system({ 'tmux', 'split-window', '-c', project_dir }, { text = true }):wait()
 end
 -- start a terminal at the bottom
-vim.keymap.set('n', '<leader>term', term_in_current_project, { 
+vim.keymap.set('n', '<leader>term', term_in_current_project, {
   desc = '',
   silent = true
 })
 
 -- TODO: This got to be dynamic mapings
---       as I switch between qflist, cwindow, 
+--       as I switch between qflist, cwindow,
 --       and locallists
 -- " Navigate lists
 -- nnoremap <silent> <C-n> :lnext<cr>
@@ -283,25 +283,25 @@ vim.keymap.set('n', '<leader>term', term_in_current_project, {
 -- git merge tools keymaps
 -- TODO: enable these kepmaps for diff buffers only
 -- fugitive
-vim.keymap.set('n', '<leader>jjj', '<CMD>diffget //2 <bar> diffupdate<CR>', { 
+vim.keymap.set('n', '<leader>jjj', '<CMD>diffget //2 <bar> diffupdate<CR>', {
   desc = '',
   silent = true
 })
-vim.keymap.set('n', '<leader>kkk', '<CMD>diffget //3 <bar> diffupdate<CR>', { 
+vim.keymap.set('n', '<leader>kkk', '<CMD>diffget //3 <bar> diffupdate<CR>', {
   desc = '',
   silent = true
 })
 
 -- When running `git mergetools --tool=nvimdiff`
-vim.keymap.set('n', '<leader>rr', '<CMD>diffget RE <bar> diffupdate<CR>', { 
+vim.keymap.set('n', '<leader>rr', '<CMD>diffget RE <bar> diffupdate<CR>', {
   desc = 'Get the changes from remote',
   silent = true
 })
-vim.keymap.set('n', '<leader>ll', '<CMD>diffget LO <bar> diffupdate<CR>', { 
+vim.keymap.set('n', '<leader>ll', '<CMD>diffget LO <bar> diffupdate<CR>', {
   desc = 'Get the changes from local',
   silent = true
 })
-vim.keymap.set('n', '<leader>bb', '<CMD>diffget BA <bar> diffupdate<CR>', { 
+vim.keymap.set('n', '<leader>bb', '<CMD>diffget BA <bar> diffupdate<CR>', {
   desc = 'Get the changes from base',
   silent = true
 })
@@ -329,13 +329,13 @@ end
 
 vim.keymap.set('n', '<leader>test', function ()
   jest_current_file_v2()
-end, { 
+end, {
   desc = 'Run current jest test file',
   silent = true
 })
 vim.keymap.set('n', '<leader>ttest', function ()
   jest_current_file_v2('--watch')
-end, { 
+end, {
   desc = 'Run current jest test file',
   silent = true
 })
@@ -345,50 +345,69 @@ end, {
 -- noremap grt <cmd>bot term cd '%:h' && yarn jest tests/%:t 2>&1 <bar> tee %:t.log <CR>
 -- " noremap grtd <cmd>bot term cd '%:h' && yarn test:debug '%' 2>&1 <bar> tee %:t.log <CR>
 -- cdm context specific
-vim.keymap.set('n', '<leader>ttl', '<CMD>e %.log<CR>', { 
+vim.keymap.set('n', '<leader>ttl', '<CMD>e %.log<CR>', {
   desc = 'Open run log file of current spec file',
   silent = true
 })
-vim.keymap.set('n', '<leader>ttt', '<CMD>e %:p:h/tests/%:t:r.spec.ts<CR>', { 
+vim.keymap.set('n', '<leader>ttt', '<CMD>e %:p:h/tests/%:t:r.spec.ts<CR>', {
   desc = 'Open spec file of current file file',
   silent = true
 })
-vim.keymap.set('n', '<leader>ttf', '<CMD>e %:p:h:h/%:t:r:r.ts<CR>', { 
+vim.keymap.set('n', '<leader>ttf', '<CMD>e %:p:h:h/%:t:r:r.ts<CR>', {
   desc = 'Open source file of current spec file',
   silent = true
 })
 
 -- PSQL query run
-vim.keymap.set('v', '<leader>sqlc', '<CMD>psql service=ContractProd -a -t -A<CR>', { 
+vim.keymap.set('v', '<leader>sqlc', '<CMD>psql service=ContractProd -a -t -A<CR>', {
   desc = 'send query to Contract Prod',
   silent = true
 })
-vim.keymap.set('v', '<leader>sqll', '<CMD>psql service=LoyaltyProd -a -t -A<CR>', { 
+vim.keymap.set('v', '<leader>sqll', '<CMD>psql service=LoyaltyProd -a -t -A<CR>', {
   desc = 'send query to Loyalty Prod',
   silent = true
 })
-vim.keymap.set('v', '<leader>sqlw', '<CMD>psql service=WebshopProd -a -t -A<CR>', { 
+vim.keymap.set('v', '<leader>sqlw', '<CMD>psql service=WebshopProd -a -t -A<CR>', {
   desc = 'send query to Webshop Prod',
   silent = true
 })
-vim.keymap.set('v', '<leader>sqlt', '<CMD>psql service=test-cdm -a -t -A<CR>', { 
+vim.keymap.set('v', '<leader>sqlt', '<CMD>psql service=test-cdm -a -t -A<CR>', {
   desc = 'send query to test cdm',
   silent = true
 })
-vim.keymap.set('v', '<leader>sqltc', '<CMD>psql service=test-contract -a -t -A<CR>', { 
+vim.keymap.set('v', '<leader>sqltc', '<CMD>psql service=test-contract -a -t -A<CR>', {
   desc = 'send query to test contract',
   silent = true
 })
-vim.keymap.set('v', '<leader>sqltl', '<CMD>psql service=test-loyalty -a -t -A<CR>', { 
+vim.keymap.set('v', '<leader>sqltl', '<CMD>psql service=test-loyalty -a -t -A<CR>', {
   desc = 'send query to test Loyalty',
   silent = true
 })
-vim.keymap.set('v', '<leader>sqltn', '<CMD>psql service=ContractProd -a -t -A<CR>', { 
+vim.keymap.set('v', '<leader>sqltn', '<CMD>psql service=ContractProd -a -t -A<CR>', {
   desc = 'send query to test test newsletter',
   silent = true
 })
-vim.keymap.set('v', '<leader>jq', '<CMD>!jq<CR>', { 
+vim.keymap.set('v', '<leader>jq', '<CMD>!jq<CR>', {
   desc = 'format json with jq',
+  silent = true
+})
+
+-- Neovide zoom in, out and reset
+vim.keymap.set('n', '<C-=>',
+  '<cmd>let neovide_scale_factor=neovide_scale_factor+0.1<cr>', {
+  desc = 'Neovide zoom in',
+  silent = true
+})
+
+vim.keymap.set('n', '<C-->',
+  '<cmd>let neovide_scale_factor=neovide_scale_factor-0.1<cr>', {
+  desc = 'Neovide zoom out',
+  silent = true
+})
+
+vim.keymap.set('n', '<C-0>',
+  '<cmd>let neovide_scale_factor=1<cr>', {
+  desc = 'Neovide zoom reset',
   silent = true
 })
 
