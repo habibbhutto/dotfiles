@@ -1,6 +1,5 @@
 -- TODO: Improve lazygit keymap, it got to find the git repo path for current file
 -- TODO: Improve test runs mapings and mechanisms
--- TODO: Improve postgresql query run maps
 
 -- files keymap
 vim.keymap.set('n', '<leader>e', '<CMD>call Startup()<BAR>NvimTreeToggle<CR>', {
@@ -177,24 +176,6 @@ vim.keymap.set({'t', 'n', 'i'}, '<M-l>', '<C-Bslash><C-n><C-w>l', {
   desc = 'To window on right',
   silent = true
 })
-
--- Switch windows
--- vim.keymap.set({'t', 'n', 'i'}, '<M-h>', '<C-Bslash><C-n><C-w>h', {
---   desc = '',
---   silent = true
--- })
--- vim.keymap.set({'t', 'n', 'i'}, '<M-j>', '<C-Bslash><C-n><C-w>j', {
---   desc = '',
---   silent = true
--- })
--- vim.keymap.set({'t', 'n', 'i'}, '<M-k>', '<C-Bslash><C-n><C-w>k', {
---   desc = '',
---   silent = true
--- })
--- vim.keymap.set({'t', 'n', 'i'}, '<M-l>', '<C-Bslash><C-n><C-w>l', {
---   desc = '',
---   silent = true
--- })
 
 -- Switch buffers
 vim.keymap.set({'t', 'n', 'i'}, '<M-S-k>', '<C-Bslash><C-n><CMD>bp<CR>', {
