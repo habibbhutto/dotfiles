@@ -3,6 +3,7 @@ Development setup and configuration files
 
 ## TODO
 * neovim configuration
+    * improve FZF
     * fix cmp showing double entries when listing files
     * theme changing mechanism
       - make it super easy to change themes across the tools
@@ -31,7 +32,3 @@ https://kardinal.dev/
 * https://www.atlassian.com/git/tutorials/dotfiles
 * https://www.daytona.io/dotfiles/ultimate-guide-to-dotfiles
 * https://github.com/holman/dotfiles
-* Try Ptyxis terminal, though I seem to be happy with Alacritty + Tmux setup
-```bash
-flatpak install --user --from https://nightly.gnome.org/repo/appstream/org.gnome.Ptyxis.Devel.flatpakref
-```
