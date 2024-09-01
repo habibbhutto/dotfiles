@@ -37,7 +37,14 @@ vim.o.autoread = true
 vim.o.swapfile = false
 vim.o.splitright = true
 vim.o.scrolloff = 1
-vim.o.wrap = false
+
+vim.o.linebreak = true -- (optional - breaks by word rather than character)
+vim.o.breakindent = true -- (optional - breaks by word rather than character)
+vim.o.showbreak = '↪ ' -- (optional - breaks by word rather than character)
+-- vim.o.breakindentopt = "shift:2"
+vim.o.wrap = true
+
+
 vim.o.incsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
