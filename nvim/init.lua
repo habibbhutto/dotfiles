@@ -122,6 +122,12 @@ vim.g.neovide_padding_left = 0
 
 require('keymaps')
 require('treesitter')
+require('bqf').setup({
+  preview = {
+    winblend = 0,
+  },
+})
+
 vim.cmd('source ~/dotfiles/nvim/fzf.vim')
 
 vim.cmd([[
