@@ -38,9 +38,17 @@ vim.o.swapfile = false
 vim.o.splitright = true
 vim.o.scrolloff = 1
 
-vim.o.linebreak = true -- (optional - breaks by word rather than character)
-vim.o.breakindent = true -- (optional - breaks by word rather than character)
-vim.o.showbreak = '↪ ' -- (optional - breaks by word rather than character)
+-- (optional - breaks by word rather than character)
+vim.o.linebreak = true
+-- (optional - breaks by word rather than character)
+vim.o.breakindent = true
+-- (optional - breaks by word rather than character)
+vim.o.showbreak = '↪ '
+-- following configurations don't work for me,
+-- breaking the cursorline which is distracting
+-- unless I disable the cursorline
+-- vim.o.breakindentopt = "shift:2,sbr
+-- vim.o.breakindentopt = "sbr"
 -- vim.o.breakindentopt = "shift:2"
 vim.o.wrap = true
 
