@@ -84,8 +84,7 @@ vim.g.gruvbox_material_better_performance=1
 vim.cmd.set('termguicolors')
 vim.o.termguicolors = true
 vim.o.cursorline = true
-vim.o.background= 'dark'
-vim.cmd.colorscheme("zenwritten")
+vim.cmd.colorscheme("-dark-zenwritten")
 
 vim.cmd.set("number")
 -- vim.cmd.set("relativenumber")
@@ -144,7 +143,16 @@ vim.cmd([[
    " autocmd VimEnter * lua require('treesitter')
    autocmd VimEnter * lua require('tree')
 ]]);
--- WIP
--- https://github.com/ibhagwan/fzf-lua
--- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
--- https://neovim.io/doc/user/lua-guide.html
+
+local auto_dark_mode = require('auto-dark-mode')
+
+auto_dark_mode.setup({
+    update_interval = 1000,
+    set_dark_mode = function()
+        vim.cmd.colorscheme("-dark-zenwritten")
+    end,
+    set_light_mode = function()
+        vim.cmd.colorscheme("-light-zenwritten")
+    end,
+})
+

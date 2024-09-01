@@ -4,12 +4,9 @@ Development setup and configuration files
 ## TODO
 * neovim configuration
     * WIP: configurations for go, i.e. go.vim
-    * fix cmp showing double entries when listing files
-    * theme changing mechanism
-      - make it super easy to change themes across the tools
-        alacritty, tmux, neovim, bat, wezterm, etc
-      - configure light and black themes
-      - switch them based on system theme or at will
+    * WIP: fix cmp showing double entries sometimes
+    * WIP: themes
+      - switch themes based on system theme or at will
       - reactive to system style
       - optionally if some tabline makes sense
     * snips to accelerate development
@@ -37,3 +34,8 @@ https://kardinal.dev/
 * https://github.com/holman/dotfiles
 * https://github.com/junegunn/fzf.vim/pulls
 * https://github.com/junegunn/fzf.vim/issues
+
+WIP  
+https://github.com/ibhagwan/fzf-lua
+https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
+https://neovim.io/doc/user/lua-guide.html
