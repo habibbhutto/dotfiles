@@ -9,6 +9,8 @@ call plug#begin('~/.config/nvim/.plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
   " TODO: https://github.com/kevinhwang91/nvim-bqf
   "       https://github.com/yuki-yano/fzf-preview.vim?tab=readme-ov-file#usage
   "       https://github.com/junegunn/fzf.vim
