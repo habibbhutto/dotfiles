@@ -3,7 +3,7 @@ Development setup and configuration files
 
 ## TODO
 * neovim configuration
-    * configurations for go, i.e. go.vim
+    * WIP: configurations for go, i.e. go.vim
     * fix cmp showing double entries when listing files
     * theme changing mechanism
       - make it super easy to change themes across the tools
@@ -11,6 +11,7 @@ Development setup and configuration files
       - configure light and black themes
       - switch them based on system theme or at will
       - reactive to system style
+      - optionally if some tabline makes sense
     * snips to accelerate development
     * test run logs, do I really need it?
 
