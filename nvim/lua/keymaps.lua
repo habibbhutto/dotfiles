@@ -255,7 +255,12 @@ local function term_in_current_project()
     local current_file = vim.api.nvim_buf_get_name(0)
     local current_file_path = vim.fs.dirname(current_file)
     local opts = { upward = true, path = current_file_path }
-    local project_dir = vim.fs.dirname(vim.fs.find({'package.json'}, opts)[1])
+    local project_dir = vim.fs.dirname(vim.fs.find({'package.json', 'go.work', '.git',  }, opts)[1])
+
+    if project_dir == nil then
+      project_dir = vim.uv.cwd()
+    end
+
     vim.system({ 'tmux', 'split-window', '-c', project_dir }, { text = true }):wait()
 end
 -- start a terminal at the bottom
