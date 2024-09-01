@@ -3,13 +3,14 @@ Development setup and configuration files
 
 ## TODO
 * neovim configuration
-    * improve FZF
+    * configurations for go, i.e. go.vim
     * fix cmp showing double entries when listing files
     * theme changing mechanism
       - make it super easy to change themes across the tools
       - configure light and black themes
       - switch them based on system theme or at will
       - reactive to system style
+    * snips to accelerate development
     * test run logs, do I really need it?
 
 ## Not TODO at this point
@@ -32,3 +33,5 @@ https://kardinal.dev/
 * https://www.atlassian.com/git/tutorials/dotfiles
 * https://www.daytona.io/dotfiles/ultimate-guide-to-dotfiles
 * https://github.com/holman/dotfiles
+* https://github.com/junegunn/fzf.vim/pulls
+* https://github.com/junegunn/fzf.vim/issues
