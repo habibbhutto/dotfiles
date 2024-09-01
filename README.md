@@ -5,10 +5,7 @@ Development setup and configuration files
 * neovim configuration
     * WIP: configurations for go, i.e. go.vim
     * WIP: fix cmp showing double entries sometimes
-    * WIP: themes
-      - switch themes based on system theme or at will
-      - reactive to system style
-      - optionally if some tabline makes sense
+    * WIP: optionally if some tabline makes sense
     * snips to accelerate development
     * test run logs, do I really need it?
 
