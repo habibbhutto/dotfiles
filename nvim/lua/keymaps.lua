@@ -357,35 +357,70 @@ vim.keymap.set('n', '<leader>ttf', '<CMD>e %:p:h:h/%:t:r:r.ts<CR>', {
 })
 
 -- PSQL query run
-vim.keymap.set('v', '<leader>sqlc', '<CMD>!psql service=ContractProd -a -t -A<CR>', {
+vim.keymap.set('v', '<leader>sqlc', function ()
+  vim.api.nvim_input(":!psql service=ContractProd -a -x<CR>")
+end, {
   desc = 'send query to Contract Prod',
   silent = true
 })
-vim.keymap.set('v', '<leader>sqll', '<CMD>!psql service=LoyaltyProd -a -t -A<CR>', {
+vim.keymap.set('v', '<leader>sqll', function ()
+  vim.api.nvim_input(":!psql service=LoyaltyProd -a -x<CR>")
+end, {
   desc = 'send query to Loyalty Prod',
   silent = true
 })
-vim.keymap.set('v', '<leader>sqlw', '<CMD>!psql service=WebshopProd -a -t -A<CR>', {
+vim.keymap.set('v', '<leader>sqlw', function ()
+  vim.api.nvim_input(":!psql service=WebshopProd -a -x<CR>")
+end, {
   desc = 'send query to Webshop Prod',
   silent = true
 })
-vim.keymap.set('v', '<leader>sqlt', '<CMD>!psql service=test -a -t -A<CR>', {
+vim.keymap.set('v', '<leader>sqlt', function ()
+  vim.api.nvim_input(":!psql service=test-cdm -a -x<CR>")
+end, {
   desc = 'send query to test cdm',
   silent = true
 })
-vim.keymap.set('v', '<leader>sqltc', '<CMD>!psql service=test-contract -a -t -A<CR>', {
+
+-- vim.cmd [[
+--   vmap RR :!psql service=test-contract -e -a<cr>
+-- ]]
+--
+-- local function get_visual_selection()
+--   local s_start = vim.fn.getpos("'<")
+--   local s_end = vim.fn.getpos("'>")
+--   local n_lines = math.abs(s_end[2] - s_start[2]) + 1
+--   local lines = vim.api.nvim_buf_get_lines(0, s_start[2] - 1, s_end[2], false)
+--   lines[1] = string.sub(lines[1], s_start[3], -1)
+--   if n_lines == 1 then
+--     lines[n_lines] = string.sub(lines[n_lines], 1, s_end[3] - s_start[3] + 1)
+--   else
+--     lines[n_lines] = string.sub(lines[n_lines], 1, s_end[3])
+--   end
+--   return table.concat(lines, '\n')
+-- end
+
+vim.keymap.set('v', '<leader>sqltc', function ()
+  vim.api.nvim_input(":!psql service=test-contract -a -x<CR>")
+end, {
   desc = 'send query to test contract',
   silent = true
 })
-vim.keymap.set('v', '<leader>sqltl', '<CMD>!psql service=test-loyalty -a -t -A<CR>', {
+vim.keymap.set('v', '<leader>sqltl', function ()
+  vim.api.nvim_input(":!psql service=test-loyalty -a -x<CR>")
+end, {
   desc = 'send query to test Loyalty',
   silent = true
 })
-vim.keymap.set('v', '<leader>sqltn', '<CMD>!psql service=ContractProd -a -t -A<CR>', {
+vim.keymap.set('v', '<leader>sqltn', function ()
+  vim.api.nvim_input(":!psql service=test-newsletter -a -x<CR>")
+end, {
   desc = 'send query to test test newsletter',
   silent = true
 })
-vim.keymap.set('v', '<leader>jq', '<CMD>!jq<CR>', {
+vim.keymap.set('v', '<leader>jq', function ()
+  vim.api.nvim_input(":!jq<CR>")
+end, {
   desc = 'format json with jq',
   silent = true
 })
