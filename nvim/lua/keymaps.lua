@@ -89,7 +89,7 @@ vim.keymap.set({'n'}, '<C-J>', '<Plug>(GitGutterNextHunk)', {
   silent = true
 })
 
-vim.keymap.set({'n'}, '<C-K>', '<CMD>GitGutterPrevHunk<CR>', {
+vim.keymap.set({'n'}, '<C-K>', '<Plug>(GitGutterPrevHunk)', {
   desc = 'Jump to previous hunk',
   silent = true
 })
@@ -119,7 +119,7 @@ vim.keymap.set('n', '<leader>tl', '<CMD>Telescope<CR>', {
 
 -- other useful keymaps
 vim.keymap.set({'n', 'i', 't'}, '<leader><leader>', '<C-Bslash><C-n><CMD>nohlsearch<CR>', {
-  desc = 'Run current jest test file',
+  desc = 'Get back to normal mode and clear highlights',
   silent = true
 })
 
