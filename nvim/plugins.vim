@@ -10,7 +10,10 @@ call plug#begin('~/.config/nvim/.plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
+  " https://github.com/fatih/vim-go/wiki/Tutorial
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  "Plug 'ray-x/go.nvim'
+  "Plug 'ray-x/guihua.lua' " recommanded if need floating window support
 
   " TODO: https://github.com/kevinhwang91/nvim-bqf
   "       https://github.com/yuki-yano/fzf-preview.vim?tab=readme-ov-file#usage
