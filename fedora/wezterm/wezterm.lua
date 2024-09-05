@@ -11,7 +11,7 @@ config.front_end = "OpenGL"
 
 config.color_scheme = 'Gruvbox Material (Gogh)'
 
-config.font_size = 12.0
+config.font_size = 11.25
 config.font = wezterm.font("JetBrains Mono", {weight="Regular", stretch="Normal", italic=false})
 -- config.font = wezterm.font("FiraCode Nerd Font", {weight="Regular", stretch="Normal", italic=false})
 
@@ -20,10 +20,10 @@ config.font = wezterm.font("JetBrains Mono", {weight="Regular", stretch="Normal"
 config.window_decorations = "RESIZE"
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0, }
 config.window_frame = {
-  border_left_width = '0.2cell',
-  border_right_width = '0.2cell',
-  border_bottom_height = '0.2cell',
-  border_top_height = '0.2cell',
+  border_left_width = '0.0cell',
+  border_right_width = '0.0cell',
+  border_bottom_height = '0.0cell',
+  border_top_height = '0.0cell',
   border_left_color = '#202020',
   border_right_color = '#202020',
   border_bottom_color = '#202020',
