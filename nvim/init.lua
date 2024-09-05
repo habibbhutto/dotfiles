@@ -122,6 +122,7 @@ vim.g.neovide_padding_left = 0
 require('keymaps')
 require('treesitter')
 require('bqf').setup({
+  auto_resize_height = true, -- highly recommended enable
   preview = {
     winblend = 0,
   },
