@@ -69,6 +69,9 @@ call plug#begin('~/.config/nvim/.plugged')
 
   Plug 'nvim-lua/plenary.nvim'
 
+  "Plug 'backdround/tabscope.nvim'
+  "Plug 'nanozuki/tabby.nvim'
+
   " Design tools
   Plug 'norcalli/nvim-colorizer.lua'
   " Markdown preview 

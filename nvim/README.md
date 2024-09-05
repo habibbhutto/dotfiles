@@ -48,7 +48,6 @@ cd ~/dotfiles/nvim/ && sh setup-nvim.sh
 
 ## TODO
 * Neovim configuration
-    * WIP: optionally if some tabline makes sense
     * snips to accelerate development
 
 ## Not TODO at this point
@@ -79,3 +78,4 @@ cd ~/dotfiles/nvim/ && sh setup-nvim.sh
 https://github.com/ibhagwan/fzf-lua
 https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
 https://neovim.io/doc/user/lua-guide.html
+https://superuser.com/questions/410982/in-vim-how-can-i-quickly-switch-between-tabs
