@@ -246,7 +246,11 @@ vim.keymap.set('n', '<C-s>', '<CMD>w<CR>', {
   desc = 'Save current file',
   silent = true
 })
-vim.keymap.set('n', '<leader>dd', '<CMD>bd!<CR>', {
+vim.keymap.set('n', '<leader>dd', function ()
+  local buffer = vim.api.nvim_buf_get_name(0)
+  vim.cmd('bn')
+  vim.cmd(string.format('bd! %s', buffer))
+end, {
   desc = 'Delete current buffer - discards changes',
   silent = true
 })
