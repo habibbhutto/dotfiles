@@ -48,7 +48,8 @@ cd ~/dotfiles/nvim/ && sh setup-nvim.sh
 
 ## TODO
 * Neovim configuration
-    * snips to accelerate development
+    * WIP: snips to accelerate development  
+      continously improve snips while working on projects until it's sufficient
 
 ## Not TODO at this point
 * Neovim configuration
