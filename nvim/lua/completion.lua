@@ -7,6 +7,7 @@ vim.cmd([[ set completeopt=menu,menuone,noselect ]])
 -- luasnip setup
 local luasnip = require 'luasnip'
 require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_snipmate").lazy_load()
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
