@@ -24,3 +24,4 @@ cd ~/dotfiles/fedora/ && sh setup.sh
 
 1. Kubernetes dev environment https://kardinal.dev/
 2. Hyprland https://hyprland.org
+3. https://iamdan.me/better-dotfiles
