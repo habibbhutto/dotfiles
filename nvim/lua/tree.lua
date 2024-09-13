@@ -141,8 +141,8 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         group_empty = false,
         highlight_git = true,
         full_name = true,
-        highlight_opened_files = "all",
-        highlight_modified = "all",
+        highlight_opened_files = "icon",
+        highlight_modified = "icon",
         root_folder_label = ":~:s?$?/..?",
         indent_width = 2,
         indent_markers = {
