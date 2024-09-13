@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 # TODO:
 # * Configure trackpoint for T480
 #   https://wiki.archlinux.org/title/TrackPoint
