@@ -18,7 +18,7 @@
 
     // If height property would be not present, it'd be calculated dynamically
     "height": 30,
-    "spacing": 4,
+    "spacing": 10,
 
     "modules-left": [
         "hyprland/workspaces",
@@ -30,10 +30,15 @@
         "custom/notification",
     ],
     "modules-right": [
-        "network",
+        "privacy",
         "bluetooth",
+        "network",
+        "backlight",
+        "backlight/slider",
         "wireplumber",
+        "pulseaudio/slider",
         "custom/keyboard-layout",
+        "power-profiles-daemon",
         "battery",
         "tray",
     ],
@@ -52,9 +57,9 @@
             "critical": 20
         },
         // Connected to AC
-        "format": " {icon}    | {capacity}%", // Icon: bolt
+        "format": "{capacity}% {icon} ", // Icon: bolt
         // Not connected to AC
-        "format-discharging": "{icon}  {capacity}%",
+        "format-discharging": "{capacity}% {icon}",
         "format-icons": [
             "", // Icon: battery-full
             "", // Icon: battery-three-quarters
@@ -122,6 +127,18 @@
       "tooltip": false
     },
 
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+
     "memory": {
         "interval": 5,
         "format": "  {}%", // Icon: memory
@@ -132,36 +149,28 @@
     },
 
     "network": {
-        "interval": 5,
-        "format-wifi": "    {essid} | {signalStrength}%", // Icon: wifi
+        "interval": 2,
+        "format-wifi": "{essid} | {signalStrength}%  ", // Icon: wifi
         "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
         "format-disconnected": "⚠  Disconnected",
         "tooltip-format": "{ifname}: {ipaddr}"
     },
 
     "bluetooth": {
-      "format": " {status}",
-      "format-connected": " {device_alias}",
+      "format": "",
+      "format-connected": "{device_alias} ",
       "format-connected-battery": " {device_alias} {device_battery_percentage}%",
-      // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
-      "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+      "tooltip-format": "{num_connections} connected",
+      "tooltip-format-connected": "{device_enumerate}",
       "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
       "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
     },
 
     "wireplumber": {
-        "format": " {icon} {volume}%",
+        "format": "{volume}% {icon}",
         "format-muted": "",
         "on-click": "helvum",
         "format-icons": ["", "", ""]
-    },
-
-    "backlight": {
-        "device": "intel_backlight",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", ""]
-        // "format-icons": ["", ""]
     },
 
     "hyprland/mode": {
@@ -175,38 +184,43 @@
     },
 
     "hyprland/workspaces": {
-        "all-outputs": true,
-        "disable-scroll": true,
-        "format": "{icon} {name}",
-        "format-icons": {
-            "1:www": "龜", // Icon: firefox-browser
-            "2:mail": "", // Icon: mail
-            "3:editor": "", // Icon: code
-            "4:terminals": "", // Icon: terminal
-            "5:portal": "", // Icon: terminal
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        }
+      "format": "{name}: {icon}",
+      "format-icons": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "active": "",
+        "default": ""
+      },
+      "persistent-workspaces": {
+            "*": 5, // 5 workspaces by default on every monitor
+      }
     },
 
-    //"pulseaudio": {
-    //    //"scroll-step": 1,
-    //    "format": "{icon}  {volume}%",
-    //    "format-bluetooth": "{icon}  {volume}%",
-    //    "format-muted": "",
-    //    "format-icons": {
-    //        "headphones": "",
-    //        "handsfree": "",
-    //        "headset": "",
-    //        "phone": "",
-    //        "portable": "",
-    //        "car": "",
-    //        "default": ["", ""]
-    //    },
-    //    "on-click": "pavucontrol"
-    //},
+    "pulseaudio": {
+        //"scroll-step": 1,
+        "format": "{volume}% {icon}  ",
+        "format-bluetooth": "{icon}  {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol"
+    },
 
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
     "temperature": {
       "critical-threshold": 80,
       "interval": 5,
@@ -219,6 +233,42 @@
           ""  // Icon: temperature-full
       ],
       "tooltip": true
+    },
+
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["", ""]
+        //"device": "intel_backlight",
+    },
+
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal",
+        //"device": "intel_backlight"
+    },
+
+    "privacy": {
+      "icon-spacing": 4,
+      "icon-size": 18,
+      "transition-duration": 250,
+      "modules": [
+        {
+          "type": "screenshare",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        },
+        {
+          "type": "audio-out",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        },
+        {
+          "type": "audio-in",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        }
+      ]
     },
 
     "custom/notification": {
