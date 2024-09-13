@@ -11,8 +11,8 @@ live_config_reload = true
 [env]
 TERM = "xterm-256color"
 
-[shell]
-program = "tmux"
+# [shell]
+# program = "tmux"
 
 [window]
 # opacity = 0.9
