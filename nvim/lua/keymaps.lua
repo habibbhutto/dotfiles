@@ -267,6 +267,21 @@ local function term_in_current_project()
 
     vim.system({ 'tmux', 'split-window', '-c', project_dir }, { text = true }):wait()
 end
+
+local function term_in_current_project_v2()
+    local current_file = vim.api.nvim_buf_get_name(0)
+    local current_file_path = vim.fs.dirname(current_file)
+    local opts = { upward = true, path = current_file_path }
+    local project_dir = vim.fs.dirname(vim.fs.find({'package.json', 'go.work', '.git',  }, opts)[1])
+
+    if project_dir == nil then
+      project_dir = vim.uv.cwd()
+    end
+
+    local cmd = string.format("'cd %s; exec bash'", project_dir)
+    vim.cmd(table.concat({ 'bel new', '|', 'term', 'tmux', '-c', cmd }, " "))
+    vim.b.number = "no"
+end
 -- start a terminal at the bottom
 vim.keymap.set('n', '<leader>term', term_in_current_project, {
   desc = '',
@@ -326,7 +341,19 @@ local function jest_current_file_v2(jest_opts)
     local project_dir = vim.fs.dirname(vim.fs.find({'package.json'}, opts)[1])
     local test_cmd = {'jest', '--runInBand', jest_opts, current_file }
     local cmd = string.format("%s; exec bash", table.concat(test_cmd, " "))
-    vim.system({ 'tmux', 'split-window', '-c', project_dir, cmd, }, { text = true }):wait()
+    vim.system({ 'tmux', 'split-window', '-d', '-c', project_dir, cmd, }, { text = true }):wait()
+end
+
+local function jest_current_file_v3(jest_opts)
+    jest_opts = jest_opts == nil and '' or jest_opts;
+    local current_file = vim.api.nvim_buf_get_name(0)
+    local current_file_path = vim.fs.dirname(vim.api.nvim_buf_get_name(0))
+    local opts = { upward = true, path = current_file_path }
+    local project_dir = vim.fs.dirname(vim.fs.find({'package.json'}, opts)[1])
+    local test_cmd = {'jest', '--runInBand', jest_opts, current_file }
+    local cmd = string.format("%s;", table.concat(test_cmd, " "))
+    vim.cmd(table.concat({ 'bel new', '|', 'term', 'tmux', '-c', '"cd', project_dir, "&&", cmd, '"' }, " "))
+    vim.b.number = "no"
 end
 
 vim.keymap.set('n', '<leader>test', function ()
