@@ -22,7 +22,8 @@
 
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/mode"
+        "hyprland/window",
+        "hyprland/mode",
     ],
     "modules-center": [
         "clock#date",
@@ -31,8 +32,8 @@
     ],
     "modules-right": [
         "privacy",
-        "bluetooth",
         "network",
+        "bluetooth",
         "backlight",
         "backlight/slider",
         "wireplumber",
@@ -150,16 +151,16 @@
 
     "network": {
         "interval": 2,
-        "format-wifi": "{essid} | {signalStrength}%  ", // Icon: wifi
+        "format-wifi": "{signalStrength}% ", // Icon: wifi
         "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
         "format-disconnected": "⚠  Disconnected",
-        "tooltip-format": "{ifname}: {ipaddr}"
+        "tooltip-format": "{essid} | {ifname}: {ipaddr}"
     },
 
     "bluetooth": {
-      "format": "",
-      "format-connected": "{device_alias} ",
-      "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+      "format": "{device_battery_percentage}% ",
+      //"format-connected": "{device_alias} ",
+      //"format-connected-battery": " {device_alias} {device_battery_percentage}%",
       "tooltip-format": "{num_connections} connected",
       "tooltip-format-connected": "{device_enumerate}",
       "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -186,11 +187,11 @@
     "hyprland/workspaces": {
       "format": "{name}: {icon}",
       "format-icons": {
-        "1": "",
-        "2": "",
-        "3": "",
-        "4": "",
-        "5": "",
+        //"1": "",
+        //"2": "",
+        //"3": "",
+        //"4": "",
+        //"5": "",
         "active": "",
         "default": ""
       },
@@ -199,22 +200,22 @@
       }
     },
 
-    "pulseaudio": {
-        //"scroll-step": 1,
-        "format": "{volume}% {icon}  ",
-        "format-bluetooth": "{icon}  {volume}%",
-        "format-muted": "",
-        "format-icons": {
-            "headphones": "",
-            "handsfree": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", ""]
-        },
-        "on-click": "pavucontrol"
-    },
+    //"pulseaudio": {
+    //    //"scroll-step": 1,
+    //    "format": "{volume}% {icon}  ",
+    //    "format-bluetooth": "{icon}  {volume}% ",
+    //    "format-muted": "",
+    //    "format-icons": {
+    //        "headphones": "",
+    //        "handsfree": "",
+    //        "headset": "",
+    //        "phone": "",
+    //        "portable": "",
+    //        "car": "",
+    //        "default": ["", ""]
+    //    },
+    //    "on-click": "pavucontrol"
+    //},
 
     "pulseaudio/slider": {
         "min": 0,

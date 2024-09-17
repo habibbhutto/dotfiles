@@ -52,7 +52,7 @@
     background: #191919;
     color: white;
     font-family: Cantarell, Noto Sans, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 /* Each module */
@@ -204,13 +204,13 @@
 }
 #backlight-slider trough {
     min-height: 10px;
-    min-width: 60px;
-    border-radius: 5px;
+    min-width: 50px;
+    border-radius: 2px;
     background-color: black;
 }
 #backlight-slider highlight {
-    min-width: 10px;
-    border-radius: 5px;
+    min-width: 2px;
+    border-radius: 2px;
     background-color: red;
 }
 #pulseaudio-slider slider {
@@ -223,12 +223,12 @@
 }
 #pulseaudio-slider trough {
     min-height: 10px;
-    min-width: 60px;
-    border-radius: 5px;
+    min-width: 50px;
+    border-radius: 2px;
     background-color: black;
 }
 #pulseaudio-slider highlight {
-    min-width: 10px;
-    border-radius: 5px;
+    min-width: 2px;
+    border-radius: 2px;
     background-color: red;
 }
