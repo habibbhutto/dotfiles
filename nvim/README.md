@@ -74,9 +74,17 @@ cd ~/dotfiles/nvim/ && sh setup-nvim.sh
 * https://github.com/junegunn/fzf.vim/pulls
 * https://github.com/junegunn/fzf.vim/issues
 * https://github.com/jstemmer/gotags
+* https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#snippet_syntax
 
 ## Other WIP  
 https://github.com/ibhagwan/fzf-lua
 https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
 https://neovim.io/doc/user/lua-guide.html
 https://superuser.com/questions/410982/in-vim-how-can-i-quickly-switch-between-tabs
+https://toroid.org/modern-neovim#update
+https://github.com/folke/which-key.nvim
+https://github.com/L3MON4D3/LuaSnip
+https://github.com/junegunn/fzf/blob/master/ADVANCED.md
+https://github.com/junegunn/fzf?tab=readme-ov-file#demo
+https://www.youtube.com/watch?v=qgG5Jhi_Els
+https://github.com/nvim-tree/nvim-tree.lua
