@@ -93,6 +93,9 @@ hi! link LineNrAbove LineNr
 hi! link LineNrBelow LineNr
 hi! link MessageWindow PMenu
 hi! link PopupNotification Todo
+
+let &fillchars = 'vert:│,eob: '
+
 if &background ==# 'dark'
   if (has('termguicolors') && &termguicolors) || has('gui_running')
     let g:terminal_ansi_colors = ['#000000', '#af5f5f', '#5faf5f', '#af875f', '#5f87af', '#d787d7', '#5fafaf', '#c6c6c6', '#767676', '#ff5f5f', '#5fd75f', '#ffd787', '#5fafff', '#ff87ff', '#5fd7d7', '#ffffff']

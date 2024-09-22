@@ -109,7 +109,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         preserve_window_proportions = true,
         number = false,
         relativenumber = false,
-        signcolumn = "no",
+        signcolumn = "yes",
         float = {
           enable = false,
           open_win_config = function()
@@ -149,11 +149,16 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
           enable = true,
           inline_arrows = true,
           icons = {
-            corner = "└",
-            edge = "│",
-            item = "│",
-            bottom = "─",
+            corner = " ",
+            edge = " ",
+            item = " ",
+            bottom = " ",
             none = " ",
+            -- corner = "└",
+            -- edge = "│",
+            -- item = "│",
+            -- bottom = "─",
+            -- none = " ",
           },
         },
         icons = {
@@ -195,7 +200,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
             },
           },
         },
-        special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+        special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md", "package.json" },
         symlink_destination = true,
       },
       diagnostics = {

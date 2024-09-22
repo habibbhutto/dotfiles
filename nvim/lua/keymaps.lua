@@ -255,7 +255,7 @@ end, {
   silent = true
 })
 
-local function term_in_current_project()
+local function term_in_current_project_v1()
     local current_file = vim.api.nvim_buf_get_name(0)
     local current_file_path = vim.fs.dirname(current_file)
     local opts = { upward = true, path = current_file_path }
@@ -278,12 +278,12 @@ local function term_in_current_project_v2()
       project_dir = vim.uv.cwd()
     end
 
-    local cmd = string.format("'cd %s; exec bash'", project_dir)
-    vim.cmd(table.concat({ 'bel new', '|', 'term', 'tmux', '-c', cmd }, " "))
+    local cmd = string.format("cd %s; exec bash", project_dir)
+    vim.cmd(table.concat({ 'bot 10new', '|', 'term', cmd }, " "))
     vim.b.number = "no"
 end
 -- start a terminal at the bottom
-vim.keymap.set('n', '<leader>term', term_in_current_project, {
+vim.keymap.set('n', '<leader>term', term_in_current_project_v2, {
   desc = '',
   silent = true
 })
@@ -326,6 +326,7 @@ vim.keymap.set('n', '<leader>bb', '<CMD>diffget BA <bar> diffupdate<CR>', {
 -- Test Run
 -- TODO: generalize this for more ts, js, go, c, cpp, rust, v
 -- local function jest_current_file_v1(jest_opts)
+--     jest_opts = jest_opts == nil and '' or jest_opts;
 --     local current_file = vim.api.nvim_buf_get_name(0)
 --     local current_file_path = vim.fs.dirname(vim.api.nvim_buf_get_name(0))
 --     local opts = { upward = true, path = current_file_path }
@@ -351,19 +352,25 @@ local function jest_current_file_v3(jest_opts)
     local opts = { upward = true, path = current_file_path }
     local project_dir = vim.fs.dirname(vim.fs.find({'package.json'}, opts)[1])
     local test_cmd = {'jest', '--runInBand', jest_opts, current_file }
-    local cmd = string.format("%s;", table.concat(test_cmd, " "))
-    vim.cmd(table.concat({ 'bel new', '|', 'term', 'tmux', '-c', '"cd', project_dir, "&&", cmd, '"' }, " "))
+    local cmd = string.format("%s", table.concat(test_cmd, " "))
+    -- vim.cmd(table.concat({ 'bel new', '|', 'term', 'tmux', '-c', '"cd', project_dir, "&&", cmd, '"' }, " "))
+
+    vim.cmd(table.concat({ 'bel 10new', '|', 'term', 'cd', project_dir, '&&', cmd }, " "))
+
+    -- vim.cmd(table.concat({ 'bel new', '|', 'term', 'cd', project_dir, '&&', 'tmux' }, " "))
+    -- vim.system({ 'tmux', 'send-keys', string.format("\"%s\" enter", cmd) }, {  text = true }):wait()
+
     vim.b.number = "no"
 end
 
 vim.keymap.set('n', '<leader>test', function ()
-  jest_current_file_v2()
+  jest_current_file_v3()
 end, {
   desc = 'Run current jest test file',
   silent = true
 })
 vim.keymap.set('n', '<leader>ttest', function ()
-  jest_current_file_v2('--watch')
+  jest_current_file_v3('--watch')
 end, {
   desc = 'Run current jest test file',
   silent = true
@@ -471,6 +478,23 @@ vim.keymap.set('n', '<C-->',
 
 vim.keymap.set('n', '<C-0>',
   '<cmd>let neovide_scale_factor=1<cr>', {
+  desc = 'Neovide zoom reset',
+  silent = true
+})
+
+
+vim.keymap.set('n', '<leader>z', function ()
+  if vim.o.cursorline then
+    vim.o.cursorline = false
+    vim.cmd([[
+      hi! LineNr guifg=bg
+      hi! CursorLineNr guifg=bg
+    ]])
+  else
+    vim.o.cursorline = true
+    vim.cmd.colorscheme(vim.g.colors_name)
+  end
+end, {
   desc = 'Neovide zoom reset',
   silent = true
 })
