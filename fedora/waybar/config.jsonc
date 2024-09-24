@@ -23,12 +23,12 @@
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window",
-        "hyprland/mode",
+        "hyprland/mode"
     ],
     "modules-center": [
         "clock#date",
         "clock#time",
-        "custom/notification",
+        "custom/notification"
     ],
     "modules-right": [
         "privacy",
@@ -41,7 +41,7 @@
         "custom/keyboard-layout",
         "power-profiles-daemon",
         "battery",
-        "tray",
+        "tray"
     ],
     //  "memory",
     //  "cpu",
