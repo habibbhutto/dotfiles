@@ -201,8 +201,7 @@
       "persistent-workspaces": {
             "*": 5 // 5 workspaces by default on every monitor
       }
-    }
-
+    },
     //"pulseaudio": {
     //    //"scroll-step": 1,
     //    "format": "{volume}% {icon}  ",
