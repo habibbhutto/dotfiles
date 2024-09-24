@@ -157,6 +157,9 @@
         "tooltip-format": "{essid} | {ifname}: {ipaddr}"
     },
 
+    // TODO: format the the bluetooth component
+    //       figure out quick settings ui to 
+    //       connect to devices
     "bluetooth": {
       "format": "{device_battery_percentage}% ",
       //"format-connected": "{device_alias} ",
@@ -196,9 +199,9 @@
         "default": ""
       },
       "persistent-workspaces": {
-            "*": 5, // 5 workspaces by default on every monitor
+            "*": 5 // 5 workspaces by default on every monitor
       }
-    },
+    }
 
     //"pulseaudio": {
     //    //"scroll-step": 1,
