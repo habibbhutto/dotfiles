@@ -21,9 +21,9 @@
     "spacing": 10,
 
     "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window",
-        "hyprland/mode"
+        "hyprland/workspaces"
+        //"hyprland/window",
+        //"hyprland/mode"
     ],
     "modules-center": [
         "clock#date",
