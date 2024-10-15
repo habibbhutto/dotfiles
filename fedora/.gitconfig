@@ -16,3 +16,7 @@
   prompt = true
 	keepBackup = true
   keepTemporaries = true
+[push]
+  autoSetupRemote =  true
+[init]
+	defaultBranch = main
