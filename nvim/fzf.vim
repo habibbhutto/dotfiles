@@ -3,7 +3,7 @@
 let g:fzf_vim = {}
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 1.0, 'relative': v:false, 'yoffset': 1.0 } }
 let g:fzf_vim.preview_window = ['up,65%', 'ctrl-/']
-let g:fzf_vim.grep_multi_line = 2
+"let g:fzf_vim.grep_multi_line = 1
 let $FZF_DEFAULT_COMMAND="fd --hidden --no-ignore --unrestricted --ignore-case --follow"
 let $FZF_PREVIEW_COMMAND="cat -n {}"
 " --reverse
