@@ -5,6 +5,7 @@ call plug#begin('~/.config/nvim/.plugged')
   Plug 'rktjmp/lush.nvim'
   Plug 'mcchrish/zenbones.nvim'
   Plug 'EdenEast/nightfox.nvim'
+  Plug 'rebelot/kanagawa.nvim'
   Plug 'f-person/auto-dark-mode.nvim'
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
