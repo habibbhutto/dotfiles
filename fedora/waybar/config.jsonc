@@ -14,11 +14,11 @@
     "reload_style_on_change": true,
     "layer": "top",
     "output": "eDP-1",
-    "position": "top",
+    "position": "bottom",
 
     // If height property would be not present, it'd be calculated dynamically
     "height": 30,
-    "spacing": 10,
+    "spacing": 4,
 
     "modules-left": [
         "hyprland/workspaces"
@@ -151,10 +151,10 @@
 
     "network": {
         "interval": 2,
-        "format-wifi": "{signalStrength}% ", // Icon: wifi
-        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+        "format-wifi": "{signalStrength}%  ", // Icon: wifi
+        "format-ethernet": "{ifname}: {ipaddr}  ", // Icon: ethernet
         "format-disconnected": "⚠  Disconnected",
-        "tooltip-format": "{essid} | {ifname}: {ipaddr}"
+        "tooltip-format": "{signalStrength}% {essid} | {ifname}: {ipaddr}/{cidr}"
     },
 
     // TODO: format the the bluetooth component
