@@ -120,7 +120,7 @@ vim.g.neovide_padding_right = 0
 vim.g.neovide_padding_left = 0
 
 require('keymaps')
-require('treesitter')
+-- require('treesitter')
 require('bqf').setup({
   auto_resize_height = true, -- highly recommended enable
   preview = {
@@ -150,11 +150,11 @@ local auto_dark_mode = require('auto-dark-mode')
 auto_dark_mode.setup({
     update_interval = 1000,
     set_dark_mode = function()
-        vim.cmd.colorscheme("lunaperche")
+        vim.cmd.colorscheme("zenwritten")
         vim.o.background = 'dark'
     end,
     set_light_mode = function()
-        vim.cmd.colorscheme("lunaperche")
+        vim.cmd.colorscheme("zenbones")
         vim.o.background = 'light'
     end,
 })
