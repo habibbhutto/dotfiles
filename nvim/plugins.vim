@@ -1,7 +1,7 @@
 call plug#begin('~/.config/nvim/.plugged')
   Plug 'sainnhe/gruvbox-material'
-  Plug 'shaunsingh/nord.nvim'
-  Plug 'arcticicestudio/nord-vim'
+  "Plug 'shaunsingh/nord.nvim'
+  Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
   Plug 'rktjmp/lush.nvim'
   Plug 'mcchrish/zenbones.nvim'
   Plug 'EdenEast/nightfox.nvim'
