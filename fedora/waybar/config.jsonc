@@ -17,7 +17,7 @@
     "position": "bottom",
 
     // If height property would be not present, it'd be calculated dynamically
-    "height": 30,
+    "height": 36,
     "spacing": 4,
 
     "modules-left": [
@@ -31,17 +31,17 @@
         "custom/notification"
     ],
     "modules-right": [
+        "tray",
         "privacy",
-        "network",
         "bluetooth",
+        "network",
         "backlight",
         //"backlight/slider",
         "wireplumber",
         //"pulseaudio/slider",
         "custom/keyboard-layout",
         "power-profiles-daemon",
-        "battery",
-        "tray"
+        "battery"
     ],
     //  "memory",
     //  "cpu",
@@ -99,13 +99,13 @@
 
     "clock#date": {
       "interval": 1,
-      "format": "   {:%W | %A %e %B %Y}", // Icon: calendar-alt
+      "format": "{:%W | %A %e %B %Y}", // Icon: calendar-alt
       "tooltip-format": "Week {:%W | %A %e %B %Y | %H:%M}", // Icon: calendar-alt
     },
 
     "clock#time": {
       "interval": 1,
-      "format": "   {:%H:%M}", // Icon: clock-alt
+      "format": "{:%H:%M}", // Icon: clock-alt
       "tooltip-format": "Week {:%W | %A %e %B %Y | %H:%M}", // Icon: calendar-alt
     },
 
@@ -151,9 +151,10 @@
 
     "network": {
         "interval": 2,
-        "format-wifi": "{signalStrength}%  ", // Icon: wifi
+        "format-wifi": " ", // Icon: wifi
+        //"format-wifi": "{signalStrength}%  ", // Icon: wifi
         "format-ethernet": "{ifname}: {ipaddr}  ", // Icon: ethernet
-        "format-disconnected": "⚠  Disconnected",
+        "format-disconnected": "⚠ ",
         "tooltip-format": "{signalStrength}% {essid} | {ifname}: {ipaddr}/{cidr}"
     },
 
@@ -161,20 +162,21 @@
     //       figure out quick settings ui to 
     //       connect to devices
     "bluetooth": {
-      "format": "{device_battery_percentage}% ",
+      "format": "",// U+F682 +F682 
       //"format-connected": "{device_alias} ",
       //"format-connected-battery": " {device_alias} {device_battery_percentage}%",
       "tooltip-format": "{num_connections} connected",
-      "tooltip-format-connected": "{device_enumerate}",
+      "tooltip-format-connected": "{device_battery_percentage}% {device_enumerate}",
       "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
       "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
     },
 
     "wireplumber": {
-        "format": "{volume}% {icon}",
+        "format": "{icon}",
         "format-muted": "",
+        "tooltip-format": "{volume}%",
         "on-click": "helvum",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", " ", " "]
     },
 
     "hyprland/mode": {
@@ -239,9 +241,13 @@
     },
 
     "backlight": {
-        "format": "{percent}% {icon}",
-        "format-icons": ["", ""]
-        //"device": "intel_backlight",
+        "device": "intel_backlight",
+        "scroll-step": 15,
+        "format": "{icon}",
+        "format-icons": [" "],
+        "tooltip-format": "{percent}%",
+        "tooltip": true
+
     },
 
     "backlight/slider": {

@@ -49,8 +49,8 @@
 /* The whole bar */
 #waybar {
     /*background: #323232;*/
-    background: #F0EDEC;
     background: #191919;
+    background: #F0EDEC;
     color: #2C363C;
     color: grey;
     font-family: Cantarell, Noto Sans, sans-serif;
