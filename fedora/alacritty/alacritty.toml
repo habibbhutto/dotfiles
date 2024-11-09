@@ -1,12 +1,3 @@
-# https://www.joshmedeski.com/posts/setting-up-alacritty-for-a-fast-minimal-terminal-emulator/
-# https://alacritty.org/config-alacritty.html
-# https://alacritty.org/config-alacritty-bindings.html
-# https://github.com/alacritty/alacritty-theme
-import = [
-    "~/.config/alacritty/themes/theme.toml",
-]
-
-live_config_reload = true
 
 [env]
 TERM = "xterm-256color"
@@ -43,4 +34,15 @@ style = "Bold Italic"
 [font.italic]
 family = "FiraCode Nerd Font"
 style = "Medium Italic"
+
+[general]
+
+live_config_reload = true
+# https://www.joshmedeski.com/posts/setting-up-alacritty-for-a-fast-minimal-terminal-emulator/
+# https://alacritty.org/config-alacritty.html
+# https://alacritty.org/config-alacritty-bindings.html
+# https://github.com/alacritty/alacritty-theme
+import = [
+    "~/.config/alacritty/themes/theme.toml",
+]
 
