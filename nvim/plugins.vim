@@ -29,7 +29,7 @@ call plug#begin('~/.config/nvim/.plugged')
   Plug 'sbdchd/neoformat'
   Plug 'neovim/nvim-lspconfig'
       Plug 'mfussenegger/nvim-jdtls'
-      Plug 'jose-elias-alvarez/null-ls.nvim'
+      Plug 'nvimtools/none-ls.nvim'
       Plug 'hrsh7th/nvim-cmp'
           Plug 'hrsh7th/cmp-nvim-lsp'
           Plug 'hrsh7th/cmp-path'

@@ -114,7 +114,7 @@ for _, lsp in ipairs(servers) do
 end
 
 local diagnostics = {
-  virtual_text = false, -- Disable builtin virtual text diagnostic
+  virtual_text = true, -- Disable builtin virtual text diagnostic
   virtual_improved = {
     current_line = 'only',
   },
