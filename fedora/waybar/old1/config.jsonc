@@ -1,0 +1,304 @@
+// =============================================================================
+//
+// Waybar configuration
+//
+// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+//
+// =============================================================================
+
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+
+    "reload_style_on_change": true,
+    "layer": "top",
+    "output": "eDP-1",
+    "position": "top",
+
+    // If height property would be not present, it'd be calculated dynamically
+    "height": 24,
+    "spacing": 4,
+
+    "modules-left": [
+        "hyprland/workspaces"
+        //"hyprland/window",
+        //"hyprland/mode"
+    ],
+    "modules-center": [
+        "clock#date",
+        "clock#time",
+        "custom/notification"
+    ],
+    "modules-right": [
+        "tray",
+        "privacy",
+        "bluetooth",
+        "network",
+        "backlight",
+        //"backlight/slider",
+        "wireplumber",
+        //"pulseaudio/slider",
+        "custom/keyboard-layout",
+        "power-profiles-daemon",
+        "battery"
+    ],
+    //  "memory",
+    //  "cpu",
+    //  "temperature",
+
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+    "battery": {
+        "interval": 5,
+        "states": {
+            "warning": 30,
+            "critical": 20
+        },
+        // Connected to AC
+        "format": "{capacity}% {icon}", // Icon: bolt
+        // Not connected to AC
+        "format-discharging": "{capacity}% {icon}",
+        "format-icons": [
+            "", // Icon: battery-full
+            "", // Icon: battery-three-quarters
+            "", // Icon: battery-half
+            "", // Icon: battery-quarter
+            ""  // Icon: battery-empty
+        ],
+        "tooltip": true
+    },
+
+    "clock#wip": {
+        "format": "{:%H:%M}  ",
+        "format-alt": "{:L%A, %B %d, %Y (%R)}  ",
+        "tooltip-format": "\n<span size='9pt' font='WenQuanYi Zen Hei Mono'>{calendar}</span>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+    },
+
+    "clock#date": {
+      "interval": 1,
+      "format": "{:%W | %A %e %B %Y}", // Icon: calendar-alt
+      "tooltip-format": "Week {:%W | %A %e %B %Y | %H:%M}", // Icon: calendar-alt
+    },
+
+    "clock#time": {
+      "interval": 1,
+      "format": "{:%H:%M}", // Icon: clock-alt
+      "tooltip-format": "Week {:%W | %A %e %B %Y | %H:%M}", // Icon: calendar-alt
+    },
+
+    "cpu": {
+        "interval": 5,
+        "format": "   {usage}% | {load}", // Icon: microchip
+        "states": {
+          "warning": 70,
+          "critical": 90
+        }
+    },
+
+    "custom/keyboard-layout": {
+      "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
+      // Interval set only as a fallback, as the value is updated by signal
+      "interval": 30,
+      "format": "  {}", // Icon: keyboard
+      // Signal sent by Sway key binding (~/.config/sway/key-bindings)
+      "signal": 1, // SIGHUP
+      "tooltip": false
+    },
+
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+
+    "memory": {
+        "interval": 5,
+        "format": "  {}%", // Icon: memory
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "network": {
+        "interval": 2,
+        "format-wifi": " ", // Icon: wifi
+        //"format-wifi": "{signalStrength}%  ", // Icon: wifi
+        "format-ethernet": "{ifname}: {ipaddr}  ", // Icon: ethernet
+        "format-disconnected": "⚠ ",
+        "tooltip-format": "{signalStrength}% {essid} | {ifname}: {ipaddr}/{cidr}"
+    },
+
+    // TODO: format the the bluetooth component
+    //       figure out quick settings ui to 
+    //       connect to devices
+    "bluetooth": {
+      "format": "",// U+F682 +F682 
+      //"format-connected": "{device_alias} ",
+      //"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+      "tooltip-format": "{num_connections} connected",
+      "tooltip-format-connected": "{device_battery_percentage}% {device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+    },
+
+    "wireplumber": {
+        "format": "{icon}",
+        "format-muted": "",
+        "tooltip-format": "{volume}%",
+        "on-click": "helvum",
+        "format-icons": ["", " ", " "]
+    },
+
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
+        "tooltip": false
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 120
+    },
+
+    "hyprland/workspaces": {
+      "format": "{name}",
+      //"format": "{name} {icon}",
+      "format-icons": {
+        //"active": "",
+        //"default": ""
+      },
+      "persistent-workspaces": {
+            //"*": 5 // 5 workspaces by default on every monitor
+      }
+    },
+    //"pulseaudio": {
+    //    //"scroll-step": 1,
+    //    "format": "{volume}% {icon}  ",
+    //    "format-bluetooth": "{icon}  {volume}% ",
+    //    "format-muted": "",
+    //    "format-icons": {
+    //        "headphones": "",
+    //        "handsfree": "",
+    //        "headset": "",
+    //        "phone": "",
+    //        "portable": "",
+    //        "car": "",
+    //        "default": ["", ""]
+    //    },
+    //    "on-click": "pavucontrol"
+    //},
+
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+    "temperature": {
+      "critical-threshold": 80,
+      "interval": 5,
+      "format": "{icon} | {temperatureC}°C",
+      "format-icons": [
+          "", // Icon: temperature-empty
+          "", // Icon: temperature-quarter
+          "", // Icon: temperature-half
+          "", // Icon: temperature-three-quarters
+          ""  // Icon: temperature-full
+      ],
+      "tooltip": true
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "scroll-step": 15,
+        "format": "{icon}",
+        "format-icons": [" "],
+        "tooltip-format": "{percent}%",
+        "tooltip": true
+
+    },
+
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal",
+        //"device": "intel_backlight"
+    },
+
+    "privacy": {
+      "icon-spacing": 4,
+      "icon-size": 14,
+      "transition-duration": 250,
+      "modules": [
+        {
+          "type": "screenshare",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        },
+        {
+          "type": "audio-out",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        },
+        {
+          "type": "audio-in",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        }
+      ]
+    },
+
+    "custom/notification": {
+      "tooltip": false,
+      "format": "{icon} ",
+      "format-icons": {
+        "notification": "<span foreground='red'><sup></sup></span>",
+        "none": "",
+        "dnd-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-none": "",
+        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "inhibited-none": "",
+        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-inhibited-none": ""
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    }
+
+}
