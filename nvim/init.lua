@@ -176,4 +176,31 @@ null_ls.setup({
     },
 })
 
-require("tabby").setup({})
+-- require("tabby").setup({})
+
+require("codecompanion").setup()
+
+vim.cmd [[
+function! MyTabLine()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    " Set the tab number (1-based index)
+    let tab_number = i + 1
+    " Get the tab name
+    let tab_name = fnamemodify(bufname(tabpagebuflist(tab_number)[0]), ':t')
+    " Highlight the current tab
+    if tab_number == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
+    endif
+    " Add the tab number and name to the tabline
+    let s .= ' ' . tab_number . '|' . tab_name . ' '
+  endfor
+  " Add the close button
+  let s .= '%#TabLineFill#%T'
+  return s
+endfunction
+
+set tabline=%!MyTabLine()
+]]

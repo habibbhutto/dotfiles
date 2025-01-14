@@ -55,6 +55,10 @@ cmp.setup {
         { name = 'path' },
         { name = 'nvim_lsp_signature_help' },
         { name = 'git' },
+        { name = "lsp" },
+        { name = "snippets"},
+        { name = "buffer"},
+        { name = "codecompanion" }
     }, {
         { name = 'buffer' },
     }),

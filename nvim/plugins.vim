@@ -26,6 +26,13 @@ call plug#begin('~/.config/nvim/.plugged')
       Plug 'airblade/vim-gitgutter'
 
   " LSP
+  Plug 'github/copilot.vim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'olimorris/codecompanion.nvim'
+  " Yay, pass source=true if you want to build from source
+  Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
+
   Plug 'sbdchd/neoformat'
   Plug 'neovim/nvim-lspconfig'
       Plug 'mfussenegger/nvim-jdtls'
@@ -77,6 +84,7 @@ call plug#begin('~/.config/nvim/.plugged')
   Plug 'norcalli/nvim-colorizer.lua'
   " Markdown preview 
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+  Plug 'MeanderingProgrammer/render-markdown.nvim'
 call plug#end()
 
 " augroup fmt
@@ -91,3 +99,8 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+
+"autocmd! User avante.nvim lua << EOF
+"	require('avante_lib').load()
+"	require('avante').setup()
+"EOF
