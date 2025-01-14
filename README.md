@@ -1,27 +1,29 @@
-# Verbose Dotfiles
-Development setup and configuration files.
+# Verbose Dotfiles 🚀
+Development environment configuration for Linux systems.
 
-## Features
-1. Dev setup on Fedora
-2. Gnome
-3. Hyprland
-4. Neovim - read nvim/readme.md for more info
-1. Tmux + Alacritty
+## ✨ Features
+- Fedora development environment
+- Gnome desktop customization
+- Hyprland window manager setup
+- Neovim configuration (detailed in [nvim/readme.md](nvim/readme.md))
+- Terminal setup with Tmux + Alacritty
 
-## Prerequisites
-1. Fedora installation
-2. Git
-3. Internet connection
+## 📋 Prerequisites
+- Fresh Fedora installation
+- Git installed
+- Active internet connection
 
-## Installation
-Run
+## 🔧 Installation
+Simply run:
+```bash
+git clone https://github.com/habibbhutto/dotfiles ~/.dotfiles
+cd ~/.dotfiles/fedora && ./setup.sh
 ```
-cd ~ && git clone https://github.com/habibbhutto/dotfiles
-cd ~/dotfiles/fedora/ && sh setup.sh
-```
 
-## Future Improvements
+## 🔄 Planned Improvements
+- [ ] Kubernetes development environment using [kardinal.dev](https://kardinal.dev/)
+- [ ] Enhanced Hyprland configuration following [hyprland.org](https://hyprland.org)
+- [ ] Dotfiles structure improvements based on [iamdan.me/better-dotfiles](https://iamdan.me/better-dotfiles)
 
-1. Kubernetes dev environment https://kardinal.dev/
-2. Hyprland https://hyprland.org
-3. https://iamdan.me/better-dotfiles
+## 📝 License
+MIT
