@@ -85,6 +85,7 @@ call plug#begin('~/.config/nvim/.plugged')
   " Markdown preview 
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
   Plug 'MeanderingProgrammer/render-markdown.nvim'
+  Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " augroup fmt
