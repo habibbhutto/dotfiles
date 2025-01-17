@@ -79,7 +79,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       on_attach = on_attach,
       auto_reload_on_write = true,
       disable_netrw = false,
-      hijack_netrw = true,
+      hijack_netrw = false,
       hijack_cursor = true,
       hijack_unnamed_buffer_when_opening = false,
       sort = {

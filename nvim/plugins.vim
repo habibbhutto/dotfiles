@@ -1,4 +1,5 @@
 call plug#begin('~/.config/nvim/.plugged')
+  Plug 'catppuccin/nvim'
   Plug 'sainnhe/gruvbox-material'
   "Plug 'shaunsingh/nord.nvim'
   Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }

@@ -1,7 +1,7 @@
 vim.loader.enable()
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 --
 -- vim.cmd([[
 --    autocmd VimEnter * source ~/dotfiles/nvim/colorscheme.vim
@@ -147,14 +147,32 @@ vim.cmd([[
 
 local auto_dark_mode = require('auto-dark-mode')
 
+require("catppuccin").setup({
+    styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+        comments = {}, -- Change the style of comments
+        conditionals = {},
+        loops = {},
+        functions = {},
+        keywords = {},
+        strings = {},
+        variables = {},
+        numbers = {},
+        booleans = {},
+        properties = {},
+        types = {},
+        operators = {},
+        -- miscs = {}, -- Uncomment to turn off hard-coded styles
+    },
+})
+
 auto_dark_mode.setup({
     update_interval = 1000,
     set_dark_mode = function()
-        vim.cmd.colorscheme("-dark-zenwritten")
+        vim.cmd.colorscheme("catppuccin-macchiato")
         vim.api.nvim_set_option_value("background", "dark", {})
     end,
     set_light_mode = function()
-        vim.cmd.colorscheme("-light-zenwritten")
+        vim.cmd.colorscheme("catppuccin-latte")
         vim.api.nvim_set_option_value("background", "light", {})
     end,
 })
