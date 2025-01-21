@@ -138,6 +138,7 @@ vim.cmd([[
          lua require('nvim-lsp')
          lua require('completion')
          let s:startup_done = 1
+         Copilot disable
        endif
    endfunction
    autocmd VimEnter * call Startup()
@@ -195,7 +196,6 @@ null_ls.setup({
 })
 
 -- require("tabby").setup({})
-
 require("codecompanion").setup()
 
 vim.cmd [[
