@@ -73,7 +73,7 @@ local function on_attach(bufnr)
 end
 
 local HEIGHT_RATIO = 0.8  -- height ratio for float window
-local WIDTH_RATIO = 0.7   -- width ratio for float window
+local WIDTH_RATIO = 0.9   -- width ratio for float window
 
 require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       on_attach = on_attach,
@@ -104,11 +104,11 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       view = {
         centralize_selection = true,
         cursorline = true,
-        debounce_delay = 15,
+        debounce_delay = 5,
         side = "right",
         preserve_window_proportions = true,
-        number = false,
-        relativenumber = false,
+        number = true,
+        relativenumber = true,
         signcolumn = "yes",
         float = {
           enable = false,
@@ -133,7 +133,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
             end,
         },
         width = function()
-          return math.floor(vim.opt.columns:get() * 0.35)
+          return math.floor(vim.opt.columns:get() * 0.50)
         end,
       },
       renderer = {
@@ -265,7 +265,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
           },
         },
         open_file = {
-          quit_on_open = false,
+          quit_on_open = true,
           resize_window = false,
           window_picker = {
             enable = true,

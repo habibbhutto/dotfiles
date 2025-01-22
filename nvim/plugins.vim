@@ -1,4 +1,5 @@
 call plug#begin('~/.config/nvim/.plugged')
+  Plug 'sainnhe/sonokai'
   Plug 'catppuccin/nvim'
   Plug 'sainnhe/gruvbox-material'
   "Plug 'shaunsingh/nord.nvim'

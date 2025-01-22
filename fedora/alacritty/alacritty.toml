@@ -16,7 +16,7 @@ dimensions = { columns = 160, lines = 40 }
 hide_when_typing = true
 
 [font]
-size = 13.0
+size = 18.0
 offset = { y = 2 }
 
 [font.normal]

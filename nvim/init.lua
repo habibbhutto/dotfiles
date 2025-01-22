@@ -135,6 +135,7 @@ vim.cmd([[
    function! Startup()
        if s:startup_done  == 0
          " lua require('telescope-config')
+         " lua require('treesitter')
          lua require('nvim-lsp')
          lua require('completion')
          let s:startup_done = 1
@@ -169,11 +170,11 @@ require("catppuccin").setup({
 auto_dark_mode.setup({
     update_interval = 1000,
     set_dark_mode = function()
-        vim.cmd.colorscheme("catppuccin-macchiato")
+        vim.cmd.colorscheme("-catppuccin-frappe")
         vim.api.nvim_set_option_value("background", "dark", {})
     end,
     set_light_mode = function()
-        vim.cmd.colorscheme("catppuccin-latte")
+        vim.cmd.colorscheme("-catppuccin-latte")
         vim.api.nvim_set_option_value("background", "light", {})
     end,
 })
