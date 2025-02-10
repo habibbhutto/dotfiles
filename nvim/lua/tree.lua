@@ -105,7 +105,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         centralize_selection = true,
         cursorline = true,
         debounce_delay = 5,
-        side = "right",
+        side = "left",
         preserve_window_proportions = true,
         number = true,
         relativenumber = true,
@@ -133,7 +133,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
             end,
         },
         width = function()
-          return math.floor(vim.opt.columns:get() * 0.50)
+          return math.floor(vim.opt.columns:get() * 0.25)
         end,
       },
       renderer = {
@@ -265,7 +265,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
           },
         },
         open_file = {
-          quit_on_open = true,
+          quit_on_open = false,
           resize_window = false,
           window_picker = {
             enable = true,
