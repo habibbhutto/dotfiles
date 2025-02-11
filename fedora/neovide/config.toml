@@ -1,5 +1,5 @@
 fork = true
-frame = "none"
+# frame = "none"
 theme = "auto"
 title-hidden = true
 vsync = true
