@@ -3,6 +3,8 @@
 	email = habibbhutto@gmail.com
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
 [merge]
   conflictstyle = diff3
   tool = nvimdiff
