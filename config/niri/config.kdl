@@ -260,7 +260,7 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
-spawn-at-startup "alacritty"
+spawn-at-startup "/usr/bin/swaync"
 spawn-at-startup "waybar"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/libexec/kf6/polkit-kde-authentication-agent-1"
@@ -368,6 +368,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T { spawn "alacritty"; }
     Mod+D { spawn "fuzzel"; }
+    Mod+N { spawn "swaync-client" "-t" "-sw"; }
     Super+Alt+L { spawn "~/.config/niri/screenlock.sh"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
