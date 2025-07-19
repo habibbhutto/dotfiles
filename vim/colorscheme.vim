@@ -1,7 +1,7 @@
-set termguicolors
-set t_Co=256
+" set termguicolors
+" set t_Co=256
 
-set background=dark
+" set background=dark
 
 " For light version.
 " set background=light
@@ -30,8 +30,8 @@ let g:everforest_sign_column_background = 'none'
 let g:everforest_background = 'medium'
 let g:everforest_transparent_background = 0
 
-set background = dark
-colorscheme gruvbox-material
+" set background = dark
+" colorscheme gruvbox-material
 
 let g:gitgutter_override_sign_column_highlight = 1
 highlight SignColumn guibg = bg

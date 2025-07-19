@@ -166,14 +166,17 @@ require("catppuccin").setup({
     },
 })
 
+
+vim.g.zenwritten = { italic_comments = false }
+
 auto_dark_mode.setup({
     update_interval = 1000,
     set_dark_mode = function()
-        vim.cmd.colorscheme("-catppuccin-mocha")
+        vim.cmd.colorscheme("-dark-zenwritten")
         vim.api.nvim_set_option_value("background", "dark", {})
     end,
     set_light_mode = function()
-        vim.cmd.colorscheme("-catppuccin-latte")
+        vim.cmd.colorscheme("-light-zenwritten")
         vim.api.nvim_set_option_value("background", "light", {})
     end,
 })
@@ -191,7 +194,7 @@ null_ls.setup({
     sources = {
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.stylua,
-        null_ls.builtins.completion.spell,
+        -- null_ls.builtins.completion.spell,
     },
 })
 

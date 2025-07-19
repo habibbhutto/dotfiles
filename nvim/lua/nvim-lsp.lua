@@ -97,12 +97,14 @@ local servers = {
     'ts_ls',
     -- G0 Language Server
     'gopls',
+    -- Ruby Language Server
+    -- 'rubocop',
 }
 
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         autostart = true,
-        single_file_support = false,
+        single_file_support = true,
         root_dir = lspconfig.util.find_git_ancestor,
         on_attach = on_attach,
         flags = lsp_flags,
@@ -113,8 +115,46 @@ for _, lsp in ipairs(servers) do
     }
 end
 
+-- Ruby language server
+-- probably solargraph would be better 
+-- https://medium.com/@cristianvg/neovim-lsp-your-rbenv-gemset-and-solargraph-8896cb3df453
+-- https://anchietajunior.hashnode.dev/neovim-for-ruby-with-lsp-nerdtree-telescope
+-- lspconfig.ruby_lsp.setup {
+--     autostart = true,
+--     single_file_support = true,
+--     root_dir = lspconfig.util.find_git_ancestor,
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+--     capabilities = capabilities,
+--     init_options = {
+--       {
+--         formatter = "auto"
+--       },
+--       addonSettings = {
+--         ["Ruby LSP Rails"] = {
+--           enablePendingMigrationsPrompt = true,
+--         },
+--       },
+--     },
+--     settings = {
+--       Lua = {}
+--     }
+-- }
+
+-- lspconfig.solargraph.setup {
+--     autostart = true,
+--     single_file_support = true,
+--     root_dir = lspconfig.util.find_git_ancestor,
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+--     capabilities = capabilities,
+--     settings = {
+--       Lua = {}
+--     }
+-- }
+
 local diagnostics = {
-  virtual_text = true, -- Disable builtin virtual text diagnostic
+  virtual_text = false, -- Disable builtin virtual text diagnostic
   virtual_improved = {
     current_line = 'only',
   },

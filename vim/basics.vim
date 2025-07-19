@@ -6,8 +6,8 @@ filetype indent on
 syntax on
 set number
 set norelativenumber
-set cursorline
-set cursorcolumn
+" set cursorline
+" set cursorcolumn
 set shiftwidth=2
 set tabstop=4
 set expandtab
@@ -23,7 +23,7 @@ set smartcase
 set showcmd
 set showmode
 set showmatch
-set laststatus=2
+" set laststatus=2
 set hlsearch
 set history=1000
 set wildmenu
