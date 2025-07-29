@@ -30,6 +30,7 @@ function! OnColorSchemeChange()
 
   hi! VertSplit guibg=bg guifg=bg ctermbg=NONE ctermfg=NONE
   hi! EndOfBuffer guibg=bg guifg=bg ctermbg=NONE ctermfg=NONE
+  hi! NonText guifg=bg
   " let &fillchars = 'vert:│,eob: '
   highlight SignColumn guibg=bg ctermbg=NONE
   highlight LineNr guibg=bg ctermbg=NONE

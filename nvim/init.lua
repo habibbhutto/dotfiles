@@ -174,10 +174,16 @@ auto_dark_mode.setup({
     set_dark_mode = function()
         vim.cmd.colorscheme("-dark-zenwritten")
         vim.api.nvim_set_option_value("background", "dark", {})
+        vim.cmd([[
+          hi! NonText guifg=bg
+        ]])
     end,
     set_light_mode = function()
         vim.cmd.colorscheme("-light-zenwritten")
         vim.api.nvim_set_option_value("background", "light", {})
+        vim.cmd([[
+          hi! NonText guifg=bg
+        ]])
     end,
 })
 
